@@ -53,8 +53,8 @@ while (have_posts()):
 				<span id="qr" style="visibility: hidden;"><img style="position:absolute;z-index:99999;" src="http://s.jiathis.com/qrcode.php?url=<?php
         the_permalink(); ?>"/></span></span><?php
     } ?>
-				<span class="muted"><?php
-    edit_post_link('[编辑]'); ?></span>
+				<span class="muted"><?php 
+    edit_post_link('<i class="fa fa-pencil"></i>[编辑]'); ?></span>
 			</div>
 		<?php 
 		$jiage = get_post_meta($post->ID, 'git_product_jiage', true);

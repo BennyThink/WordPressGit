@@ -84,8 +84,8 @@ $options = array(
         'type'  => 'checkbox'
     ),
     array(
-        'name'  => '百度分享',
-        'desc'  => '开启并且同时开启打赏功能',
+        'name'  => 'needforshare分享',
+        'desc'  => '开启分享功能',
         'id'    => 'git_bdshare_b',
         'type'  => 'checkbox'
     ),
