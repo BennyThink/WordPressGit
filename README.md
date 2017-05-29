@@ -5,9 +5,11 @@ Demo请见[土豆不好吃](https://www.bennythink.com)
 下载或者clone之后重命名为`Git`，放到`wp-content/themes`下（其实你不改也行，哈哈）
 ## 疑难解答 ##
 1.HTTPS
-HTTPS站点需要修改`functions.php`中第2493行将`www.bennythink.com`替换成你的域名。
+HTTPS站点按理说不进行任何修改就可以的，如果出现mix content，那请给我反馈（Chrome控制台）
+
 2.页脚
 到设置中进行修改。
+
 3.留言板等
 新建一个页面，选择模板“页面（新版）”、设置允许评论，就可以了。可能需要你到`php.ini`中启用`scan_dir`函数
 ----------
