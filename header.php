@@ -156,7 +156,7 @@ if (git_get_option('git_piclogo_left') && !G_is_mobile()) {
     echo '<div class="g-logo pull-left">';
 } else {
     echo '<div align="center" class="g-logo">';
-} ?><a href="<?php site_url();?>">
+} ?><a href="<?=site_url();?>">
 <?php
 if (is_home()) {
     echo '<h1>';

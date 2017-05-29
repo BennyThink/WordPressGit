@@ -2490,7 +2490,13 @@ add_filter( 'the_content', 'wpb_last_updated_date' );
 /* 替换图片链接为 https */
 function my_content_manipulator($content){
     if( is_ssl() ){
-        $content = str_replace('http://www.bennythink.com/wp-content/uploads', 'https://www.bennythink.com/wp-content/uploads', $content);
+		//不是使用七牛镜像插件的，请用下面这一行
+        //$content = str_replace(site_url().'/wp-content/uploads','https://'.substr(site_url().'/wp-content/uploads',7), $content);
+		//使用七牛镜像插件的，请用这一行并修改自己的域名
+		//$content=str_replace('http://www.bennythink.com/wp-content/uploads','https://www.bennythink.com/wp-content/uploads', $content);
+		$url1='http://'.substr(site_url().'/wp-content/uploads',7);
+		$url2='https://'.substr(site_url().'/wp-content/uploads',7);
+		$content = str_replace($url1,$url2,$content);
     }
     return $content;
 }
