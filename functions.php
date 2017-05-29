@@ -2464,7 +2464,7 @@ add_shortcode('phpcode', 'php_include');
 function performance( $visible = false ) {
 	$stat = sprintf(  '查询%d次，耗时%.0f毫秒，使用%.2fMB内存',
 		get_num_queries(),
-		timer_stop( 0, 3 )*1000,
+		timer_stop( 0, 3 )*100,
 		memory_get_peak_usage() / 1024 / 1024
 	);
 	echo $visible ? $stat : "<!-- {$stat} -->" ;
