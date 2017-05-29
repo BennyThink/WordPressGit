@@ -113,4 +113,3 @@ if ( have_comments() ) {
 <?php
 }
 ?>
-<script id='nodebb-comments-script' async="true", ourl="https://v2mm.tech" ocid="59" blogger='bennythink' src="https://v2mm.tech/plugins/nodebb-plugin-blog-comments2/lib/simple-wordpress.js"></script>

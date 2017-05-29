@@ -13,12 +13,11 @@ nothing will ever compare.
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#009966"> 
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
-<link href="https://www.bennythink.com/wp-content/themes/Git-master/css/loading.css" rel="stylesheet" />
+<link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
 <!-- needPopup Javascript file -->
-<script src="https://o51bfbumd.qnssl.com/needsharebutton.min.js"></script>
+<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js"></script>
 <!-- needPopup CSS file -->
-<link href="https://o51bfbumd.qnssl.com/needsharebutton.min.css" rel="stylesheet" />
-
+<link href="<?= get_template_directory_uri();?>/css/needsharebutton.min.css" rel="stylesheet" />
 <?php
 if (git_get_option('git_robot_b')): ?>
 <?php
@@ -146,7 +145,7 @@ if (git_get_option('git_piclogo_left') && !G_is_mobile()) {
     echo '<div class="g-logo pull-left">';
 } else {
     echo '<div align="center" class="g-logo">';
-} ?><a href="/">
+} ?><a href="<?php site_url();?>">
 <?php
 if (is_home()) {
     echo '<h1>';
@@ -226,7 +225,7 @@ if (git_get_option('git_search_baidu')) { ?>
 } ?>
 </li>
 </ul>
-</div></div>
+</div>
 </header>
 <section class="container">
 <div class="speedbar">
@@ -272,5 +271,4 @@ if (git_get_option('git_adsite_01')) echo '<div class="banner banner-site">' . g
   <div class="bounce2"></div>
   <div class="bounce3"></div>
 </div></div>
-</div>
 
