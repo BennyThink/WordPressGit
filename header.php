@@ -11,7 +11,41 @@ nothing will ever compare.
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<meta name="theme-color" content="#009966"> 
+<?php
+if (!git_get_option('git_pichead_b')) { ?>
+<?php
+    if (git_get_option('git_skin_b') == 'git_red_b') {
+        echo '<header id="header" class="header" style="background-color: #E74C3C;">';
+		$THEME_COLOR='#E74C3C';
+    } elseif (git_get_option('git_skin_b') == 'git_blue_b') {
+        echo '<header id="header" class="header" style="background-color: #003399;">';
+		$THEME_COLOR='#003399';
+    } elseif (git_get_option('git_skin_b') == 'git_black_b') {
+        echo '<header id="header" class="header" style="background-color: #616161;">';
+		$THEME_COLOR='#616161';
+    } elseif (git_get_option('git_skin_b') == 'git_purple_b') {
+        echo '<header id="header" class="header" style="background-color: #9932CC;">';
+		$THEME_COLOR='#9932CC';
+    } elseif (git_get_option('git_skin_b') == 'git_yellow_b') {
+        echo '<header id="header" class="header" style="background-color: #f5e011;">';
+		$THEME_COLOR='#f5e011';
+    } elseif (git_get_option('git_skin_b') == 'git_light_b') {
+        echo '<header id="header" class="header" style="background-color: #03A9F4;">';
+		$THEME_COLOR='#03A9F4';
+    } elseif (git_get_option('git_skin_b') == 'git_green_b') {
+        echo '<header id="header" class="header" style="background-color: #4CAF50;">';
+		$THEME_COLOR='#4CAF50';
+    } elseif (git_get_option('git_skin_b') == 'git_custom_color') {
+        echo '<header id="header" class="header" style="background-color: #' . git_get_option('git_color_nom') . ';">';
+		$THEME_COLOR='#'.git_get_option('git_color_nom');
+    } else {
+        echo '<header id="header" class="header" style="background-color: #009966;">';
+		$THEME_COLOR='#009966';
+    } ?>
+<?php
+} ?>
+
+<meta name="theme-color" content="<?=$THEME_COLOR;?>"> 
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
 <!-- needPopup Javascript file -->
@@ -69,30 +103,7 @@ echo get_post_meta($post->ID, 'git_customer', true); ?>
 if (git_get_option('git_customcss')) echo '<style type="text/css">'.git_get_option('git_customcss').'</style>'; ?>
 <body <?php
 body_class(); ?>>
-<?php
-if (!git_get_option('git_pichead_b')) { ?>
-<?php
-    if (git_get_option('git_skin_b') == 'git_red_b') {
-        echo '<header id="header" class="header" style="background-color: #E74C3C;">';
-    } elseif (git_get_option('git_skin_b') == 'git_blue_b') {
-        echo '<header id="header" class="header" style="background-color: #003399;">';
-    } elseif (git_get_option('git_skin_b') == 'git_black_b') {
-        echo '<header id="header" class="header" style="background-color: #616161;">';
-    } elseif (git_get_option('git_skin_b') == 'git_purple_b') {
-        echo '<header id="header" class="header" style="background-color: #9932CC;">';
-    } elseif (git_get_option('git_skin_b') == 'git_yellow_b') {
-        echo '<header id="header" class="header" style="background-color: #f5e011;">';
-    } elseif (git_get_option('git_skin_b') == 'git_light_b') {
-        echo '<header id="header" class="header" style="background-color: #03A9F4;">';
-    } elseif (git_get_option('git_skin_b') == 'git_green_b') {
-        echo '<header id="header" class="header" style="background-color: #4CAF50;">';
-    } elseif (git_get_option('git_skin_b') == 'git_custom_color') {
-        echo '<header id="header" class="header" style="background-color: ' . git_get_option('git_color_nom') . ';">';
-    } else {
-        echo '<header id="header" class="header" style="background-color: #009966;">';
-    } ?>
-<?php
-} ?>
+
 <?php
 if (git_get_option('git_pichead_b')) { ?>
 <?php
@@ -133,7 +144,7 @@ if (git_get_option('git_skin_b') == 'git_red_b') {
     $skin_nom = "#4CAF50";
     $skin_hover = "#388E3C";
 }elseif (git_get_option('git_skin_b') == 'git_custom_color'){
-    $skin_nom = git_get_option('git_color_nom');
+    $skin_nom = '#'.git_get_option('git_color_nom');
     $skin_hover = git_get_option('git_color_hover');
 }
     echo '<style type="text/css">.navbar .nav li:hover a, .navbar .nav li.current-menu-item a, .navbar .nav li.current-menu-parent a, .navbar .nav li.current_page_item a, .navbar .nav li.current-post-ancestor a,.toggle-search ,#submit ,.btn,.pagination ul>.active>a,.pagination ul>.active>span,.bdcs-container .bdcs-search-form-submit,.metacat a{background: ' . $skin_nom . ';}.footer,.title h2,.shop-item .pricebtn{color: ' . $skin_nom . ';}.bdcs-container .bdcs-search-form-submit ,.bdcs-container .bdcs-search {border-color: ' . $skin_nom . ';}.pagination ul>li>a:hover,.navbar .nav li a:focus, .navbar .nav li a:hover,.toggle-search:hover,#submit:hover,.btn:hover,.pricebtn .buy {background-color: ' . $skin_hover . ';}.tooltip-inner{background-color:' . $skin_hover . ';}.tooltip.top .tooltip-arrow{border-top-color:' . $skin_hover . ';}.tooltip.right .tooltip-arrow{border-right-color:' . $skin_hover . ';}.tooltip.left .tooltip-arrow{border-left-color:' . $skin_hover . ';}.tooltip.bottom .tooltip-arrow{border-bottom-color:' . $skin_hover . ';}</style>';
@@ -194,7 +205,7 @@ if (git_get_option('git_skin_b') == 'git_red_b') {
 } elseif (git_get_option('git_skin_b') == 'git_green_b') {
     echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid #4CAF50 ;">';
 } elseif (git_get_option('git_skin_b') == 'git_custom_color') {
-    echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid ' . git_get_option('git_color_nom') . ' ;">';
+    echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid #' . git_get_option('git_color_nom') . ' ;">';
 } else {
     echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid #009966 ;">';
 } ?>

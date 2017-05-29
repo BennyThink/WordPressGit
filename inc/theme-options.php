@@ -531,7 +531,7 @@ $options = array(
     ),
     array(
         'name'  => '网站配色',
-        'desc'  => '选择一个色调作为您网站的主色调，如果这里的色彩还不够，您可以使用下面的自定义色彩',
+        'desc'  => '选择一个色调作为您网站的主色调，如果这里的色彩还不够，您可以使用下面的自定义色彩（Chrome状态栏的颜色与此相同）',
         'id'    => "git_skin_b",
         'type'  => 'radio',
         'options' => array(
@@ -1019,11 +1019,7 @@ $options = array(
         'desc'  => '在这里输入第三个footer的内容',
         'id'    => "git_footconent3",
         'type'  => 'textarea',
-        'std'   => '<ul><li><a href="http://weibo.com/igooglo" title="云落的新浪微博" target="_blank">云落的新浪微博</a></li>
-<li><a href="http://t.qq.com/sp865113728" title="云落的腾讯微博" target="_blank">云落的腾讯微博</a></li>
-<li><a href="http://git.oschina.net/yunluo/" title="云落的代码" target="_blank">云落的代码</a></li>
-<li><a href="http://tieba.baidu.com/home/main?un=%E6%97%A0%E6%B3%95%E8%AF%89%E8%AF%B4%E7%9A%84%E5%90%9F%E8%8D%A1&ie=utf-8&fr=frs" title="云落的贴吧" target="_blank">云落的贴吧</a></li>
-<li><a href="http://googlo.me/" title="云落的网站" target="_blank">云落的网站</a></li></ul>'
+        'std'   => ''
     ),
     array(
         'name'  => 'Footer4标题',
@@ -1037,7 +1033,7 @@ $options = array(
         'desc'  => '在这里输入第四个footer的内容',
         'id'    => "git_footconent4",
         'type'  => 'textarea',
-        'std'   => '<img style="width:180px;height:180px;" src="https://img.alicdn.com/imgextra/i3/1597576229/TB22Ic4lXXXXXcyXpXXXXXXXXXX_!!1597576229.png_310x310.jpg" alt="yunluo">'
+        'std'   => ''
     ),
     array(
         'name'  => '网站footer公共代码',
