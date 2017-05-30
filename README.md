@@ -1,8 +1,8 @@
 ## 说明
-这是我在Git主题的基础上随随便便乱改的主题，目前仅测试支持https站点。
+这是我在Git主题的基础上随随便便乱改的主题，目前**仅在https站点进行了完整的测试**,http站点也应该没啥问题（如果遇到了欢迎回报issue）。
 Demo请见[土豆不好吃](https://www.bennythink.com)
 ## 使用用法##
-下载或者clone之后重命名为`Git`，放到`wp-content/themes`下（其实你不改也行，哈哈）
+下载或者clone之后重命名为`WordPressGit`，放到`wp-content/themes`下（其实你不改也行，哈哈），后台中启用。
 ## 疑难解答 ##
 1.HTTPS
 HTTPS站点按理说不进行任何修改就可以的，如果出现mix content，那请给我反馈（Chrome控制台）
@@ -12,6 +12,11 @@ HTTPS站点按理说不进行任何修改就可以的，如果出现mix content�
 
 3.留言板等
 新建一个页面，选择模板“页面（新版）”、设置允许评论，就可以了。可能需要你到`php.ini`中启用`scan_dir`函数
+
+## 许可证 ##
+我在原作者的`style.css`中看到了GPLv2的字样，在原作者回信之前暂时默认为GPLv2
+
+
 ----------
 
 
