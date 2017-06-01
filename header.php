@@ -49,7 +49,7 @@ if (!git_get_option('git_pichead_b')) { ?>
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
 <!-- needPopup Javascript file -->
-<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js"></script>
+<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" async></script>
 <!-- needPopup CSS file -->
 <link href="<?= get_template_directory_uri();?>/css/needsharebutton.min.css" rel="stylesheet" />
 <?php

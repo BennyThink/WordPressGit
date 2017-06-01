@@ -52,16 +52,14 @@ if (git_get_option('git_footercode')) echo git_get_option('git_footercode'); ?>
 wp_footer();
 global $dHasShare;
 if ($dHasShare == true) {
-    echo '<script>with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="' . get_template_directory_uri() . '/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>';
-}
+    //echo '<script>with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="' . get_template_directory_uri() . '/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>';
+echo '';}
 ?>
 <script>
     jQuery(window).ready(function() {	
 		jQuery("#loading").fadeOut(500);
 		//jQuery("#loading-one").fadeOut(700);
     });
-	
-	
 </script>
 </body>
 </html>
