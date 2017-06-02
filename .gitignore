@@ -1,1 +1,10 @@
-cache/*.*
+cache/*.*cache/index.html
+cache/timthumb_cacheLastCleanTime.touch
+cache/timthumb_int_495d75124e189e5886ca5599be51e7d1.timthumb.txt
+cache/timthumb_int_836d773f0fca6d576d85e3c60a516769.timthumb.txt
+cache/timthumb_int_fd70ce5b9577384f35a3e45eefa42ba1.timthumb.txt
+.idea/modules.xml
+.idea/php.xml
+.idea/vcs.xml
+.idea/WordPressGit.iml
+.idea/workspace.xml
