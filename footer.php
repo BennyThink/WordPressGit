@@ -46,9 +46,9 @@ if (git_get_option('git_snow_b')) { ?>
 </script><?php
 } */?>
 <?php //下雪
-if (git_get_option(git_snow_b) == 'git_all' && !isMobile())
+if (git_get_option(git_snow_b) == 'git_all' )
     snow_display();
-elseif (git_get_option(git_snow_b) == 'git_pc_only')
+elseif (git_get_option(git_snow_b) == 'git_pc_only'&& !wp_is_mobile())
     snow_display();
 ?>
 <?php
