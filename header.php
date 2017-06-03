@@ -50,10 +50,14 @@ if (!git_get_option('git_pichead_b')) { ?>
 <link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
 <!-- needPopup Javascript file -->
 <script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" async></script>
+<script src="<?= get_template_directory_uri();?>/js/notice.js"></script>
 <!-- needPopup CSS file -->
 <link href="<?= get_template_directory_uri();?>/css/needsharebutton.min.css" rel="stylesheet" />
-<?php
-if (git_get_option('git_robot_b')): ?>
+<?php if(git_get_option(git_snow_b)=='git_pc_only' ||
+    git_get_option(git_snow_b)=='git_all'):?>
+<link href="<?= get_template_directory_uri();?>/css/Snow.css" rel="stylesheet" />
+<?php endif;?>
+<?php if (git_get_option('git_robot_b')): ?>
 <?php
     if (is_single() || is_page() || is_home()): ?>
 <meta name="robots" content="index,follow" />
@@ -270,7 +274,8 @@ if (git_get_option('git_sign_b')) {
 </div>
         <?php
 } ?>
-        <div class="toptip" id="callboard"><ul style="font-size:16px;margin-top: 2px;"><?php
+        <div class="toptip" id="callboard"><ul style="font-size:16px;margin-top: 2px;">
+<?php
 echo git_get_option('git_tui'); ?></ul></div>
     </div>
 <?php

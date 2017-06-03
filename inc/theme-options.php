@@ -1179,10 +1179,16 @@ $options = array(
         'type'  => 'checkbox'
     ),
     array(
-        'name'  => '网站下雪特效',
-        'desc'  => '启用    【开启后，将产生全站下雪特效，但是对网站性能略有影响】',
-        'id'    => "git_snow_b",
-        'type'  => 'checkbox'
+        'name' => '网站下雪特效',
+        'desc' => '开启后，将产生全站下雪特效，但是对网站性能略有影响',
+        'id' => "git_snow_b",
+        'type' => 'radio',
+        'options' => array(
+            '关闭' => 'git_snow_off',
+            '仅PC开启' => 'git_pc_only',
+            '全部开启' => 'git_all',
+        ),
+        'std'   => 'git_pc_only'
     ),
     array(
         'name'  => '网站禁止复制',
