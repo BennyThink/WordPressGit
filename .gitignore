@@ -1,6 +1,2 @@
-.idea/modules.xml
-.idea/php.xml
-.idea/vcs.xml
-.idea/WordPressGit.iml
-.idea/workspace.xml
 cache/*
+.idea/

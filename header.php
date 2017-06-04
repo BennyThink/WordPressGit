@@ -44,8 +44,20 @@ if (!git_get_option('git_pichead_b')) { ?>
     } ?>
 <?php
 } ?>
-
-<meta name="theme-color" content="<?=$THEME_COLOR;?>"> 
+    
+<?php if(git_get_option('git_june4th') &&'06-04'==date('m-d',time())):?>
+    <meta name="theme-color" content="#757575">
+    <style type="text/css">
+        <!--
+        html {
+            filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+            -webkit-filter: grayscale(100%);
+        }
+        -->
+    </style>
+<?php else:?>
+    <meta name="theme-color" content="<?=$THEME_COLOR;?>">
+<?php endif;?>
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
 <!-- needPopup Javascript file -->
@@ -123,16 +135,6 @@ if (git_get_option('git_pichead_b')) { ?>
 <?php
     } ?><?php
 } ?>
-<?php if(git_get_option('git_june4th')
-    &&'06-04'==date('m-d',time())):?>
-    <style type="text/css">
-        <!--
-        html {
-            filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-            -webkit-filter: grayscale(100%);}
-        -->
-    </style>
-<?php endif;?>
 <?php
 if (git_get_option('git_tmnav_b')) echo '<style type="text/css">#nav-header{background-color: rgba(85,84,85, 0.5);background: rgba(85,84,85, 0.5);color: rgba(85,84,85, 0.5);}</style>'; ?>
 <?php
