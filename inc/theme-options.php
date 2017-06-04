@@ -589,6 +589,12 @@ $options = array(
         'std'   => ''
     ),
     array(
+        'name'  => '纪念日设置',
+        'desc'  => '每年固定时间开启黑白模式缅怀逝去的生命',
+        'id'    => "git_june4th",
+        'type'  => 'checkbox'
+    ),
+    array(
         'title' => '主题侧边栏跟随设置',
         'type'  => 'subtitle'
     ),
@@ -1533,8 +1539,8 @@ function git_options_page() {
 	<div class="yunluotips"> 
  
     <?php 
-                if (function_exists('curl_init')) { 
-            $url = "https://coding.net/u/googlo/p/File/git/raw/master/notice.txt"; 
+        if (function_exists('curl_init')) {
+            $url = "https://raw.githubusercontent.com/BennyThink/WordPressGit/master/notice.txt";
             $ch = curl_init(); 
             curl_setopt($ch, CURLOPT_URL, $url); 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
