@@ -1491,7 +1491,7 @@ endif;
 //主题自动更新服务 
 if (!git_get_option('git_updates_b')): 
     require 'modules/updates.php'; 
-    $example_update_checker = new ThemeUpdateChecker('WordPressGit', 'https://raw.githubusercontent.com/BennyThink/WordPressGit/master/info.json' 
+    $example_update_checker = new ThemeUpdateChecker('WordPressGit-master', 'https://raw.githubusercontent.com/BennyThink/WordPressGit/master/info.json' 
     ); 
 	$example_update_checker->checkForUpdates();
 endif; 

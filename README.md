@@ -2,7 +2,8 @@
 这是我在Git主题的基础上随随便便乱改的主题，目前**仅在https站点进行了完整的测试**,http站点也应该没啥问题（如果遇到了欢迎回报issue）。
 Demo请见[土豆不好吃](https://www.bennythink.com)
 ## 使用用法##
-下载或者clone之后重命名为`WordPressGit`，放到`wp-content/themes`下，后台中启用。
+下载或者clone之后重命名为`WordPressGit-master`，放到`wp-content/themes`下，后台中启用。
+**在使用自带的功能更新主题之后，主题文件夹名字会变成`WordPressGit-master`，为了保证不出问题，推荐重命名**
 ## 疑难解答 ##
 1.HTTPS
 HTTPS站点按理说不进行任何修改就可以的，如果出现mix content，那请给我反馈（Chrome控制台）
