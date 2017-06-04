@@ -45,7 +45,8 @@ if (!git_get_option('git_pichead_b')) { ?>
 <?php
 } ?>
     
-<?php if(git_get_option('git_june4th') &&'06-04'==date('m-d',time())):?>
+<?php date_default_timezone_set('PRC');
+if(git_get_option('git_june4th') &&'06-04'==date('m-d',time())):?>
     <meta name="theme-color" content="#757575">
     <style type="text/css">
         <!--
