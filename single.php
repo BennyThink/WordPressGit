@@ -41,9 +41,11 @@ while (have_posts()):
 				<time class="muted"><i class="fa fa-clock-o"></i> <?php
     //echo timeago(get_gmt_from_date(get_the_time('Y-m-d G:i:s')))
     echo timeago(get_the_time('Y-m-d G:i:s'));?></time>
-				<span class="muted"><i class="fa fa-eye"></i> <?php
-    deel_views('次浏览'); ?></span>
-				<?php
+                <span class="muted"><i class="fa fa-eye"></i> <?php
+                    deel_views('次浏览'); ?></span>
+                <span class="muted"><i class="fa fa-keyboard-o"></i> <?php echo count_words($text); ?>
+                </span>
+                <?php
     if (git_get_option('git_baidurecord_b') && function_exists('curl_init')) { ?><span class="muted"><i class="fa fa-flag"></i> <?php
         baidu_record(); ?></span><?php
     } ?>
