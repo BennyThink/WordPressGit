@@ -68,7 +68,8 @@ while (have_posts()):
     } ?>
 	<?php
     if (!$_time) { ?><span class="muted"><i class="fa fa-clock-o"></i> <?php
-        echo timeago(get_gmt_from_date(get_the_time('Y-m-d G:i:s'))) ?></span><?php
+        //echo timeago(get_gmt_from_date(get_the_time('Y-m-d G:i:s')))
+        echo timeago(get_the_time('Y-m-d G:i:s'))?></span><?php
     } ?>
 	<?php
     if (!$_views) { ?><span class="muted"><i class="fa fa-eye"></i> <?php
