@@ -16,12 +16,15 @@ HTTPS站点按理说不进行任何修改就可以的，如果出现mix content�
 
 4.最方便的更新方式
 `git pull`
+
 5.主题更新失败？
 `chown www:www -R WordPressGit-master\ && chmod 755 -R WordPressGit-master`
 ## 许可证 ##
 我在原作者的`style.css`中看到了GPLv2的字样，在原作者回信之前暂时默认为GPLv2
 
-
+6. 移动设备下雪、黑白文章页面不生效
+这非常有可能是你启用了WP Super Cache类似的缓存插件，恰巧你访问的页面是对应显示结果时缓存下来的html文件。
+尝试禁用缓存插件来解决这个问题。
 ----------
 # 原始readme
 
@@ -40,7 +43,7 @@ HTTPS站点按理说不进行任何修改就可以的，如果出现mix content�
 
 ## 应有尽有的短代码，弹窗下载也不是不可以的
 
-[![Git:一款比付费主题更像是付费主题的WordPress免费主题](http://googlo.me/wp-content/uploads/2015042716191948.png "Git:一款比付费主题更像是付费主题的WordPress免费主题")](http://googlo.me/wp-content/uploads/2015042716191948.png "Git:一款比付费主题更像是付费主题的WordPress免费主题")
+[![Git:一款比付费主题更像是付费主题的WordPress免费主题](http://googlo.me/wp-content/uploads/2015042716191948.png "Git:一款比付费主题更像是付费主题的WordPress免费主题")](http://googlo.me/wp-content/uploads/2015042716191948.png "Git:l一款比付费主题更像是付费主题的WordPress免费主题")
 
 ## 作为一个“好色主义”者，强大的自定义配色是不可缺少的
 
