@@ -19,12 +19,14 @@ HTTPS站点按理说不进行任何修改就可以的，如果出现mix content�
 
 5.主题更新失败？
 `chown www:www -R WordPressGit-master\ && chmod 755 -R WordPressGit-master`
-## 许可证 ##
-我在原作者的`style.css`中看到了GPLv2的字样，在原作者回信之前暂时默认为GPLv2
 
 6. 移动设备下雪、黑白文章页面不生效
 这非常有可能是你启用了WP Super Cache类似的缓存插件，恰巧你访问的页面是对应显示结果时缓存下来的html文件。
 尝试禁用缓存插件来解决这个问题。
+
+## 许可证 ##
+我在原作者的`style.css`中看到了GPLv2的字样，在原作者回信之前暂时默认为GPLv2
+
 ----------
 # 原始readme
 
