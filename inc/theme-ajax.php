@@ -88,7 +88,7 @@ echo '<li '; comment_class(); echo ' id="comment-'.get_comment_ID().'">';
 
 //头像
 echo '<div class="c-avatar">';
-echo get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default() ); 
+echo multiAvatar( $comment->comment_author_email, $size = '54' , deel_avatar_default() ); 
 //内容
 echo '<div class="c-main" id="div-comment-'.get_comment_ID().'">';
 	echo comment_text();
