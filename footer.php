@@ -45,10 +45,10 @@ if (git_get_option('git_snow_b')) { ?>
 <script type="text/javascript">(function(a){a.fn.snow=function(d){var g=a('<div id="snowbox" />').css({position:"absolute","z-index":"9999",top:"-50px"}).html("&#10052;"),f=a(document).height(),b=a(document).width(),e={minSize:10,maxSize:20,newOn:1000,flakeColor:"#FFF"},d=a.extend({},e,d);var c=setInterval(function(){var l=Math.random()*b-100,j=0.5+Math.random(),h=d.minSize+Math.random()*d.maxSize,i=f-200,k=l-500+Math.random()*500,m=f*10+Math.random()*5000;g.clone().appendTo("body").css({left:l,opacity:j,"font-size":h,color:d.flakeColor}).animate({top:i,left:k,opacity:0.2},m,"linear",function(){a(this).remove()})},d.newOn)}})(jQuery);$(function(){$.fn.snow({minSize:5,maxSize:50,newOn:300})});
 </script><?php
 } */?>
-<?php //下雪
-if (git_get_option(git_snow_b) == 'git_all' && !strstr(get_the_content(),'video'))
+<?php //下雪，页面有视频时自动关闭
+if (git_get_option(git_snow_b) == 'git_all' && !strstr(get_the_content(),'[video]'))
     snow_display();
-elseif (git_get_option(git_snow_b) == 'git_pc_only'&& !wp_is_mobile()&& !strstr(get_the_content(),'video'))
+elseif (git_get_option(git_snow_b) == 'git_pc_only'&& !wp_is_mobile()&& !strstr(get_the_content(),'[video]'))
     snow_display();
 ?>
 <?php
