@@ -590,9 +590,12 @@ $options = array(
     ),
     array(
         'name'  => '纪念日设置',
-        'desc'  => '每年固定时间开启黑白模式缅怀逝去的生命',
-        'id'    => "git_june4th",
-        'type'  => 'checkbox'
+        'desc'  => '每年固定时间开启黑白模式缅怀逝去的生命，默认开启06-04和07-13，添加自定义纪念日请使用类似的模式，留空则禁用',
+        'id'    => "git_MemorialDay",
+        'type'  => 'textarea',
+        'std'   => '
+06-04
+07-13'
     ),
     array(
         'title' => '主题侧边栏跟随设置',
