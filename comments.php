@@ -35,13 +35,13 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 					global $current_user;
 					get_currentuserinfo();
 					if ( is_user_logged_in() )
-						echo get_avatar( $current_user->user_email, $size = '54' , deel_avatar_default() );
+						echo multiAvatar( $current_user->user_email, $size = '54' , deel_avatar_default() );
 					elseif( !is_user_logged_in() && get_option('require_name_email') && $comment_author_email=='' )
-						echo get_avatar( $current_user->user_email, $size = '54' , deel_avatar_default() );
+						echo multiAvatar( $current_user->user_email, $size = '54' , deel_avatar_default() );
 					elseif( !is_user_logged_in() && get_option('require_name_email') && $comment_author_email!=='' )
-						echo get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default() );
+						echo multiAvatar( $comment->comment_author_email, $size = '54' , deel_avatar_default() );
 					else
-						echo get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default() );
+						echo multiAvatar( $comment->comment_author_email, $size = '54' , deel_avatar_default() );
 				?>
 			</div>
 			<div class="comt-author pull-left">

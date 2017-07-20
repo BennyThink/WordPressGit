@@ -403,7 +403,8 @@ function deel_avatar($avatar) {
         $g => $w . '/avatar/' . $f . '.png'
     ));
     if (filesize($e) < 500) copy(get_template_directory_uri() . '/css/img/default.png', $e);
-    return $avatar;
+{   //echo 'here '.$avatar;
+    return $avatar;}
 }
 if (git_get_option('git_avater')=='git_avatar_b') {
     add_filter('get_avatar', 'deel_avatar');
@@ -593,8 +594,10 @@ function deel_comment_list($comment, $args, $depth) {
     echo ' id="comment-' . get_comment_ID() . '">';
     //头像
     echo '<div class="c-avatar">';
-    echo str_replace(' src=', ' data-original=', get_avatar($comment->comment_author_email, $size = '54', deel_avatar_default()));
+    echo str_replace(' src=', ' data-original=',multiAvatar($comment->comment_author_email, '54',deel_avatar_default()) );
+    //echo str_replace(' src=', ' data-original=', get_avatar($comment->comment_author_email, $size = '54', deel_avatar_default()));
     //内容
+
     echo '<div class="c-main" id="div-comment-' . get_comment_ID() . '">';
     echo str_replace(' src=', ' data-original=', convert_smilies(get_comment_text()));
     if ($comment->comment_approved == '0') {
@@ -2678,6 +2681,51 @@ function count_words($text)
         return $output;
     }
 }
+
+/**
+ * 头像：先QQ、再gravatar、最后是默认的
+ * return img头像url，一定会获得头像url
+ **/
+function multiAvatar($email,$size = '54',$style){
+
+    //return get_avatar($email, $size, deel_avatar_default());
+
+    $yourUrl=home_url().'/';
+    $saveName='wp-content/themes/WordPressGit-master/cache/'.md5(strtolower(trim($email))).'.jpg';
+    clearstatcache();
+    $ct=1209600;
+
+    if(git_get_option('git_newAvatar') && strpos($email,"@qq.com")){
+        //如果是QQ邮箱的话，测试缓存策略
+        if(file_exists($saveName) && (time()-filemtime($saveName))<$ct)
+            return '<img class="avatar" src="'.$yourUrl.$saveName.'" />';
+        else
+        {
+            //echo '文件不存在或者过期，重新获取';
+            $geturl = 'http://ptlogin2.qq.com/getface?&imgtype=1&uin='.$email;
+            $qquser = file_get_contents($geturl);
+            $str1 = explode('qq&k=', $qquser);
+            $str2 = explode('&s=', $str1[1]);
+            $k = $str2[0];
+            $qqimg = 'https://q1.qlogo.cn/g?b=qq&k='.$k.'&s=100';
+            //保存图片
+            copy($qqimg,$saveName);
+            return '<img class="avatar" src="'.$yourUrl.$saveName.'" />';
+        }
+    }
+
+    else
+        return get_avatar($email, $size, deel_avatar_default());
+
+
+}
+
+
+
+
+
+
+
 
 //WordPress函数代码结束,打算在本文件添加代码的建议参照这个方法：http://googlo.me/archives/4032.html
 ?>

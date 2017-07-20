@@ -10,7 +10,7 @@ function readers_wall( $outer='1',$timer='100',$limit='60' ){
 	foreach ($counts as $count) {
 		$c_url = $count->comment_author_url;
 		if (!$c_url) { $c_url = 'javascript:;';}
-		$type .= '<a id="duzhe" target="_blank" href="'. $c_url . '" title="['.$count->comment_author.']近期评论'. $count->cnt . '次">'.get_avatar( $count->comment_author_email, $size = '64' , deel_avatar_default() ).'<span>'.$count->comment_author.'</span></a>';
+		$type .= '<a id="duzhe" target="_blank" href="'. $c_url . '" title="['.$count->comment_author.']近期评论'. $count->cnt . '次">'.multiAvatar( $count->comment_author_email, $size = '64' , deel_avatar_default() ).'<span>'.$count->comment_author.'</span></a>';
 	}
 	echo $type;
 };

@@ -1217,6 +1217,12 @@ $options = array(
         'type'  => 'checkbox'
     ),
     array(
+        'name'  => '混合头像系统',
+        'desc'  => '启用   【开启后，将会有限显示QQ头像，然后再是gravatar】',
+        'id'    => "git_newAvatar",
+        'type'  => 'checkbox'
+    ),
+    array(
         'name' => '网站下雪特效',
         'desc' => '开启后，将产生全站下雪特效，但是对网站性能略有影响',
         'id' => "git_snow_b",
