@@ -901,7 +901,7 @@ $options = array(
         'type'  => 'panelstart'
     ),
     array(
-        'title' => '社交小图标，空置默认为不启用，建议别超过六个',
+        'title' => '社交小图标，空置默认为不启用，建议别超过六个；带*则意味着在页脚也会出现',
         'type'  => 'subtitle'
     ),
     array(
@@ -912,42 +912,36 @@ $options = array(
         'std'   => get_bloginfo('rss2_url')
     ),
     array(
-        'name'  => '新浪微博',
+        'name'  => '新浪微博 *',
         'desc'  => '填写新浪微博个人主页链接',
         'id'    => 'git_weibo',
         'type'  => 'text',
-        'std'   => 'http://weibo.com/igooglo'
+        'std'   => ''
     ),
     array(
         'name'  => '腾讯微博',
         'desc'  => '填写腾讯微博个人主页链接',
         'id'    => 'git_tqq',
         'type'  => 'text',
-        'std'   => 'http://t.qq.com/sp865113728'
+        'std'   => ''
     ),
+
     array(
-        'name'  => '腾讯微信',
-        'desc'  => '请输入您的微信号',
-        'id'    => 'git_weixin',
-        'type'  => 'text',
-        'std'   => 'yunluoV587'
-    ),
-    array(
-        'name'  => '微信二维码',
+        'name'  => '微信二维码 *',
         'desc'  => '请输入您的二维码图片路径',
         'id'    => 'git_weixin_qr',
         'type'  => 'text',
         'std'   => ''
     ),
     array(
-        'name'  => '腾讯QQ',
+        'name'  => '腾讯QQ *',
         'desc'  => '直接输入QQ号即可',
         'id'    => 'git_qqContact',
         'type'  => 'text',
-        'std'   => '865113728'
+        'std'   => ''
     ),
     array(
-        'name'  => 'Email',
+        'name'  => 'Email *',
         'desc'  => '请填写好您的邮我代码，<a class="button-primary" rel="nofollow" href="http://open.mail.qq.com/cgi-bin/qm_help_mailme?sid=,2,zh_CN&t=open_mailme" target="_blank">获取邮我组建代码</a>并<a class="button-primary" rel="nofollow" href="https://img.alicdn.com/imgextra/i4/1597576229/TB2xg4llpXXXXXhXpXXXXXXXXXX_!!1597576229.png" target="_blank">如图设置</a>',
         'id'    => 'git_emailContact',
         'type'  => 'text',
@@ -958,26 +952,61 @@ $options = array(
         'desc'  => '',
         'id'    => 'git_baidu',
         'type'  => 'text',
-        'std'   => 'http://tieba.baidu.com/home/main?un=%E6%97%A0%E6%B3%95%E8%AF%89%E8%AF%B4%E7%9A%84%E5%90%9F%E8%8D%A1&ie=utf-8'
+        'std'   => ''
     ),
     array(
         'name'  => '支付宝',
         'desc'  => '',
         'id'    => 'git_pay',
         'type'  => 'text',
-        'std'   => 'sp91@qq.com'
+        'std'   => ''
     ),
     array(
         'name'  => '支付宝二维码',
         'desc'  => '请输入您的支付宝图片路径',
         'id'    => 'git_pay_qr',
         'type'  => 'text',
-        'std'   => 'https://img.alicdn.com/imgextra/i1/1597576229/TB2ov76lXXXXXb0XpXXXXXXXXXX_!!1597576229.jpg_310x310.jpg'
+        'std'   => ''
     ),
     array(
-        'name'  => 'GitHub',
+        'name'  => 'GitHub *',
         'desc'  => '',
         'id'    => 'git_git',
+        'type'  => 'text',
+        'std'   => ''
+    ),
+    array(
+        'name'  => 'Twitter *',
+        'desc'  => '',
+        'id'    => 'git_twitter',
+        'type'  => 'text',
+        'std'   => ''
+    ),
+    array(
+        'name'  => 'Facebook *',
+        'desc'  => '',
+        'id'    => 'git_facebook',
+        'type'  => 'text',
+        'std'   => ''
+    ),
+    array(
+        'name'  => 'Instagram *',
+        'desc'  => '',
+        'id'    => 'git_instagram',
+        'type'  => 'text',
+        'std'   => ''
+    ),
+    array(
+        'name'  => 'Telegram 用户名 *',
+        'desc'  => '',
+        'id'    => 'git_telegram',
+        'type'  => 'text',
+        'std'   => ''
+    ),
+    array(
+        'name'  => 'Google+ *',
+        'desc'  => '',
+        'id'    => 'git_googleplus',
         'type'  => 'text',
         'std'   => ''
     ),

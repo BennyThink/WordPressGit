@@ -2477,8 +2477,8 @@ function performance( $visible = false ) {
 	);
 	echo $visible ? $stat : "<!-- {$stat} -->" ;
 }
-//add_action( 'wp_footer', 'performance', 20 );
- 
+add_action( 'wp_footer', 'performance', 20 );
+
 function wpb_last_updated_date( $content ) {
 $u_time = get_the_time('U'); 
 $u_modified_time = get_the_modified_time('U'); 

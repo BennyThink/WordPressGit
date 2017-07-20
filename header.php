@@ -62,6 +62,7 @@ if(strpos(git_get_option('git_MemorialDay'),date('m-d',time()))):?>
 <?php endif;?>
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
+<link href="<?= get_template_directory_uri();?>/css/font-awesome.min.css" rel="stylesheet" />
 <!-- needPopup Javascript file -->
 <script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" async></script>
 <script src="<?= get_template_directory_uri();?>/js/notice.js"></script>

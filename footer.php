@@ -22,7 +22,43 @@ if (git_get_option('git_superfoot_b') && !G_is_mobile()) { ?>
 echo esc_url( get_template_directory_uri() ); ?>/css/img/footbg.jpg'); background-repeat: repeat;" class="footer">
 <div class="footer-inner"><div class="footer-copyright" align="center"><?php
 if (git_get_option('git_footcode')) echo git_get_option('git_footcode'); ?> <span class="yunluocopyright"><?php if(function_exists('performance')) performance(true) ;?></span>
-<span class="trackcode pull-right"><?php
+        <br>
+
+        <?php if (git_get_option('git_weixin_qr')) : ?><span class="fa-stack fa-lg">
+            <a class="fa fa-wechat fa-stack-1x" href="<?php echo git_get_option('git_weixin_qr') ?>" target="view_window"></a>
+            </span><?php endif;?>
+        <?php if (git_get_option('git_qqContact')) : ?><span class="fa-stack fa-lg">
+            <a class="fa fa-qq fa-stack-1x" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo git_get_option('git_qqContact') ?>&site=qq&menu=yes" target="view_window"></a>
+            </span><?php endif;?>
+        <?php if (git_get_option('git_weibo') ): ?><span class="fa-stack fa-lg">
+            <a class="fa fa-weibo fa-stack-1x" href="<?php echo git_get_option('git_weibo') ?>" target="view_window"></a>
+            </span><?php endif;?>
+
+        <?php if (git_get_option('git_emailContact')) : ?><span class="fa-stack fa-lg">
+            <a class="fa fa-envelope-o fa-stack-1x" href="<?php echo 'mailto:'.git_get_option('git_emailContact') ?>" target="view_window"></a>
+            </span><?php endif;?>
+
+        <?php if (git_get_option('git_twitter')) : ?><span class="fa-stack fa-lg">
+            <a class="fa fa-twitter fa-stack-1x" href="<?php echo git_get_option('git_twitter') ?>" target="view_window"></a>
+            </span><?php endif;?>
+        <?php if (git_get_option('git_facebook')) : ?><span class="fa-stack fa-lg">
+            <a class="fa fa-facebook fa-stack-1x" href="<?php echo git_get_option('git_facebook') ?>" target="view_window"></a>
+            </span><?php endif;?>
+        <?php if (git_get_option('git_googleplus')) : ?><span class="fa-stack fa-lg">
+            <a class="fa fa-google-plus fa-stack-1x" href="<?php echo git_get_option('git_googleplus') ?>" target="view_window"></a>
+            </span><?php endif;?>
+
+        <?php if (git_get_option('git_instagram') ): ?><span class="fa-stack fa-lg">
+            <a class="fa fa-instagram fa-stack-1x" href="<?php echo git_get_option('git_instagram') ?>" target="view_window"></a>
+            </span><?php endif;?>
+        <?php if (git_get_option('git_git') ): ?><span class="fa-stack fa-lg">
+            <a class="fa fa-github fa-stack-1x" href="<?php echo git_get_option('git_git') ?>" target="view_window"></a>
+            </span><?php endif;?>
+        <?php if (git_get_option('git_telegram') ): ?><span class="fa-stack fa-lg">
+            <a class="fa fa-telegram fa-stack-1x" href="<?php echo 'https://t.me/'.git_get_option('git_telegram') ?>" target="view_window"></a>
+            </span><?php endif;?>
+
+        <span class="trackcode pull-right"><?php
 if (git_get_option('git_track')) echo git_get_option('git_track'); ?></span></div></div></footer>
 <?php
 if (git_get_option('git_copydialog_b') && is_singular()) echo '<script type="text/javascript">document.body.oncopy=function(){alert("复制成功！若要转载请务必保留原文链接，申明来源，谢谢合作！");}</script>'; ?>
@@ -40,11 +76,6 @@ $(function(){
 </script>
 <?php
 } ?>
-<?php /*
-if (git_get_option('git_snow_b')) { ?>
-<script type="text/javascript">(function(a){a.fn.snow=function(d){var g=a('<div id="snowbox" />').css({position:"absolute","z-index":"9999",top:"-50px"}).html("&#10052;"),f=a(document).height(),b=a(document).width(),e={minSize:10,maxSize:20,newOn:1000,flakeColor:"#FFF"},d=a.extend({},e,d);var c=setInterval(function(){var l=Math.random()*b-100,j=0.5+Math.random(),h=d.minSize+Math.random()*d.maxSize,i=f-200,k=l-500+Math.random()*500,m=f*10+Math.random()*5000;g.clone().appendTo("body").css({left:l,opacity:j,"font-size":h,color:d.flakeColor}).animate({top:i,left:k,opacity:0.2},m,"linear",function(){a(this).remove()})},d.newOn)}})(jQuery);$(function(){$.fn.snow({minSize:5,maxSize:50,newOn:300})});
-</script><?php
-} */?>
 <?php //下雪，页面有视频时自动关闭
 if (git_get_option(git_snow_b) == 'git_all' && !strstr(get_the_content(),'[video]'))
     snow_display();
@@ -68,5 +99,4 @@ echo '';}
 		//jQuery("#loading-one").fadeOut(700);
     });
 </script>
-</body>
-</html>
+</body></html>
