@@ -46,9 +46,9 @@ if (git_get_option('git_snow_b')) { ?>
 </script><?php
 } */?>
 <?php //下雪
-if (git_get_option(git_snow_b) == 'git_all' )
+if (git_get_option(git_snow_b) == 'git_all' && !strstr(get_the_content(),'video'))
     snow_display();
-elseif (git_get_option(git_snow_b) == 'git_pc_only'&& !wp_is_mobile())
+elseif (git_get_option(git_snow_b) == 'git_pc_only'&& !wp_is_mobile()&& !strstr(get_the_content(),'video'))
     snow_display();
 ?>
 <?php
