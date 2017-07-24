@@ -1558,16 +1558,31 @@ class Simple_Local_Avatars {
         return apply_filters('simple_local_avatar', $avatar);
     }
     public function admin_init() {
-        //load_plugin_textdomain( 'simple-local-avatars', false, dirname( plugin_basename( __FILE__ ) ) . '/localization/' );
-        register_setting('discussion', 'simple_local_avatars_caps', array(
-            $this,
-            'sanitize_options'
-        ));
-	    add_settings_field('simple-local-avatars-caps', __('本地上传头像权限管理', 'simple-local-avatars') , array(
-            $this,
-            'avatar_settings_field'
-        ) , 'discussion', 'avatars');
+	    //load_plugin_textdomain( 'simple-local-avatars', false, dirname( plugin_basename( __FILE__ ) ) . '/localization/' );
+	    register_setting('discussion', 'simple_local_avatars_caps', array(
+		    $this,
+		    'sanitize_options'
+	    ));
+
+	    if ( strstr( php_uname(), 'Windows' ) ) {
+
+		    add_color_field( 'simple-local-avatars-caps', __( '本地上传头像权限管理', 'simple-local-avatars' ), array(
+			    $this,
+			    'avatar_settings_field'
+		    ), 'discussion', 'avatars' );
+            
+	    } else {
+		    add_settings_field( 'simple-local-avatars-caps', __( '本地上传头像权限管理', 'simple-local-avatars' ), array(
+			    $this,
+			    'avatar_settings_field'
+		    ), 'discussion', 'avatars' );
+
+	    }
+
+
     }
+
+
     public function sanitize_options($input) {
         $new_input['simple_local_avatars_caps'] = empty($input['simple_local_avatars_caps']) ? 0 : 1;
         return $new_input;
