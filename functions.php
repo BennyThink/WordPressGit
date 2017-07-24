@@ -1563,7 +1563,7 @@ class Simple_Local_Avatars {
             $this,
             'sanitize_options'
         ));
-        add_color_field('simple-local-avatars-caps', __('本地上传头像权限管理', 'simple-local-avatars') , array(
+	    add_settings_field('simple-local-avatars-caps', __('本地上传头像权限管理', 'simple-local-avatars') , array(
             $this,
             'avatar_settings_field'
         ) , 'discussion', 'avatars');
