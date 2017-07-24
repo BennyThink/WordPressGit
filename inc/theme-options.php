@@ -12,7 +12,7 @@ $options = array(
         'id'    => "git_tui",
         'type'  => 'textarea',
         'std'   => '<li>公告栏使用li标签，同时你可以使用<code>FontAwesome</code>以及其他HTML语法</li>
-		<li><i class="fa fa-camera-retro"></i> FontAwesome示例</li>
+<li><i class="fa fa-camera-retro"></i> FontAwesome示例</li>
 		'
     ),
     array(
@@ -1584,7 +1584,10 @@ function git_options_page() {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10); 
             $dxycontent = curl_exec($ch); 
-            echo $dxycontent; 
+            if(!is_bool($dxycontent))
+                echo $dxycontent;
+            else
+                echo 'I\'m always here...';
         } else { 
             echo '汗！貌似您的服务器尚未开启curl扩展，无法收到来自云落的通知，请联系您的主机商开启，本地调试请无视'; 
         } 

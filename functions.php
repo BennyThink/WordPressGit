@@ -1494,7 +1494,8 @@ endif;
 //主题自动更新服务 
 if (!git_get_option('git_updates_b')): 
     require 'modules/updates.php'; 
-    $example_update_checker = new ThemeUpdateChecker('WordPressGit-master', 'https://raw.githubusercontent.com/BennyThink/WordPressGit/master/info.json' 
+    $example_update_checker = new ThemeUpdateChecker('WordPressGit-master',
+        'https://raw.githubusercontent.com/BennyThink/WordPressGit/master/info.json'
     ); 
 	$example_update_checker->checkForUpdates();
 endif; 
@@ -1570,7 +1571,7 @@ class Simple_Local_Avatars {
 			    $this,
 			    'avatar_settings_field'
 		    ), 'discussion', 'avatars' );
-            
+
 	    } else {
 		    add_settings_field( 'simple-local-avatars-caps', __( '本地上传头像权限管理', 'simple-local-avatars' ), array(
 			    $this,
@@ -2425,15 +2426,23 @@ if(!function_exists('Baidu_Submit') && git_get_option('git_sitemap_api') ){
     function Baidu_Submit($post_ID) {
         if(get_post_meta($post_ID,'git_baidu_submit',true) == 1) return;
         $url = get_permalink($post_ID);
-        $api = git_get_option('git_sitemap_api');
+	    $api = git_get_option( 'git_sitemap_api' );
+	    $domain = home_url();
+	    $domain = str_replace( 'http://', '', $domain );
+	    $domain = str_replace( 'https://', '', $domain );
+	    $apiurl = 'http://data.zz.baidu.com/urls?site=' . $domain . '&token=' . $api;
+
         $request = new WP_Http;
-        $result = $request->request( $api , array( 'method' => 'POST', 'body' => $url , 'headers' => 'Content-Type: text/plain') );
-        $result = json_decode($result['body'],true);
-        if (array_key_exists('success',$result)) {
-            add_post_meta($post_ID, 'git_baidu_submit', 1, true);
-        }
+        $result = $request->request( $apiurl , array( 'method' => 'POST', 'body' => $url , 'headers' => 'Content-Type: text/plain') );
+	    if ( ! is_wp_error( $result ) )
+		    $result = json_decode( $result['body'], true );
+
+	    if ( array_key_exists( 'success', $result ) )
+		    add_post_meta( $post_ID, 'git_baidu_submit', 1, true );
+
     }
-    add_action('publish_post', 'Baidu_Submit', 0);
+
+	add_action( 'publish_post', 'Baidu_Submit', 0 );
 }
 
 // 部分内容输入密码可见
@@ -2499,12 +2508,13 @@ add_action( 'wp_footer', 'performance', 20 );
 
 function wpb_last_updated_date( $content ) {
 $u_time = get_the_time('U'); 
-$u_modified_time = get_the_modified_time('U'); 
+$u_modified_time = get_the_modified_time('U');
+$custom_content='';
 if ($u_modified_time >= $u_time + 86400) { 
 $updated_date = get_the_modified_time('Y年m月d日');
 $updated_time = get_the_modified_time('H:i:s'); 
-$custom_content .= '<div  class="sc_act">更新时间：'. 
-$updated_date . $updated_time .'</div>';  
+$custom_content .= '<div  class="sc_act">这篇文章在 '.
+$updated_date . $updated_time .' 更新了哦~</div>';
 } 
 
     $custom_content .= $content;
@@ -2691,6 +2701,7 @@ function count_words($text)
     global $post;
     if ('' == $text) {
         $text = $post->post_content;
+        $output='';
         if (mb_strlen($output, 'UTF-8') < mb_strlen($text, 'UTF-8'))
             $output .= mb_strlen(preg_replace('/\s/', '', html_entity_decode(strip_tags($post->post_content))), 'UTF-8') . '字';
         return $output;
