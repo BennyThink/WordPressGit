@@ -171,7 +171,7 @@ if (git_get_option('git_skin_b') == 'git_red_b') {
 <?php
 if (git_get_option('git_avataer_b')) echo '<style type="text/css">.avatar{-webkit-transition:0.4s;-webkit-transition:-webkit-transform 0.4s ease-out;transition:transform 0.4s ease-out;-moz-transition:-moz-transform 0.4s ease-out;}.avatar:hover{transform:rotateZ(360deg);-webkit-transform:rotateZ(360deg);-moz-transform:rotateZ(360deg);}</style>'; ?>
 <div class="container-inner"><?php
-if (git_get_option('git_piclogo_left') && !G_is_mobile()) {
+if (git_get_option('git_piclogo_left') && !bt_is_mobile()) {
     echo '<div class="g-logo pull-left">';
 } else {
     echo '<div align="center" class="g-logo">';
@@ -207,7 +207,7 @@ if (is_home()) {
     echo '</div>';
 } ?>
 </a></div></div><div id="toubuads"><?php
-if (git_get_option('git_toubuads') && git_get_option('git_piclogo_left') && !G_is_mobile()) echo git_get_option('git_toubuads'); ?></div>
+if (git_get_option('git_toubuads') && git_get_option('git_piclogo_left') && !bt_is_mobile()) echo git_get_option('git_toubuads'); ?></div>
 <?php
 if (git_get_option('git_skin_b') == 'git_red_b') {
     echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid #E74C3C ;">';

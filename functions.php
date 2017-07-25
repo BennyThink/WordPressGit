@@ -605,7 +605,7 @@ function deel_comment_list($comment, $args, $depth) {
     }
     //信息
     echo '<div class="c-meta">';
-    if (git_get_option('git_autherqr_b') && !G_is_mobile()) {
+    if (git_get_option('git_autherqr_b') && !bt_is_mobile()) {
         echo '<span class="c-author"><a href="' . get_comment_author_url() . '" class="weixin" style="cursor:pointer;">' . get_comment_author() . '<span class="qr weixin-popover"><img style="position:absolute;z-index:99999;" src="http://s.jiathis.com/qrcode.php?url=' . get_comment_author_url() . '"></span></a></span>';
     } else {
         echo '<span class="c-author">' . get_comment_author_link() . '</span>';
@@ -772,17 +772,7 @@ function add_next_page_button($mce_buttons) {
     return $mce_buttons;
 }
 add_filter('mce_buttons', 'add_next_page_button');
-//判断手机广告
-function G_is_mobile() {
-    if (empty($_SERVER['HTTP_USER_AGENT'])) {
-        return false;
-    } elseif ((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') !== false && strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') === false) // many mobile devices (all iPh, etc.)
-     || strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'Silk/') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'Kindle') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== false || strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mobi') !== false) {
-        return true;
-    } else {
-        return false;
-    }
-}
+
 //搜索结果排除所有页面
 function search_filter_page($query) {
     if ($query->is_search) {
@@ -1306,7 +1296,7 @@ function music163($atts) {
 add_shortcode('netmusic', 'music163');
 // add youku using iframe
 function wp_iframe_handler_youku($matches, $attr, $url, $rawattr) {
-    if (G_is_mobile()) {
+    if (bt_is_mobile()) {
         $height = 200;
     } else {
         $height = 485;
@@ -1317,7 +1307,7 @@ function wp_iframe_handler_youku($matches, $attr, $url, $rawattr) {
 wp_embed_register_handler('youku_iframe', '#http://v.youku.com/v_show/id_(.*?).html#i', 'wp_iframe_handler_youku');
 // add tudou using iframe
 function wp_iframe_handler_tudou($matches, $attr, $url, $rawattr) {
-    if (G_is_mobile()) {
+    if (bt_is_mobile()) {
         $height = 200;
     } else {
         $height = 485;
@@ -2748,6 +2738,30 @@ function multiAvatar($email,$size = '54',$style){
 
 
 
+/**
+ * Test if the current browser runs on a mobile device (smart phone, tablet, etc.)
+ * includes pi
+ *
+ * @return bool
+ */
+function bt_is_mobile() {
+	if ( empty($_SERVER['HTTP_USER_AGENT']) ) {
+		$is_mobile = false;
+	} elseif ( strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') !== false // many mobile devices (all iPhone, iPad, etc.)
+	           || strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== false
+	           || strpos($_SERVER['HTTP_USER_AGENT'], 'Silk/') !== false
+	           || strpos($_SERVER['HTTP_USER_AGENT'], 'Kindle') !== false
+	           || strpos($_SERVER['HTTP_USER_AGENT'], 'arm') !== false
+	           || strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry') !== false
+	           || strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== false
+	           || strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mobi') !== false ) {
+		$is_mobile = true;
+	} else {
+		$is_mobile = false;
+	}
+
+	return $is_mobile;
+}
 
 
 

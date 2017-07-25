@@ -1,6 +1,6 @@
 </section>
 <?php
-if (git_get_option('git_superfoot_b') && !G_is_mobile()) { ?>
+if (git_get_option('git_superfoot_b') && !bt_is_mobile()) { ?>
 <div id="footbar" style="border-top: 2px solid #8E44AD;"><ul>
 <li><p class="first"><?php
     echo git_get_option('git_foottitle1'); ?></p><span max-width="220px"><?php
@@ -63,7 +63,7 @@ if (git_get_option('git_track')) echo git_get_option('git_track'); ?></span></di
 <?php
 if (git_get_option('git_copydialog_b') && is_singular()) echo '<script type="text/javascript">document.body.oncopy=function(){alert("复制成功！若要转载请务必保留原文链接，申明来源，谢谢合作！");}</script>'; ?>
 <?php
-if (git_get_option('git_topnav_b') && !G_is_mobile()) { ?>
+if (git_get_option('git_topnav_b') && !bt_is_mobile()) { ?>
 <script type="text/Javascript">
 $(function(){
 	$('#nav-header').posfixed({
@@ -79,7 +79,7 @@ $(function(){
 <?php //下雪，页面有视频时自动关闭
 if (git_get_option(git_snow_b) == 'git_all' && !strstr(get_the_content(),'[video]'))
     snow_display();
-elseif (git_get_option(git_snow_b) == 'git_pc_only'&& !wp_is_mobile()&& !strstr(get_the_content(),'[video]'))
+elseif (git_get_option(git_snow_b) == 'git_pc_only'&& !bt_is_mobile()&& !strstr(get_the_content(),'[video]'))
     snow_display();
 ?>
 <?php
