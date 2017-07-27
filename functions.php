@@ -2529,84 +2529,88 @@ function my_content_manipulator($content){
 add_filter('the_content', 'my_content_manipulator');
 
 
+
 /**
-* WordPress 星火计划原创保护专用META优化代码(完善版) By 张戈博客
-* 文章地址：https://zhangge.net/5084.html
-*/
+ * WordPress 星火计划原创保护专用META优化代码(最终版) By 张戈博客
+ * 文章地址：https://zhangge.net/5084.html
+ */
 add_action('wp_head', 'starfire',0);
 if(!function_exists('starfire')){
-  function starfire(){
-    if (is_singular()) {
-        date_default_timezone_set('PRC');
-        echo '<meta property="og:type" content="article"/>
+	function starfire(){
+		//新增判断，如果是原创文章才加入星火计划META申明
+		global $wpdb;
+		$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
+		$copy = get_post_meta($post_id , 'author', true);
+		if (is_singular() && empty($copy)) {
+			date_default_timezone_set('PRC');
+			echo '<meta property="og:type" content="article"/>
         <meta property="article:published_time" content="'.get_the_date('c').'"/>
-        <meta property="article:author" content="';
-        bloginfo('name');
-        echo '" />';
-        //输出文章标题+分隔符+网站名称，不喜欢这种形式的请自行改造（如果不需要这个标签，请删除以下三行）。
-        echo '<meta property="og:title" content="'.trim(wp_title('',0)).' | ';
-        bloginfo('name'); 
-        echo '" />';
-        //输出博客名称，如果想改成其他内容，比如作者请自行修改 bloginfo('name')
-        echo '<meta property="article:published_first" content="';
-        bloginfo('name');
-        echo ',';
-        the_permalink();
-        //默认截取文章220个字作为摘要，可以自行修改下行220为其他整数
-        echo '" /><meta property="og:description" content="'.get_mypost_excerpt($post->ID, 220).'……" />
-        <meta property="og:image" content="'.get_mypost_thumbnail($post->ID).'" />';
-    }
-  }
+        <meta property="og:release_date" content="'.get_the_date('c').'"/>
+        <meta property="article:author" content="';bloginfo('name'); echo '" />';
+			echo '<meta property="og:author" content="';bloginfo('name');echo '" />';
+			echo '<meta property="og:url" content="';the_permalink(); echo '"/>';
+			//输出文章标题+分隔符+网站名称，不喜欢这种形式的请自行改造（如果不需要这个标签，请删除以下三行）。
+			echo '<meta property="og:title" content="'.trim(wp_title('',0)).' | '; bloginfo('name'); echo '" />';
+			//输出博客名称，如果想改成其他内容，比如作者请自行修改 bloginfo('name')
+			echo '<meta property="article:published_first" content="';bloginfo('name');echo ',';
+			the_permalink();
+			//默认截取文章220个字作为摘要，可以自行修改下行220为其他整数
+			echo '" /><meta property="og:description" content="'.get_mypost_excerpt($post_id, 220).'……" />
+        <meta property="og:image" content="'.get_mypost_thumbnail($post_id).'" />
+        <meta itemprop="image" content="' . get_mypost_thumbnail($post_id) . '" />';
+		}
+	}
 }
 /**
-* WordPress 获取文章摘要整理版 By 张戈博客
-*/
+ * WordPress 获取文章摘要整理版 By 张戈博客
+ */
 function get_mypost_excerpt($post_ID,$len){
-    if (!function_exists('utf8Substr')) {
-        function utf8Substr($str, $from, $len) {
-            return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
-                '((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$len.'}).*#s',
-                '$1',$str);
-        }
-    }
-    if(!$post_content){
-            $post = get_post($post_ID);
-            $post_content = $post->post_content;
-   }
-    if ($post->post_excerpt) {
-            $description  = $post->post_excerpt;
-    } else {
-        if(preg_match('/<p>(.*)<\/p>/iU',trim(strip_tags($post->post_content,"<p>")),$result)){
-            $post_content = $result['1'];
-        } else {
-            $post_content_r = explode("\n",trim(strip_tags($post->post_content)));
-            $post_content = $post_content_r['0'];
-        }
-        $description = utf8Substr($post_content,0,$len);
-        return $description;
-    }
+	if (!function_exists('utf8Substr')) {
+		function utf8Substr($str, $from, $len) {
+			return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
+			                    '((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$len.'}).*#s',
+				'$1',$str);
+		}
+	}
+	if(!$post_content){
+		$post = get_post($post_ID);
+		$post_content = $post->post_content;
+	}
+	if ($post->post_excerpt) {
+		$description  = $post->post_excerpt;
+	} else {
+		if(preg_match('/<p>(.*)<\/p>/iU',trim(strip_tags($post->post_content,"<p>")),$result)){
+			$post_content = $result['1'];
+		} else {
+			$post_content_r = explode("\n",trim(strip_tags($post->post_content)));
+			$post_content = $post_content_r['0'];
+		}
+		$description = utf8Substr($post_content,0,$len);
+		return $description;
+	}
 }
 /**
-* WordPress 获取文章图片加强版 By 张戈博客
-*/
+ * WordPress 获取文章图片加强版 By 张戈博客
+ */
 function get_mypost_thumbnail($post_ID){
-    if (has_post_thumbnail()) {
-            $timthumb_src = wp_get_attachment_image_src( get_post_thumbnail_id($post_ID), 'full' ); 
-            $url = $timthumb_src[0];
-    } else {
-        if(!$post_content){
-            $post = get_post($post_ID);
-            $post_content = $post->post_content;
-        }
-        preg_match_all('|<img.*?src=[\'"](.*?)[\'"].*?>|i', do_shortcode($post_content), $matches);
-        if( $matches && isset($matches[1]) && isset($matches[1][0]) ){       
-            $url =  $matches[1][0];
-        }else{
-            $url =  '';
-        }
-    }
-    return $url;
+	if (has_post_thumbnail()) {
+		$timthumb_src = wp_get_attachment_image_src( get_post_thumbnail_id($post_ID), 'full' );
+		$url = $timthumb_src[0];
+	} else {
+		if(!$post_content){
+			$post = get_post($post_ID);
+			$post_content = $post->post_content;
+		}
+		preg_match_all('|<img.*?src=[\'"](.*?)[\'"].*?>|i', do_shortcode($post_content), $matches);
+		if( $matches && isset($matches[1]) && isset($matches[1][0]) ){
+			$url =  $matches[1][0];
+		}else{
+			$url =  '';
+		}
+	}
+	return $url;
 }
+
  
  //取消内容转义 
 remove_filter('the_content', 'wptexturize');
