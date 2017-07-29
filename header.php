@@ -60,6 +60,20 @@ if(strpos(git_get_option('git_MemorialDay'),date('m-d',time()))):?>
 <?php else:?>
     <meta name="theme-color" content="<?=$THEME_COLOR;?>">
 <?php endif;?>
+<!--cursor-->
+<?php if ( '样式1' == git_get_option( 'git_cursor_b' ) &&!bt_is_mobile()): ?>
+    <style type="text/css">
+            html {  cursor: url(<?= get_template_directory_uri().'/css/cursor/default1.cur'; ?>), default;  }
+            a {  cursor: url(<?= get_template_directory_uri().'/css/cursor/pointer1.cur'; ?>), pointer;  }
+            .g-mono,.g-bloger{  cursor: url(<?= get_template_directory_uri().'/css/cursor/pointer1.cur'; ?>), pointer;  }
+    </style>
+<?php elseif ( '样式2' == git_get_option( 'git_cursor_b' ) &&!bt_is_mobile()): ?>
+    <style type="text/css">
+        html {  cursor: url(<?= get_template_directory_uri().'/css/cursor/default2.cur'; ?>), default;  }
+        a {  cursor: url(<?= get_template_directory_uri().'/css/cursor/pointer2.cur'; ?>), pointer;  }
+        .g-mono,.g-bloger{  cursor: url(<?= get_template_directory_uri().'/css/cursor/pointer2.cur'; ?>), pointer;  }
+    </style>
+<?php endif; ?>
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
 <link href="<?= get_template_directory_uri();?>/css/font-awesome.min.css" rel="stylesheet" />

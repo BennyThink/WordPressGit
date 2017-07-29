@@ -1234,6 +1234,22 @@ $options = array(
         ),
         'std'   => 'git_pc_only'
     ),
+	array(
+		'name' => '鼠标样式',
+		'desc' => '选择一个可爱的鼠标样式吧<br><br>
+		<strong>样式1</strong> <img src="'.get_template_directory_uri().'/css/cursor/default1.cur'.'">
+		<img src="'.get_template_directory_uri().'/css/cursor/pointer1.cur'.'">
+		<strong>样式2</strong><img src="'.get_template_directory_uri().'/css/cursor/default2.cur'.'">
+		<img src="'.get_template_directory_uri().'/css/cursor/pointer2.cur'.'">',
+		'id' => "git_cursor_b",
+		'type' => 'select',
+		'options' => array(
+			'默认样式',
+			'样式1',
+			'样式2',
+		),
+		'std'   => 'git_cursor1'
+	),
     array(
         'name'  => '网站禁止复制',
         'desc'  => '启用    【启用后访客无法使用右键复制】',
