@@ -2769,9 +2769,9 @@ function bt_is_mobile() {
 
 
 function get_fortune() {
-	//总计183行
+	//总计180行
 	$data = json_decode( file_get_contents( get_template_directory_uri() . '/js/fortunes.json' ), true );
-	return '<li>'.$data[ rand( 0, 182 ) ]['content'].'</li>';
+	return '<li>'.$data[ rand( 0, 179 ) ]['content'].'</li>';
 }
 
 
