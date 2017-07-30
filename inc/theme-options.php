@@ -8,7 +8,7 @@ $options = array(
     ),
     array(
         'name'  => '滚动公告栏',
-        'desc'  => '最新消息显示在全站导航条下方，非常给力的推广位置',
+        'desc'  => '最新消息显示在全站导航条下方，非常给力的推广位置（建议不要超过74个汉字）',
         'id'    => "git_tui",
         'type'  => 'textarea',
         'std'   => '<li>公告栏使用li标签，同时你可以使用<code>FontAwesome</code>以及其他HTML语法</li>

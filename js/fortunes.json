@@ -1,5 +1,8 @@
 [
   {
+    "content": "你们的时间有限, 所以不要浪费时间活在别人的生活里。Your time is limited, so don't waste it living someone else's life@史蒂夫·乔布斯323254533554544632"
+  },
+  {
     "content": "一个人的价值, 在于他贡献了什么, 而不在于他获得了什么@爱因斯坦"
   },
   {
@@ -18,9 +21,6 @@
     "content": "人所处的绝境, 在很多情况下, 都不是生存的绝境, 而是精神的绝境! "
   },
   {
-    "content": "对爱情的渴望, 对知识的追求, 对人类苦难不可遏制的同情心, 这三种纯洁而无比强烈的激情支配着我的一生。Three passions, simple but overwhelmingly strong, have governed my life: the longing for love, the search for knowledge, and unbearable pity for the suffering of mankind@《我为什么而活着》罗素 (哲学家 数学家)"
-  },
-  {
     "content": "人生中最大的两个财富是: 你的才华和你的时间。才华越来越多而时间越来越少。我们的一生就是用时间来换取才华。"
   },
   {
@@ -30,10 +30,10 @@
     "content": "这辈子没法做太多的事情, 所以每一件都要做到精彩绝伦!@史蒂夫·乔布斯"
   },
   {
-    "content": "你们的时间有限, 所以不要浪费时间活在别人的生活里。Your time is limited, so don't waste it living someone else's life@史蒂夫·乔布斯"
+    "content": "你们的时间有限, 所以不要浪费时间活在别人的生活里。Your time is limited, so don't waste it living someone else's life. @史蒂夫·乔布斯"
   },
   {
-    "content": "拥有追随自己内心与直觉的勇气, 你的内心与直觉多少已经知道你真正想要成为什么样的人。Have the courage to follow your heart and intuition. They somehow already know what you truly want to become@史蒂夫·乔布斯"
+    "content": "拥有追随自己内心与直觉的勇气, 你的内心与直觉多少已经知道你真正想要成为什么样的人。@史蒂夫·乔布斯"
   },
   {
     "content": "我每天都自问: '如果今天是我生命的最后一天, 我还会做今天打算做的事情吗?@史蒂夫·乔布斯"
@@ -117,7 +117,7 @@
     "content": "只有两样东西可能是无限的: 宇宙的大小和人类的愚蠢。不过, 对于前者我不太确定 :@爱因斯坦"
   },
   {
-    "content": "没有银弹(万能药)NO silver bullet.@Fred Brooks (图灵奖得主 《人月神话》作者)  http://program-think.blogspot.com/2009/03/book-review-mythical-man-month.html"
+    "content": "没有银弹(万能药)NO silver bullet.@Fred Brooks (图灵奖得主 《人月神话》作者)  "
   },
   {
     "content": "编程的艺术就是处理复杂性的艺术@Edsger Dijkstra (图灵奖得主)"
@@ -189,7 +189,7 @@
     "content": "在理论上, 理论和实践是没有差异的; 但在实践中, 是有的。In theory, there is no difference between theory and practice. But in practice, there is.@Snepscheut"
   },
   {
-    "content": "在进度落后的项目中增加人手只会导致进度更加落后@Fred Brooks (图灵奖得主 《人月神话》作者)  http://program-think.blogspot.com/2009/03/book-review-mythical-man-month.html"
+    "content": "在进度落后的项目中增加人手只会导致进度更加落后@Fred Brooks (图灵奖得主 《人月神话》作者)  "
   },
   {
     "content": "用代码行数测算软件开发进度如同按重量测算飞机的制造进度@比尔.盖茨"
@@ -234,7 +234,7 @@
     "content": "如果政府不能解决问题, 那它本身就成为问题！@里根 (美国前总统)"
   },
   {
-    "content": "民众不应该害怕他们的政府, 政府才应该害怕它的民众! People should not be afraid of their governments. Governments should be afraid of their people@《V怪客/V字仇杀队》"
+    "content": "民众不应该害怕他们的政府, 政府应该害怕它的民众!People should not be afraid of their governments. Governments should be afraid of their people."
   },
   {
     "content": "制造恐惧是专制政府的终极武@《V怪客/V字仇杀队》"
@@ -258,16 +258,13 @@
     "content": "牺牲基本自由来换取暂时的安全, 最后既得不到安全也得不到自由!@本杰明·富兰克林 (美国开国元勋 物理学家 作家)"
   },
   {
-    "content": "现在有人对你们说: '牺牲你们个人的自由, 去求国家的自由! '我要对你们说: '争取个人的自由, 就是争取国家的自由; 争取个人的人格, 就是争取国家的国格。自由平等的国家不是一群奴才建造得起来的! @胡适 (思想家)  http://program-think.blogspot.com/2013/11/weekly-share-57.html"
-  },
-  {
-    "content": "美国人来了, 有面包有自由; 苏俄来了, 有面包无自由; 中共来了, 无面包无自由!@胡适 (思想家)  http://program-think.blogspot.com/2014/07/artists-and-ccp.html"
+    "content": "美国人来了, 有面包有自由; 苏俄来了, 有面包无自由; 中共来了, 无面包无自由!@胡适 (思想家)  "
   },
   {
     "content": "若批评不自由, 则赞美无意义!@法国《费加罗报》的宗旨"
   },
   {
-    "content": "法律本身并不能保证言论自由; 要做到这一点, 必须所有人都有包容精神。Laws alone can not secure freedom of expression;in order that every man present his views without penalty there must be spirit of tolerance in the entire population@爱因斯坦"
+    "content": "法律本身并不能保证言论自由; 要做到这一点, 必须所有人都有包容精神。 @爱因斯坦"
   },
   {
     "content": "解放一个习惯于被奴役的民族比奴役一个习惯于自由的民族更@孟德斯鸠 (启蒙思想家)"
@@ -288,10 +285,10 @@
     "content": "民主并非只是选举投票，它是生活方式，是思维方式，是你每天呼吸的空气、举手投足的修养，个人回转的空间@龙应台 (台湾作家)"
   },
   {
-    "content": "高等教育的价值在于培训思维, 而不在于传授事实。The value of a college education is not the learning of many facts but the training of the mind to think@爱因斯坦"
+    "content": "高等教育的价值在于培训思维, 而不在于传授事实。The value of a college education is not the learning of many facts but the training of the mind to think."
   },
   {
-    "content": "父亲们最根本的缺点, 在于想要自己的孩子为自己争光。The fundamental defect of fathers is that they want their children to be a credit to them@罗素 (哲学家 数学家)"
+    "content": "父亲们最根本的缺点, 在于想要自己的孩子为自己争光。The fundamental defect of fathers is that they want their children to be a credit to them."
   },
   {
     "content": "花在孩子身上的钱和孩子的修养之间没有任何关系, 甚至成反比。在子女教育方面, 父母应该投入的是时间, 而不是金钱@大前研一 (日本经济评论家)"
@@ -300,16 +297,16 @@
     "content": "小时候一个劲地教你做好人, 长大了一个劲地教你做坏人这就是中国式教育"
   },
   {
-    "content": "你可以暂时地蒙骗所有人, 也可以永久地蒙骗部分人, 但不可能永久地蒙骗所有人。You can fool all the people some of the time, some of the people all the time, but you cannot fool all the people all the time@林肯 (美国前总统)"
+    "content": "你可以暂时地蒙骗所有人, 也可以永久地蒙骗部分人, 但不可能永久地蒙骗所有人。 @林肯 (美国前总统)"
   },
   {
-    "content": "党可以宣布'2+2=5', 而你就不得不相信它@《1984》乔治.奥威尔  http://program-think.blogspot.com/2009/06/book-review-1984.html"
+    "content": "党可以宣布'2+2=5', 而你就不得不相信它@《1984》乔治.奥威尔 "
   },
   {
     "content": "在大欺骗的时代, 说出真相就是革命行为!@乔治.奥威尔 (《1984》作者)"
   },
   {
-    "content": "艺术家用谎言揭露真相, 政治家用谎言掩盖真相。Artists use lies to tell the truth, while politicians use them to cover the truth up@《V怪客/V字仇杀队》  http://program-think.blogspot.com/2011/11/film-v-for-vendetta.html"
+    "content": "艺术家用谎言揭露真相, 政治家用谎言掩盖真相。 @《V怪客/V字仇杀队》  "
   },
   {
     "content": "任何专制国家的教育, 其目的都是在极力降低国民的心智@孟德斯鸠 (启蒙思想家)"
@@ -348,9 +345,6 @@
     "content": "总是使一个国家变成人间地狱的东西, 恰恰是人们试图将其变成天堂@荷尔德林 (哈耶克的《通往奴役之路》第2章把此句作为引言)"
   },
   {
-    "content": "如何判断什么样的人是共产主义者呢, 共产主义者就是那些阅读马克思和列宁学说的人;那如何判断反共产主义者呢，反共产主义者是那些真正理解了马克思和列宁学说的人@里根 (美国前总统)"
-  },
-  {
     "content": "一个人如果30岁以前没有相信过共产主义, 他缺乏良心; 如果到30岁以后还相信共产主义, 他没有头脑@克列蒙梭 (法国政治家)"
   },
   {
@@ -387,7 +381,7 @@
     "content": "道德在书本里, 榜样在电视里, 国土在肺里, 爱情在房产证里, 幸福感在梦里...这就是中国特色"
   },
   {
-    "content": "拜金不可怕, 可怕的是在一个不吃不喝也要几百年才能买房的社会却不许拜金;低俗不可怕, 可怕的是在一个几千万男生找不到女友, 同龄少女都被老男人包养的国度却不准低俗! "
+    "content": "拜金不可怕, 可怕的是在一个不吃不喝也要几百年才能买房的社会却不许拜金;低俗不可怕, 可怕的是在一个几千万男生找不到女友, 同龄少女都被老男人包养的国度却不准低俗!"
   },
   {
     "content": "郭敬明和唐骏的共同点是: 他们这类人越成功, 就说明我们这个社会越失败! "
@@ -402,10 +396,10 @@
     "content": "权力导致腐败, 绝对的权力导致绝对的腐败!@阿克顿勋爵 (政治思想家)"
   },
   {
-    "content": "一切拥有权力的人都有滥用权力为自己谋求私利的倾@孟德斯鸠 (启蒙思想家)  http://program-think.blogspot.com/2014/07/corruption-and-form-of-government.html"
+    "content": "一切拥有权力的人都有滥用权力为自己谋求私利的倾@孟德斯鸠 (启蒙思想家)  "
   },
   {
-    "content": "一群亿万富豪在人民大会堂里开两会 -- 他们管自己叫'无产阶级先锋队'  http://program-think.blogspot.com/2012/03/national-people-congress.html"
+    "content": "一群亿万富豪在人民大会堂里开两会 -- 他们管自己叫'无产阶级先锋队' "
   },
   {
     "content": "中国人民是伟大的用全球7%的耕地养活了全球50%的公务员, 并承受全球70%的官员腐败..."
@@ -414,28 +408,22 @@
     "content": "罗马城之所以是这样的罗马城是因为市民就是这样的市民! This City is what it is because our citizens are what they are@柏拉图"
   },
   {
-    "content": "一个肮脏的国家, 如果人人讲规则而不是空谈道德, 最终会变成一个有人味儿的正常国家, 道德自然会逐渐回归;反之, 一个干净的国家, 如果人人都不讲规则却大谈道德、谈高尚, 天天没事儿就谈道德规范, 人人大公无私, 最终这个国家会堕落成为一个伪君子遍布的肮脏国家@胡适 (思想家)  http://program-think.blogspot.com/2013/11/weekly-share-57.html"
-  },
-  {
     "content": "你要看一个国家的文明, 只需考察三件事: 第一看他们怎样待小孩子; 第二看他们怎样待女人; 第三看他们怎样利用闲暇的时间@胡适 (思想家)"
   },
   {
-    "content": "做奴隶虽然不幸, 但并不可怕, 因为知道挣扎, 毕竟还有挣脱的希望;若是从奴隶生活中寻出美来, 赞叹, 陶醉, 就是万劫不复的奴才了!@鲁迅  http://program-think.blogspot.com/2012/06/stockholm-syndrome.html"
+    "content": "做奴隶虽然不幸, 但并不可怕, 因为知道挣扎, 毕竟还有挣脱的希望;若是从奴隶生活中寻出美来, 赞叹, 陶醉, 就是万劫不复的奴才了!@鲁迅 "
   },
   {
     "content": "自有历史以来, 中国人是一向被同族屠戮、奴隶、敲掠、刑辱、压迫下来的, 非人类所能忍受的楚痛, 也都身受过。每一考查, 真教人觉得不像活在人间@鲁迅"
   },
   {
-    "content": "信仰不能当饭吃, 所以不重要; 民主不能当饭吃, 所以不重要; 自由不能当饭吃, 所以不重要......对于中国人来说, 不能当饭吃的, 都不重要。我们信奉了猪的生活原则, 也就得到了猪的命运 -- 迟早给别人当饭吃"
-  },
-  {
     "content": "真的猛士敢于在一个不正常的国家做一个正常的人"
   },
   {
-    "content": "一旦你习惯了戴面具的生活, 你的脸将变得跟面具一样@《V怪客/V字仇杀队》  http://program-think.blogspot.com/2010/11/institutionalize.html"
+    "content": "一旦你习惯了戴面具的生活, 你的脸将变得跟面具一样@《V怪客/V字仇杀队》  "
   },
   {
-    "content": "每当有事情发生, 懦夫会问: '这么做安全吗?' 患得患失者会问: '这么做明智吗?' 虚荣者会问: '这么做受欢迎吗?' 但是良知只会问: '这么做正确吗?@马丁.路德.金 (美国人权领袖)"
+    "content": "每当有事情发生, 懦夫会问: '这么做安全吗?' 患得患失者会问: '这么做明智吗?' 虚荣者会问: '这么做受欢迎吗?' 但是良知只会问: '这么做正确吗?@马丁·路德·金"
   },
   {
     "content": "雪崩时, 没有一片雪花觉得自己有责任@伏尔泰 (启蒙思想家)"
@@ -450,7 +438,7 @@
     "content": "所谓'摸着石头过河'就是: 群众们都过河了, 官员们还在那里假装摸石头! "
   },
   {
-    "content": "谁控制过去, 谁就控制未来; 谁控制现在, 谁就控制过去。Who controls the past controls the future; who controls the present controls the past@《1984》乔治.奥威尔  http://program-think.blogspot.com/2009/06/book-review-1984.html"
+    "content": "谁控制过去, 谁就控制未来; 谁控制现在, 谁就控制过去。Who controls the past controls the future; who controls the present controls the past. @1984"
   },
   {
     "content": "以铜为镜, 可以正衣冠; 以史为镜, 可以知兴替; 以人为镜, 可以明得失@李世民 (唐太宗)"
@@ -465,10 +453,10 @@
     "content": "中国人最悲哀的就是: 刚被历史的车轮碾过, 还没来得及爬起来, 发现历史在倒车..."
   },
   {
-    "content": "自由有许多困难, 民主亦非完美。然而, 我们从未建造一堵墙, 把我们的人民关在里面, 不准他们离开@《在柏林墙下的演说》肯尼迪 (美国前总统)  http://program-think.blogspot.com/2009/07/break-through-berlin-wall.html"
+    "content": "自由有许多困难, 民主亦非完美。然而, 我们从未建造一堵墙, 把我们的人民关在里面, 不准他们离开@《在柏林墙下的演说》肯尼迪 (美国前总统)  "
   },
   {
-    "content": "这些(监狱的)围墙很有趣。起初你痛恨它; 然后你逐渐习惯它; 足够长时间后, 你开始依赖它 -- 这就是体制化!@电影《肖申克的救赎》  http://program-think.blogspot.com/2010/11/institutionalize.html"
+    "content": "这些(监狱的)围墙很有趣。起初你痛恨它; 然后你逐渐习惯它; 足够长时间后, 你开始依赖它 -- 这就是体制化!@电影《肖申克的救赎》  "
   },
   {
     "content": "Google重新发明了搜索, Facebook重新发明了社交, Apple重新发明了手机, Amazon重新发明了书籍...天朝重新发明了局域网"
@@ -492,7 +480,7 @@
     "content": "企业最大的资产是人!@松下幸之助 (号称日本经营之神)"
   },
   {
-    "content": "你想雇用的人必须具备3种品质: 正直诚实、聪明能干和精力充沛。如果缺少第一种, 后两种品质会要你命!@巴菲特  http://program-think.blogspot.com/2009/04/defect-of-hire.html"
+    "content": "你想雇用的人必须具备3种品质: 正直诚实、聪明能干和精力充沛。如果缺少第一种, 后两种品质会要你命!@巴菲特 "
   },
   {
     "content": "以用户为中心, 其它一切纷至沓来!@Google 信条"
@@ -513,7 +501,7 @@
     "content": "伟大的车工值得给他几倍于普通车工的薪水。但一个伟大的程序员, 其价值相当于普通程序员的1万倍!@比尔.盖茨"
   },
   {
-    "content": "当你用一个手指指着某人时, 请注意其它三个手指在指哪儿@Gerald Weinberg (软件工程大牛)  http://program-think.blogspot.com/2009/07/book-review-are-your-lights-on.html"
+    "content": "当你用一个手指指着某人时, 请注意其它三个手指在指哪儿@Gerald Weinberg (软件工程大牛)  "
   },
   {
     "content": "唯一不变的是变化本身! "
