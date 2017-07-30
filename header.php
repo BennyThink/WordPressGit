@@ -303,10 +303,19 @@ if (git_get_option('git_sign_b')) {
 </div>
         <?php
 } ?>
-        <div class="toptip" id="callboard"><ul style="font-size:16px;margin-top: 2px;">
-<?php
-echo git_get_option('git_tui'); ?></ul></div>
+    <div class="toptip" id="callboard">
+        <ul style="font-size:16px;margin-top: 2px;">
+			<?php
+			if ( git_get_option( 'git_fortune' ) )
+				echo git_get_option( 'git_tui' ) . get_fortune();
+			else
+				echo git_get_option( 'git_tui' );
+
+
+			?>
+        </ul>
     </div>
+</div>
 <?php
 if (git_get_option('git_adsite_01')) echo '<div class="banner banner-site">' . git_get_option('git_adsite_01') . '</div>'; ?>
 <div id="loading">
@@ -316,4 +325,5 @@ if (git_get_option('git_adsite_01')) echo '<div class="banner banner-site">' . g
   <div class="bounce2"></div>
   <div class="bounce3"></div>
 </div></div>
+
 

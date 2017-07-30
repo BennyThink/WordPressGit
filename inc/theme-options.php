@@ -15,6 +15,14 @@ $options = array(
 <li><i class="fa fa-camera-retro"></i> FontAwesome示例</li>
 		'
     ),
+	array(
+		'name'  => '动态格言',
+		'desc'  => '随机显示动态格言，会附加在滚动公告栏中，每次刷新都会变化。',
+		'id'    => "git_fortune",
+		'type'  => 'checkbox',
+		'std'   => ''
+	),
+
     array(
         'name'  => '友情链接页面',
         'desc'  => '只显示输入分类的链接，id之间用英文逗号隔开，一般默认空着就行',

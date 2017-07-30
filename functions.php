@@ -2768,7 +2768,11 @@ function bt_is_mobile() {
 }
 
 
-
+function get_fortune() {
+	//总计183行
+	$data = json_decode( file_get_contents( get_template_directory_uri() . '/js/fortunes.json' ), true );
+	return '<li>'.$data[ rand( 0, 182 ) ]['content'].'</li>';
+}
 
 
 //WordPress函数代码结束,打算在本文件添加代码的建议参照这个方法：http://googlo.me/archives/4032.html
