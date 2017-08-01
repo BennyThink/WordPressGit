@@ -1,9 +1,9 @@
+<!DOCTYPE HTML>
 <!--
 Some of us get dipped in flat, some in satin, some in gloss.
 But every once in a while you find someone who's iridescent, and when you do,
 nothing will ever compare.
 -->
-<!DOCTYPE HTML>
 <html xmlns:wb=“http://open.weibo.com/wb”>
 <head>
 <meta charset="UTF-8">
@@ -306,7 +306,7 @@ if (git_get_option('git_sign_b')) {
     <div class="toptip" id="callboard">
         <ul style="font-size:16px;margin-top: 2px;">
 			<?php
-			if ( git_get_option( 'git_fortune' ) )
+			if ( git_get_option( 'git_fortune' ) && !bt_is_mobile())
 				echo git_get_option( 'git_tui' ) . get_fortune();
 			else
 				echo git_get_option( 'git_tui' );
