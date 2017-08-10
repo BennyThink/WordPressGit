@@ -1555,7 +1555,7 @@ class Simple_Local_Avatars {
 		    'sanitize_options'
 	    ));
 
-	    if ( strstr( php_uname(), 'Windows' ) ) {
+	    if ( function_exists('add_color_field') ) {
 
 		    add_color_field( 'simple-local-avatars-caps', __( '本地上传头像权限管理', 'simple-local-avatars' ), array(
 			    $this,
