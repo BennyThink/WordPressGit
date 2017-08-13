@@ -81,12 +81,15 @@ while (have_posts()):
     if (!$_views) { ?><span class="muted"><i class="fa fa-eye"></i> <?php
         deel_views('浏览'); ?></span><?php
     } ?>
-	<?php
-    if (!$_comment) { ?><span class="muted"><i class="fa fa-comments-o"></i> <?php
-        if (comments_open()) echo '<a target="_blank" href="' . get_comments_link() . '">' . get_comments_number('0', '1', '%') . '评论</a>'
-?></span><?php
-    } ?>
-<?php
+	<?php if ( ! $_comment && comments_open() ): ?>
+        <span class="muted"><i class="fa fa-comments-o"></i>
+			<?php echo '<a target="_blank" href="' . get_comments_link() . '">' .
+			           get_comments_number( '0', '1', '%' ) . '评论</a>'
+			?></span>
+	<?php else: ?>
+        <span class="muted"><i class="fa fa-close"></i>本文关评</span>
+	<?php endif; ?>
+    <?php
     if (!$_like) { ?><span class="muted">
 <a href="javascript:;" data-action="ding" data-id="<?php
         the_ID(); ?>" id="Addlike" class="action<?php
