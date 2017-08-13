@@ -96,7 +96,7 @@ echo '';}
 <script>
     jQuery(window).ready(function() {	
 		jQuery("#loading").fadeOut(500);
-		//jQuery("#loading-one").fadeOut(700);
+		/*jQuery("#loading-one").fadeOut(700);*/
 		console.info('%c Will you recall me?', "background: white; color: #16a085; padding-left:10px;");
     });
 </script>
