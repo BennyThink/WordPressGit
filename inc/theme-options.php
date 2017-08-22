@@ -1284,9 +1284,15 @@ $options = array(
     ),
     array(
         'name'  => '评论UA',
-        'desc'  => '启用',
+        'desc'  => '主人，要不要显示UA呢',
         'id'    => "git_ua_b",
-        'type'  => 'checkbox'
+        'type' => 'select',
+        'options' => array(
+	        '不显示UA',
+	        '仅为博主显示UA',
+	        '为所有人显示UA',
+        ),
+        'std'   => ''
     ),
     array(
         'name'  => '取消静态资源的版本查询',

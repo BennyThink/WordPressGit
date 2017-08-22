@@ -632,7 +632,13 @@ function deel_comment_list($comment, $args, $depth) {
             'max_depth' => $args['max_depth']
         )));
         echo edit_comment_link(__('(编辑)') , ' - ', '');
-        if (git_get_option('git_ua_b')) echo '<span style="color: #ff6600;"> ' . user_agent($comment->comment_agent) . '</span>';
+
+	    if ( git_get_option( 'git_ua_b' ) =='仅为博主显示UA' && current_user_can('manage_options')) {
+		    echo '<span style="color: #ff6600;"> ' . user_agent( $comment->comment_agent ) . '</span>';
+	    }
+	    elseif ( git_get_option( 'git_ua_b' ) =='为所有人显示UA' ) {
+		    echo '<span style="color: #ff6600;"> ' . user_agent( $comment->comment_agent ) . '</span>';
+	    }
     }
     echo '</div>';
     echo '</div></div>';
