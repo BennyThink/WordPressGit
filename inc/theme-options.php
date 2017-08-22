@@ -1412,6 +1412,23 @@ $options = array(
         'id'    => "git_adminqn_b",
         'type'  => 'checkbox'
     ),
+	array(
+		'title' => '微信推送设置',
+		'type'  => 'subtitle'
+	),
+	array(
+		'name'  => '评论微信推送提醒',
+		'desc'  => '启用【开启后，如果网站有新的评论，可以给您的微信推送提醒，这个只是给网站管理员提醒，不涉及访客】，具体设置<a class="button-primary" target="_blank" href="http://googlo.me/archives/4500.html" title="点击查看设置教程">点击查看设置教程</a>',
+		'id'    => "git_Server",
+		'type'  => 'checkbox'
+	),
+	array(
+		'name'  => '微信推送KEY',
+		'desc'  => '请输入您的微信推送KEY,根据上面教程获取',
+		'id'    => "git_Server_key",
+		'type'  => 'text',
+		'std'   => ''
+	),
     array(
         'title' => 'STMP邮箱设置',
         'type'  => 'subtitle'
@@ -1485,7 +1502,6 @@ $options = array(
         'options' => array(
             '七牛jQuery库' => 'git_jqcdn_qiniu',
             '又拍云jQuery库' => 'git_jqcdn_upai',
-            '360jQuery库' => 'git_jqcdn_360',
             '新浪jQuery库' => 'git_jqcdn_sae',
             '本地jQuery库' => 'git_jqcdn_bendi'
         ),

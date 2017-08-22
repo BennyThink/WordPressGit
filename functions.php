@@ -81,8 +81,13 @@ add_filter('admin_footer_text', 'git_admin_footer_text');
         remove_action('pre_post_update', 'wp_save_post_revision');
     }
     //去除自带js
-    wp_deregister_script('l10n');
-    //修改默认发信地址
+    //wp_deregister_script('l10n');
+	function my_enqueue_scripts() {
+		wp_deregister_script('jquery');
+	}
+	add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts', 1 );
+
+	//修改默认发信地址
     add_filter('wp_mail_from', 'deel_res_from_email');
     add_filter('wp_mail_from_name', 'deel_res_from_name');
     //缩略图设置
@@ -289,26 +294,25 @@ function deel_breadcrumbs() {
 }
 // 取消原有jQuery，加载自定义jQuery
 function footerScript() {
-    if (!is_admin()) {
-        wp_deregister_script('jquery');
-        if(git_get_option('git_jqcdn')=='git_jqcdn_qiniu'){
-            wp_register_script('jquery', 'http://cdn.staticfile.org/jquery/1.8.3/jquery.min.js', false, '1.0', false );
-        }elseif(git_get_option('git_jqcdn')=='git_jqcdn_upai'){
-            wp_register_script('jquery', 'http://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', false, '1.0', false );
-        }elseif(git_get_option('git_jqcdn')=='git_jqcdn_360'){
-            wp_register_script('jquery', 'http://libs.useso.com/js/jquery/1.8.3/jquery.min.js', false, '1.0', false );
-        }elseif(git_get_option('git_jqcdn')=='git_jqcdn_sae'){
-            wp_register_script('jquery', 'http://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js', false, '1.0', false );
-        }else{
-        wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', false, '1.0', false );
-        }
-        wp_enqueue_script('jquery');
-        wp_register_script('default', get_template_directory_uri() . '/js/global.js', false, '1.0', true );
-        wp_enqueue_script('default');
-        wp_register_style('style', get_template_directory_uri() . '/style.css', false, '1.0');
-        wp_enqueue_style('style');
-    }
+	if (!is_admin()) {
+		wp_deregister_script('jquery');
+		if(git_get_option('git_jqcdn')=='git_jqcdn_qiniu'){
+			wp_register_script('jquery', '//cdn.staticfile.org/jquery/1.8.3/jquery.min.js', false, '1.0', false );
+		}elseif(git_get_option('git_jqcdn')=='git_jqcdn_upai'){
+			wp_register_script('jquery', '//upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', false, '1.0', false );
+		}elseif(git_get_option('git_jqcdn')=='git_jqcdn_sae'){
+			wp_register_script('jquery', '//lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js', false, '1.0', false );
+		}else{
+			wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', false, '1.0', false );
+		}
+		wp_enqueue_script('jquery');
+		wp_register_script('default', get_template_directory_uri() . '/js/global.js', false, '1.0', true );
+		wp_enqueue_script('default');
+		wp_register_style('style', get_template_directory_uri() . '/style.css', false, '1.0');
+		wp_enqueue_style('style');
+	}
 }
+
 add_action('wp_enqueue_scripts', 'footerScript');
 if (!function_exists('deel_paging')):
     function deel_paging() {
@@ -418,7 +422,11 @@ function git_avatar_cache($avatar) {
     }elseif(git_get_option('git_avater')=='git_avatar_ssl'){
     $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="50px" width="50px">',$avatar);
     }
-    return $avatar;
+    // or
+    //$avatar = str_replace(array("www.gravatar.com", "0.gravatar.com", "1.gravatar.com", "2.gravatar.com" ) , "fdn.geekzu.org", $avatar);
+// $avatar = str_replace(array("www.gravatar.com", "0.gravatar.com", "1.gravatar.com", "2.gravatar.com" ) , "fdn.geekzu.org", $avatar);
+
+	return $avatar;
 }
 add_filter('get_avatar', 'git_avatar_cache', 10, 3);
 //给外部链接加上跳转
@@ -606,7 +614,7 @@ function deel_comment_list($comment, $args, $depth) {
     //信息
     echo '<div class="c-meta">';
     if (git_get_option('git_autherqr_b') && !bt_is_mobile()) {
-        echo '<span class="c-author"><a href="' . get_comment_author_url() . '" class="weixin" style="cursor:pointer;">' . get_comment_author() . '<span class="qr weixin-popover"><img style="position:absolute;z-index:99999;" src="http://s.jiathis.com/qrcode.php?url=' . get_comment_author_url() . '"></span></a></span>';
+        echo '<span class="c-author"><a href="' . get_comment_author_url() . '" class="weixin" style="cursor:pointer;">' . get_comment_author() . '<span class="qr weixin-popover"><img style="position:absolute;z-index:99999;" src="https://pan.baidu.com/share/qrcode?w=145&h=145&url=' . get_comment_author_url() . '"></span></a></span>';
     } else {
         echo '<span class="c-author">' . get_comment_author_link() . '</span>';
     }
@@ -1248,9 +1256,26 @@ function tom($atts, $content = null) {
 add_shortcode('lhb', 'tom');
 /*添加视频按钮*/
 function too($atts, $content = null) {
-    return '<video style="width:100%;" src="' . $content . '" controls preload >您的浏览器不支持HTML5的 video 标签，无法为您播放！</video>';
+	extract(shortcode_atts(array("play" => '0' ) , $atts));
+	if( $play == 0){
+		return '<video style="width:100%;" src="' . $content . '" controls preload >您的浏览器不支持HTML5的 video 标签，无法为您播放！</video>';
+	}if( $play == 1){
+		return '<video style="width:100%;" src="' . $content . '" controls preload autoplay >您的浏览器不支持HTML5的 video 标签，无法为您播放！</video>';
+	}
 }
 add_shortcode('video', 'too');
+
+/*添加音频按钮*/
+function tkk($atts, $content = null) {
+	extract(shortcode_atts(array("play" => '0' ) , $atts));
+	if( $play == 0){
+		return '<audio style="width:100%;" src="' . $content . '" controls loop>您的浏览器不支持 audio 标签。</audio>';
+	}if( $play == 1){
+		return '<audio style="width:100%;" src="' . $content . '" controls autoplay loop>您的浏览器不支持 audio 标签。</audio>';
+	}
+}
+add_shortcode('audio', 'tkk');
+
 /*弹窗下载*/
 function ton($atts, $content = null) {
     extract(shortcode_atts(array("href" => 'http://',"filename" => '',"filesize" => '',"filedown" => '' ) , $atts));
@@ -1289,11 +1314,12 @@ function xdltable($atts, $content = null) {
 }
 add_shortcode('dltable', 'xdltable');
 //网易云音乐
-function music163($atts) {
-    extract(shortcode_atts(array("id" => "" ) , $atts));
-    return '<iframe style="width:100%;max-height:86px;" frameborder="no" border="0" marginwidth="0" marginheight="0" src="https://music.163.com/outchain/player?type=2&id=' . $id . '&auto=0&height=66"></iframe>';
+function music163($atts, $content = null) {
+	extract(shortcode_atts(array("play" => "1" ) , $atts));
+	return '<iframe style="width:100%;max-height:86px;" frameborder="no" border="0" marginwidth="0" marginheight="0" src="https://music.163.com/outchain/player?type=2&id=' . $content . '&auto=' . $play . '&height=66"></iframe>';
 }
 add_shortcode('netmusic', 'music163');
+
 // add youku using iframe
 function wp_iframe_handler_youku($matches, $attr, $url, $rawattr) {
     if (bt_is_mobile()) {
@@ -2482,6 +2508,79 @@ function php_include($attr)
     return ob_get_clean();
 }
 add_shortcode('phpcode', 'php_include');
+
+//评论微信推送
+function sc_send($comment_id)
+{
+	$text = '网站上有新的评论，请及时查看';//微信推送信息标题
+	$comment = get_comment($comment_id);
+	$desp = ''. $comment->comment_content .'
+***
+<br>
+* 评论人 ：' . get_comment_author($comment_id) . '
+* 文章标题 ：' . get_the_title() . '
+* 文章链接 ：' . get_the_permalink($comment->comment_post_ID) . '
+	';//微信推送内容正文
+	$key = git_get_option('git_Server_key');
+	$postdata = http_build_query(array('text' => $text, 'desp' => $desp));
+	$opts = array('http' => array('method' => 'POST', 'header' => 'Content-type: application/x-www-form-urlencoded', 'content' => $postdata));
+	$context = stream_context_create($opts);
+	return $result = file_get_contents('http://sc.ftqq.com/' . $key . '.send', false, $context);
+}
+if(git_get_option('git_Server') && !is_admin() ){
+	add_action('comment_post', 'sc_send', 19, 2);
+}
+
+// 内链图片src
+function link_the_thumbnail_src()
+{
+	global $post;
+	if (get_post_meta($post->ID, 'thumbnail', true)) {
+		//如果有缩略图，则显示缩略图
+		$image = get_post_meta($post->ID, 'thumbnail', true);
+		return $image;
+	} else {
+		if (has_post_thumbnail()) {
+			//如果有缩略图，则显示缩略图
+			$img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "Full");
+			return $img_src[0];
+		} else {
+			$content = $post->post_content;
+			preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $content, $strResult, PREG_PATTERN_ORDER);
+			$n = count($strResult[1]);
+			if ($n > 0) {
+				return $strResult[1][0];
+				//没有缩略图就取文章中第一张图片作为缩略图
+			} else {
+				$random = mt_rand(1, 12);
+				return get_template_directory_uri() . '/css/img/pic/' . $random . '.jpg';
+				//文章中没有图片就在 random 文件夹下随机读取图片作为缩略图
+			}
+		}
+	}
+}
+//给文章加内链短代码
+function git_insert_posts($atts, $content = null)
+{
+	extract(shortcode_atts(array('ids' => ''), $atts));
+	global $post;
+	$content = '';
+	$postids = explode(',', $ids);
+	$inset_posts = get_posts(array('post__in' => $postids));
+	foreach ($inset_posts as $key => $post) {
+		setup_postdata($post);
+		$content .= '<div class="neilian"><div class="fll"><a target="_blank" href="' . get_permalink() . '" class="fll linkss"><i class="fa fa-link fa-fw"></i>  ';
+		$content .= get_the_title();
+		$content .= '</a><p class="note">';
+		$content .= get_the_excerpt();
+		$content .= '</p></div><div class="frr"><a target="_blank" href="' . get_permalink() . '"><img src=';
+		$content .= link_the_thumbnail_src();
+		$content .= ' class="neilian-thumb"></a></div></div>';
+	}
+	wp_reset_postdata();
+	return $content;
+}
+add_shortcode('neilian', 'git_insert_posts');
 
 
 //Benny's here
