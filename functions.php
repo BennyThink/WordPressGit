@@ -1984,6 +1984,8 @@ if (git_get_option('git_ua_b')):
 			$browser = '手机QQ ' . $matches[1];
         elseif (preg_match('#Chrome/([a-zA-Z0-9.]+)#i', $ua, $matches))
 			$browser = 'Chrome ' . $matches[1];
+        elseif (preg_match('#CriOS/([a-zA-Z0-9.]+)#i', $ua, $matches))
+			$browser = 'Chrome ' . $matches[1];
         elseif (preg_match('#Chromium/([a-zA-Z0-9.]+)#i', $ua, $matches))
 			$browser = 'Chromium ' . $matches[1];
         elseif (preg_match('#XiaoMi/MiuiBrowser/([0-9.]+)#i', $ua, $matches))
