@@ -86,6 +86,9 @@ elseif (git_get_option(git_snow_b) == 'git_pc_only'&& !bt_is_mobile()&& !strstr(
 if (git_get_option('git_copy_b') && is_singular()) echo '<script type="text/Javascript">document.oncontextmenu=function(e){return false;};document.onselectstart=function(e){return false;};</script><style>body{ -moz-user-select:none;}</style><SCRIPT LANGUAGE=javascript>if (top.location != self.location)top.location=self.location;</SCRIPT><noscript><iframe src=*.html></iframe></noscript>'; ?>
 <?php
 if (git_get_option('git_footercode')) echo git_get_option('git_footercode'); ?>
+<?php if(git_get_option('git_kiana') && !bt_is_mobile()):?>
+<script src="<?php echo get_template_directory_uri().'/extra/kiana/bga.min.js';?>" async></script>
+<?php endif;?>
 <?php
 wp_footer();welcome_hello();
 global $dHasShare;

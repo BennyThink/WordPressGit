@@ -1300,6 +1300,12 @@ $options = array(
         'id'    => "git_query",
         'type'  => 'checkbox'
     ),
+	array(
+		'name'  => 'kiana挂件',
+		'desc'  => '启用',
+		'id'    => "git_kiana",
+		'type'  => 'checkbox'
+	),
     array(
         'title' => 'WordPress安全设置[小白慎用]',
         'type'  => 'subtitle'
