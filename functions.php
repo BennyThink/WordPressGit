@@ -2571,30 +2571,50 @@ if(!function_exists('Baidu_Submit') && git_get_option('git_sitemap_api') ){
 	add_action( 'publish_post', 'Baidu_Submit', 0 );
 }
 
+
 // 部分内容输入密码可见
-function e_secret($atts, $content=null){
-    extract(shortcode_atts(array('key'=>null), $atts));
-    if(isset($_POST['e_secret_key']) && $_POST['e_secret_key']==$key){
-        return '
-<div class="e-secret">'.$content.'</div>
-';
-    }
-    else{
-        return '
-<form class="e-secret" action="'.get_permalink().'" method="post" name="e-secret"><label>输入密码查看加密内容：</label><input type="password" name="e_secret_key" class="euc-y-i" maxlength="50"><input type="submit" class="euc-y-s" value="确定">
+function e_secret( $atts, $content = null ) {
+	extract( shortcode_atts( array( 'key' => null, ), $atts ) );
+
+	if ( isset( $_COOKIE['e_secret_pass'] ) ) {
+		return '
+<div class="e-secret"><fieldset>
+<legend>隐藏的内容</legend> 
+' . $content . '
+<div class="clear"></div></fieldset></div>';
+	} elseif ( isset( $_POST['e_secret_key'] ) && $_POST['e_secret_key'] == $key ) {
+		ob_start();
+		setcookie( 'e_secret_pass', 1, time() + 604800, COOKIEPATH, COOKIE_DOMAIN, false );
+		header( 'location: ' . $_SERVER['HTTP_REFERER'] );
+
+		return '
+<form class="e-secret" action="' . get_permalink() . '" method="post" name="e-secret"><label>输入密码查看加密内容：</label><input type="text" name="e_secret_key" class="euc-y-i" maxlength="50"><input type="submit" class="euc-y-s" value="确定">
 <div class="euc-clear"></div>
-</form>
-';
-    }
+</form>';
+	} else {
+		return '
+<form class="e-secret" action="' . get_permalink() . '" method="post" name="e-secret"><label>输入密码查看加密内容：</label><input type="text" name="e_secret_key" class="euc-y-i" maxlength="50"><input type="submit" class="euc-y-s" value="确定">
+<div class="euc-clear"></div>
+</form>';
+	}
+
 }
-add_shortcode('secret','e_secret');
+
+add_shortcode( 'secret', 'e_secret' );
+
 //加载密码可见的样式
 function secret_css() {
-	global $post,$posts;
-		foreach ($posts as $post) {
-			if ( has_shortcode( $post->post_content, 'secret') ){
-    echo '<style type="text/css">.e-secret{margin:20px 0;padding:20px;height:60px;background:#f8f8f8}.e-secret input.euc-y-i[type=password]{float:left;background:#fff;width:100%;line-height:36px;margin-top:5px;border-radius:3px}.e-secret input.euc-y-s[type=submit]{float:right;margin-top:-47px;width:30%;margin-right:1px;border-radius:0 3px 3px 0}input.euc-y-s[type=submit]{background-color:#3498db;color:#fff;font-size:21px;box-shadow:none;-webkit-transition:.4s;-moz-transition:.4s;-o-transition:.4s;transition:.4s;-webkit-backface-visibility:hidden;position:relative;cursor:pointer;padding:13px 20px;text-align:center;border-radius:50px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;border:0;height:auto;outline:medium;line-height:20px;margin:0}input.euc-y-s[type=submit]:hover{background-color:#5dade2}input.euc-y-i[type=password],input.euc-y-i[type=text]{border:1px solid #F2EFEF;color:#777;display:block;background:#FCFCFC;font-size:18px;transition:all .5s ease 0;outline:0;box-sizing:border-box;-webkit-border-radius:25px;-moz-border-radius:25px;border-radius:25px;padding:5px 16px;margin:0;height:auto;line-height:30px}input.euc-y-i[type=password]:hover,input.euc-y-i[type=text]:hover{border:1px solid #56b4ef;box-shadow:0 0 4px #56b4ef}</style>';}}}
-add_action('wp_head', 'secret_css');
+	global $post, $posts;
+	foreach ( $posts as $post ) {
+		if ( has_shortcode( $post->post_content, 'secret' ) ) {
+			echo '<style type="text/css">form.e-secret{margin:20px 0;padding:20px;height:60px;background:#f8f8f8}.e-secret input.euc-y-i[type=text]{float:left;background:#fff;width:100%;line-height:36px;margin-top:5px;border-radius:3px}.e-secret input.euc-y-s[type=submit]{float:right;margin-top:-47px;width:30%;margin-right:1px;border-radius:0 3px 3px 0}input.euc-y-s[type=submit]{background-color:#3498db;color:#fff;font-size:21px;box-shadow:none;-webkit-transition:.4s;-moz-transition:.4s;-o-transition:.4s;transition:.4s;-webkit-backface-visibility:hidden;position:relative;cursor:pointer;padding:13px 20px;text-align:center;border-radius:50px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;border:0;height:auto;outline:medium;line-height:20px;margin:0}input.euc-y-s[type=submit]:hover{background-color:#5dade2}input.euc-y-i[type=password],input.euc-y-i[type=text]{border:1px solid #F2EFEF;color:#777;display:block;background:#FCFCFC;font-size:18px;transition:all .5s ease 0;outline:0;box-sizing:border-box;-webkit-border-radius:25px;-moz-border-radius:25px;border-radius:25px;padding:5px 16px;margin:0;height:auto;line-height:30px}input.euc-y-i[type=password]:hover,input.euc-y-i[type=text]:hover{border:1px solid #56b4ef;box-shadow:0 0 4px #56b4ef}.e-secret fieldset{background:#fff;margin:5px 0;padding:0 5px 10px 10px;width:98%;border-radius:2px;border:1px solid #ddd}.e-secret legend{width:90px;padding:2px 10px;margin:5px;border-radius:2px;border:1px solid #ddd}.wxbox{border:1px dashed #F60;line-height:200%;padding-top:5px;color:red;background-color:#FFF4FF;overflow:hidden;clear:both}.wxbox.yzts{padding-left:10%}.wx form{float:left}.wxbox #verifycode{width:50%;height:32px;line-height:30px;padding:0 25px;border:1px solid #F60}.wxbox #verifybtn{width:10%;height:34px;line-height:34px;padding:0 5px;background-color:#F60;text-align:center;border:none;cursor:pointer;color:#FFF}.cl{clear:both;height:0}.wxpic{float:left;width:18%}.wxtips{color:#32B9B5;float:left;width:72%;padding-left:5%;padding-top:0;font-size:20px;line-height:150%;text-align:left;font-family:Microsoft YaHei}@media (max-width:600px){.wxpic{float:left}.wxbox #verifycode{width:35%}.wxbox #verifybtn{width:22%}.wxpic,.wxtips{width:100%}.wxtips{font-size:20px;padding:2px}}</style>';
+		}
+	}
+}
+
+add_action( 'wp_head', 'secret_css' );
+
+
 //小工具支持PHP代码运行
 function widget_php($text)
 {
@@ -2691,6 +2711,47 @@ function git_insert_posts($atts, $content = null)
 	return $content;
 }
 add_shortcode('neilian', 'git_insert_posts');
+
+//增加B站视频
+wp_embed_unregister_handler('bili');
+function wp_bili($matches, $attr, $url, $rawattr) {
+	if (G_is_mobile()) {
+		$height = 200;
+	} else {
+		$height = 480;
+	}
+	$iframe = '<iframe width=100% height=' . $height . 'px src="//www.bilibili.com/blackboard/player.html?aid=' . esc_attr($matches[1]) . '" scrolling="no" border="0" framespacing="0" frameborder="no"></iframe>';
+	return apply_filters('iframe_bili', $iframe, $matches, $attr, $url, $ramattr);
+}
+wp_embed_register_handler('bili_iframe', '#https://www.bilibili.com/video/av(.*?)/#i', 'wp_bili');
+
+//导航单页函数
+function get_the_link_items($id = null){
+	$bookmarks = get_bookmarks('orderby=date&category=' .$id );
+	$output = '';
+	if ( !empty($bookmarks) ) {
+		$output .= '<div class="link_items fontSmooth">';
+		foreach ($bookmarks as $bookmark) {
+			$output .=  '<div class="link_item"><a class="link_item_inner apollo_' . $bookmark->link_rating . '" rel="nofollow" href="' . $bookmark->link_url . '" title="' . $bookmark->link_description . '" target="_blank" ><span class="sitename sitecolor_' . mt_rand(1, 14) . '">'. $bookmark->link_name .'</span></a></div>';
+		}
+		$output .= '</div>';
+	}
+	return $output;
+}
+
+function get_link_items(){
+	$linkcats = get_terms( 'link_category' );
+	if ( !empty($linkcats) ) {
+		foreach( $linkcats as $linkcat){
+			$result .=  '<h2 class="link_title">'.$linkcat->name.'</h2>';
+			if( $linkcat->description ) $result .= '<div class="link_description">' . $linkcat->description . '</div>';
+			$result .=  get_the_link_items($linkcat->term_id);
+		}
+	} else {
+		$result = get_the_link_items();
+	}
+	return $result;
+}
 
 
 //Benny's here

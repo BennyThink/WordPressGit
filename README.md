@@ -20,7 +20,8 @@ Demo请见[土豆不好吃](https://www.bennythink.com)
 * 动态格言
 刷新一次，就出现一个新的格言，附加到公告栏里，哇~
 
-
+## TODO ##
+- [ ] Google Chrome Web通知
 ## 疑难解答 ##
 1.HTTPS
 HTTPS站点按理说不进行任何修改就可以的，如果出现mix content，那请给我反馈（Chrome控制台）
