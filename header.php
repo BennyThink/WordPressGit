@@ -38,10 +38,33 @@ if (!git_get_option('git_pichead_b')) { ?>
     } elseif (git_get_option('git_skin_b') == 'git_custom_color') {
         echo '<header id="header" class="header" style="background-color: #' . git_get_option('git_color_nom') . ';">';
 		$THEME_COLOR='#'.git_get_option('git_color_nom');
-    } else {
+    }
+    elseif (git_get_option('git_skin_b') == 'git_random_color') {
+
+	    $r = dechex( rand( 0, 255 ) );
+	    $g = dechex( rand( 0, 255 ) );
+	    $b = dechex( rand( 0, 255 ) );
+	    if ( strlen( $r ) == 1 ) {
+		    $r = '0' . $r;
+	    }
+	    if ( strlen( $g ) == 1 ) {
+		    $g = '0' . $g;
+	    }
+	    if ( strlen( $r ) == 1 ) {
+		    $b = '0' . $b;
+	    }
+	    $THEME_COLOR = '#' . $r . $g . $b;
+	    echo '<header id="header" class="header" style="background-color: ' .$THEME_COLOR . ';">';
+    }
+    elseif(git_get_option('git_skin_b') == 'git_default_b') {
         echo '<header id="header" class="header" style="background-color: #009966;">';
 		$THEME_COLOR='#009966';
-    } ?>
+    }
+    else{
+	    echo '<header id="header" class="header" style="background-color: #009966;">';
+	    $THEME_COLOR='#009966';
+    }
+    ?>
 <?php
 } ?>
     
@@ -176,10 +199,22 @@ if (git_get_option('git_skin_b') == 'git_red_b') {
 }elseif (git_get_option('git_skin_b') == 'git_green_b'){
     $skin_nom = "#4CAF50";
     $skin_hover = "#388E3C";
+}elseif (git_get_option('git_skin_b') == 'git_random_color'){
+	$skin_nom = $skin_hover =$THEME_COLOR;
+
 }elseif (git_get_option('git_skin_b') == 'git_custom_color'){
     $skin_nom = '#'.git_get_option('git_color_nom');
     $skin_hover = git_get_option('git_color_hover');
+}elseif (git_get_option('git_skin_b') == 'git_default_b'){
+	$skin_nom = $THEME_COLOR;
+	$skin_hover = "#009966 ";
+
+}else{
+	$skin_nom = $THEME_COLOR;
+	$skin_hover = "#009966 ";
+
 }
+
     echo '<style type="text/css">.navbar .nav li:hover a, .navbar .nav li.current-menu-item a, .navbar .nav li.current-menu-parent a, .navbar .nav li.current_page_item a, .navbar .nav li.current-post-ancestor a,.toggle-search ,#submit ,.btn,.pagination ul>.active>a,.pagination ul>.active>span,.bdcs-container .bdcs-search-form-submit,.metacat a{background: ' . $skin_nom . ';}.footer,.title h2,.shop-item .pricebtn{color: ' . $skin_nom . ';}.bdcs-container .bdcs-search-form-submit ,.bdcs-container .bdcs-search {border-color: ' . $skin_nom . ';}.pagination ul>li>a:hover,.navbar .nav li a:focus, .navbar .nav li a:hover,.toggle-search:hover,#submit:hover,.btn:hover,.pricebtn .buy {background-color: ' . $skin_hover . ';}.tooltip-inner{background-color:' . $skin_hover . ';}.tooltip.top .tooltip-arrow{border-top-color:' . $skin_hover . ';}.tooltip.right .tooltip-arrow{border-right-color:' . $skin_hover . ';}.tooltip.left .tooltip-arrow{border-left-color:' . $skin_hover . ';}.tooltip.bottom .tooltip-arrow{border-bottom-color:' . $skin_hover . ';}</style>';
 ?>
 <?php
@@ -239,9 +274,12 @@ if (git_get_option('git_skin_b') == 'git_red_b') {
     echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid #4CAF50 ;">';
 } elseif (git_get_option('git_skin_b') == 'git_custom_color') {
     echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid #' . git_get_option('git_color_nom') . ' ;">';
-} else {
+}
+elseif (git_get_option('git_skin_b') == 'git_random_color') {
+	echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid ' . $THEME_COLOR . ' ;">';
+}elseif (git_get_option('git_skin_b') == 'git_default_b') {
     echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid #009966 ;">';
-} ?>
+}else{ echo '<div id="nav-header" class="navbar" style="border-bottom: 4px solid #009966 ;">';} ?>
 <?php
 if (git_get_option('git_bdshare_b')) echo '<style type="text/css">.bdsharebuttonbox a{cursor:pointer;border-bottom:0;margin-right:5px;width:28px;height:28px;line-height:28px;color:#fff}.bds_renren{background:#94b3eb}.bds_qzone{background:#fac33f}.bds_more{background:#40a57d}.bds_weixin{background:#7ad071}.bdsharebuttonbox a:hover{background-color:#7fb4ab;color:#fff;border-bottom:0}</style>'; ?>
 <ul class="nav">
@@ -310,7 +348,6 @@ if (git_get_option('git_sign_b')) {
 				echo git_get_option( 'git_tui' ) . get_fortune();
 			else
 				echo git_get_option( 'git_tui' );
-
 
 			?>
         </ul>

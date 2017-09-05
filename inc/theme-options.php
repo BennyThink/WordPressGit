@@ -550,6 +550,7 @@ $options = array(
         'id'    => "git_skin_b",
         'type'  => 'radio',
         'options' => array(
+	        '默认色' => 'git_default_b',
             '幽红色' => 'git_red_b',
             '深蓝色' => 'git_blue_b',
             '暗黑色' => 'git_black_b',
@@ -557,6 +558,7 @@ $options = array(
             '淡黄色' => 'git_yellow_b',
             '轻蓝色' => 'git_light_b',
             '鲜绿色' => 'git_green_b',
+            '随机色' => 'git_random_color',
             '自定义' => 'git_custom_color'
         ),
         'std'   => 'git_light_b'
