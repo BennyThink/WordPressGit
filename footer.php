@@ -97,10 +97,25 @@ if ($dHasShare == true) {
 echo '';}
 ?>
 <script>
-    jQuery(window).ready(function() {	
-		jQuery("#loading").fadeOut(500);
-		/*jQuery("#loading-one").fadeOut(700);*/
-		console.info('%c Will you recall me?', "background: white; color: #16a085; padding-left:10px;");
+	<?php if ( ! empty( git_get_option( git_notify_b ) ) ):
+	$jsString = '"' . str_replace( ' ', '","', git_get_option( git_notify_b ) ) . '"';?>
+    $("html,body").click(function (e) {
+        var ily = new Array(<?=$jsString?>);
+        var n = Math.floor(Math.random() * ily.length);
+        var $i = $("<b/>").text(ily[n]);
+        var x = e.pageX, y = e.pageY;
+        $i.css({"z-index": 99999, "top": y - 20, "left": x, "position": "absolute", "color": "#40aa52"});
+        $("body").append($i);
+        $i.animate({"top": y - 180, "opacity": 0}, 1500, function () {
+            $i.remove()
+        });
+        e.stopPropagation()
+    });
+	<?php endif; ?>
+    jQuery(window).ready(function () {
+        jQuery("#loading").fadeOut(500);
+        /*jQuery("#loading-one").fadeOut(700);*/
+        console.info('%c Will you recall me?', "background: white; color: #16a085; padding-left:10px;");
     });
 </script>
 </body></html>

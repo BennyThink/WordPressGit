@@ -1352,6 +1352,13 @@ $options = array(
         'id'    => 'panel_advence',
         'type'  => 'panelstart'
     ),
+	array(
+		'name'  => '鼠标点击提示词',
+		'desc'  => '以空格分隔，鼠标点击网页将会显示对应的词语',
+		'id'    => "git_notify_b",
+		'type'  => 'text',
+		'std'   => '我 喜欢 你 笨蛋'
+	),
     array(
         'name'  => 'HTML代码压缩',
         'desc'  => '启用 【开启后，将压缩网页HTML代码，可读性会降低，但是性能略有提升】',
