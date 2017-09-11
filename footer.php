@@ -97,9 +97,11 @@ if ($dHasShare == true) {
 echo '';}
 ?>
 <script>
-	<?php if ( ! empty( git_get_option( git_notify_b ) ) ):
-	$jsString = '"' . str_replace( ' ', '","', git_get_option( git_notify_b ) ) . '"';?>
+	<?php
+	if(git_get_option('git_notify_b') != ''):
+	$jsString = '"' . str_replace( ' ', '","', git_get_option('git_notify_b' ) ) . '"';?>
     $("html,body").click(function (e) {
+	if (e.target.nodeName != "BUTTON"){
         var ily = new Array(<?=$jsString?>);
         var n = Math.floor(Math.random() * ily.length);
         var $i = $("<b/>").text(ily[n]);
@@ -109,7 +111,8 @@ echo '';}
         $i.animate({"top": y - 180, "opacity": 0}, 1500, function () {
             $i.remove()
         });
-        e.stopPropagation()
+        e.stopPropagation();
+	}
     });
 	<?php endif; ?>
     jQuery(window).ready(function () {
