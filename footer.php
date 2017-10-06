@@ -98,7 +98,6 @@ echo '';}
 ?>
 <script>
 	<?php
-
 	if(git_get_option( 'git_notify_b' ) != ''):
 	$jsString = '"' . str_replace( ' ', '","', git_get_option( 'git_notify_b' ) ) . '"';?>
     $("html,body").click(function (e) {
@@ -122,8 +121,15 @@ echo '';}
 	<?php endif; ?>
     jQuery(window).ready(function () {
         jQuery("#loading").fadeOut(500);
-        /*jQuery("#loading-one").fadeOut(700);*/
         console.info('%c Will you recall me?', "background: white; color: #16a085; padding-left:10px;");
     });
 </script>
+<?php if(git_get_option(git_pangu)):?>
+<script src="<?= get_template_directory_uri()?>/js/pangu.min.js"></script>
+<script> pangu.spacingPage(); </script>
+<?php endif;?>
+<?php if(git_get_option(git_scroll)):?>
+<script src="<?= get_template_directory_uri()?>/js/smoothscroll.js" async></script>
+<?php endif;?>
 </body></html>
+<!--I'm always here... By Benny 2017-->
