@@ -921,6 +921,14 @@ $options = array(
         'type'  => 'text',
         'std'   => get_bloginfo('rss2_url')
     ),
+
+	array(
+		'name'  => 'Telegram频道地址',
+		'desc'  => '输入您的Telegram频道地址',
+		'id'    => 'git_channel',
+		'type'  => 'text',
+		'std'   => ''
+	),
     array(
         'name'  => '新浪微博 *',
         'desc'  => '填写新浪微博个人主页链接',
