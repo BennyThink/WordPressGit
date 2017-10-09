@@ -308,6 +308,18 @@ $options = array(
         'id'    => 'git_suojin',
         'type'  => 'checkbox'
     ),
+	array(
+		'name'  => '中英文自动添加空格',
+		'desc'  => '开启 【引用pangu.js添加空格】',
+		'id'    => 'git_pangu',
+		'type'  => 'checkbox'
+	),
+	array(
+		'name'  => '平滑滚动',
+		'desc'  => '开启 【让你的Chrome醋溜到底】',
+		'id'    => 'git_scroll',
+		'type'  => 'checkbox'
+	),
     array(
         'title' => '垃圾评论屏蔽',
         'type'  => 'subtitle'
