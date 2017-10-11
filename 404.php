@@ -27,11 +27,15 @@ echo '
 			<div class="c2"><a href="javascript:;" class="re" onclick="javascript:history.back();">返回上页</a><a href="/" class="home">网站首页</a></div>
 			<div class="c3">通过搜索把你想找的文章给揪出来吧...</div>
 		</div>';
-		}else{ echo '<div style="text-align:center;padding:10px 0;font-size:16px;background-color:#ffffff;">
-		<h2 style="font-size:36px;margin-bottom:10px;">哎呦卧槽~404了！帮我喂喂可怜的小仓鼠吧！</h2>
-  <br><br><br><embed width="290" height="230" src="https://o51bfbumd.qnssl.com/h5hamster.html" />
+} else {
+	$s = get_template_directory_uri() . '/extra/t-rex-runner/index.html';
+	echo '<div style="text-align:center;padding:10px 0;font-size:16px;background-color:#ffffff;">
+		<h2 style="font-size:36px;margin-bottom:10px;">哎呦卧槽~404了！按空格键玩个小恐龙吧！</h2>
+  <br><br><embed width="330" height="280" src="' . $s . '" />
 </div>';
 } ?>
-<?php if( git_get_option('git_404ad') ) echo git_get_option('git_404ad'); ?>
+<?php if ( git_get_option( 'git_404ad' ) ) {
+	echo git_get_option( 'git_404ad' );
+} ?>
 </div>
 <?php get_footer(); ?>
