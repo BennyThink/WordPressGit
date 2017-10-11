@@ -90,8 +90,6 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 				<?php } ?>
 			<?php } ?>
 		</div>
-
-
 	</form>
 	<?php } ?>
 </div>
