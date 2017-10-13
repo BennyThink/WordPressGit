@@ -1361,7 +1361,13 @@ class git_new extends WP_Widget {
 	        <?php if ( ! empty( git_get_option( 'git_channel' ) ) ): ?>
                 <li>
                     <a href="<?php
-			        echo git_get_option( 'git_channel' ); ?>">Telegram频道</a>
+			        echo git_get_option( 'git_channel' ); ?>">Telegram 频道</a>
+                </li>
+	        <?php endif; ?>
+	        <?php if ( ! empty( git_get_option( 'git_group' ) ) ): ?>
+                <li>
+                    <a href="<?php
+			        echo git_get_option( 'git_group' ); ?>">Telegram 群组</a>
                 </li>
 	        <?php endif; ?>
         </ul>

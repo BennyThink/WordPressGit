@@ -941,6 +941,13 @@ $options = array(
 		'type'  => 'text',
 		'std'   => ''
 	),
+	array(
+		'name'  => 'Telegram群地址',
+		'desc'  => '输入您的Telegram群地址',
+		'id'    => 'git_group',
+		'type'  => 'text',
+		'std'   => ''
+	),
     array(
         'name'  => '新浪微博 *',
         'desc'  => '填写新浪微博个人主页链接',
