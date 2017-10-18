@@ -1370,6 +1370,15 @@ class git_new extends WP_Widget {
 			        echo git_get_option( 'git_group' ); ?>">Telegram 群组</a>
                 </li>
 	        <?php endif; ?>
+	        <?php if ( git_get_option( 'git_snow_b' ) != 'git_snow_off' ): ?>
+                <li>
+                    <a href="javascript:void(0);"
+                       onclick="var child=document.getElementById('Snow');child.parentNode.removeChild(child);">
+                        <i class="fa fa-ban" aria-hidden="true"></i> <i class="fa fa-snowflake-o"
+                                                                        aria-hidden="true"></i>
+                    </a>
+                </li>
+	        <?php endif; ?>
         </ul>
 		<?php
 		echo $args['after_widget'];
