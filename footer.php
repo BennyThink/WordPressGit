@@ -123,6 +123,12 @@ echo '';}
         jQuery("#loading").fadeOut(500);
         console.info('%c Will you recall me?', "background: white; color: #16a085; padding-left:10px;");
     });
+
+    if (document.cookie.indexOf('snow') !== -1) {
+        var child = document.getElementById('Snow');
+        child.parentNode.removeChild(child);
+    }
+
 </script>
 <?php if(git_get_option(git_pangu)):?>
 <script src="<?= get_template_directory_uri()?>/js/pangu.min.js"></script>
