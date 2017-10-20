@@ -97,7 +97,16 @@ if ($dHasShare == true) {
 echo '';}
 ?>
 <script>
-	<?php
+    if (document.cookie.indexOf('snow') !== -1) {
+        var child = document.getElementById('Snow');
+        try {
+            child.parentNode.removeChild(child);
+        }
+        catch (err) {
+            console.log('%c Missing you...', "background: white; color: #4286f4; padding-left:10px;")
+        }
+    }
+<?php
 	if(git_get_option( 'git_notify_b' ) != ''):
 	$jsString = '"' . str_replace( ' ', '","', git_get_option( 'git_notify_b' ) ) . '"';?>
     $("html,body").click(function (e) {
@@ -123,6 +132,7 @@ echo '';}
         jQuery("#loading").fadeOut(500);
         console.info('%c Will you recall me?', "background: white; color: #16a085; padding-left:10px;");
     });
+
 </script>
 <?php if(git_get_option(git_pangu)):?>
 <script src="<?= get_template_directory_uri()?>/js/pangu.min.js"></script>
