@@ -382,6 +382,18 @@ $options = array(
         'id'    => 'git_xieti',
         'type'  => 'checkbox'
     ),
+	array(
+		'name'  => '链接',
+		'desc'  => '不显示',
+		'id'    => 'git_lianjie',
+		'type'  => 'checkbox'
+	),
+	array(
+		'name'  => '换行',
+		'desc'  => '不显示',
+		'id'    => 'git_huanhang',
+		'type'  => 'checkbox'
+	),
     array(
         'name'  => '签到',
         'desc'  => '不显示',
