@@ -3,12 +3,11 @@ QTags.addButton( 'hr', '横线', "<hr />\n" );//添加横线
 QTags.addButton( 'h2', 'H2标签', "<h2>", "</h2>\n" ); //添加标题2
 QTags.addButton( 'h3', 'H3标签', "<h3>", "</h3>\n" ); //添加标题3
 QTags.addButton( 'shsj', '首行缩进', "&nbsp;&nbsp;" );
-QTags.addButton( 'hc', '回车', "<br />" );
+QTags.addButton( 'hc', '回车', "<br>" );
 QTags.addButton( 'jz', '居中', "<center>","</center>" );
 QTags.addButton( 'mark', '黄字', "<mark>","</mark>" );
 QTags.addButton( 'xhx', '下划线', "<u>","</u>" );
 QTags.addButton( 'g</>', '</>', "&lt;", "&gt;" );
-QTags.addButton( 'br', '<br>', "<br>", "" );
 QTags.addButton( 'ipre', '代码高亮', '<pre class="prettyprint linenums" >\n\n</pre>', "" );//添加高亮代码
 QTags.addButton( 'ilinks', '链接按钮', "[dm href='']", "[/dm]" );
 QTags.addButton( 'idownload', '下载按钮', "[dl href='']", "[/dl]" );
