@@ -3058,5 +3058,11 @@ function copyright_date() {
 	return $output;
 }
 
+add_action( 'init', function () {
+	global $allowedtags;
+
+	$allowedtags['br']  = array();
+} );
+
 //WordPress函数代码结束,打算在本文件添加代码的建议参照这个方法：http://googlo.me/archives/4032.html
 ?>
