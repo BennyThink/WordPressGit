@@ -684,7 +684,7 @@ function refused_spam_comments($comment_data) {
         err(__('写点汉字吧，博主外语很捉急！You should type some Chinese word!'));
     }
     if (preg_match($jpattern, $comment_data['comment_content'])) {
-        err(__('日文滚粗！Japanese Get out！日本语出て行け！ You should type some Chinese word！'));
+        err(__('好きだ！写点汉字吧，博主不会日语！You should type some Chinese word！'));
     }
     return ($comment_data);
 }
@@ -2919,7 +2919,7 @@ function welcome_hello(){
     elseif(strstr($ben,$host)){
         $callback ="host";
     }
-    elseif (preg_match('/mingyueli.*/i', $host)) {
+    elseif (preg_match('/tougetu.*/i', $host)) {
         $callback = '您通过 <strong>小蜗牛</strong> 找到了我，么么哒棒棒的哟！';
     }
     elseif (preg_match('/baiducontent.*/i', $host)) {
