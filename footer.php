@@ -138,4 +138,4 @@ echo '';}
 <script src="<?= get_template_directory_uri()?>/js/smoothscroll.js" async></script>
 <?php endif;?>
 </body></html>
-<!--I'm always here... By Benny 2017-->
+<!--By Benny 2017🌙-->
