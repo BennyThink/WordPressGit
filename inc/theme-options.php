@@ -358,6 +358,12 @@ $options = array(
         'id'    => 'git_tietu',
         'type'  => 'checkbox'
     ),
+	array(
+		'name'  => '代码',
+		'desc'  => '不显示',
+		'id'    => 'git_code',
+		'type'  => 'checkbox'
+	),
     array(
         'name'  => '加粗',
         'desc'  => '不显示',
