@@ -378,7 +378,7 @@ $dHasShare = false;
 function deel_share() {
  if (!git_get_option('git_bdshare_b')) return false;
  //echo '<span class="action action-share bdsharebuttonbox"><i class="fa fa-share-alt"></i>分享 (<span class="bds_count" data-cmd="count" title="累计分享0次">0</span>)<div class="action-popover"><div class="popover top in"><div class="arrow"></div><div class="popover-content"><a href="#" class="sinaweibo fa fa-weibo" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone fa fa-star" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="tencentweibo fa fa-tencent-weibo" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="qq fa fa-qq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_renren fa fa-renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more fa fa-ellipsis-h" data-cmd="more"></a></div></div></div></span>';
-{  
+{
 echo '<br><div id="i-share" data-share-position="bottomCenter" class="action action-share bdsharebuttonbox" data-share-icon-style="box" data-share-networks="QQZone,Wechat,Weibo,Douban,Twitter,Facebook,Evernote">
 	<i class="i-share icon-share" aria-hidden="true"></i>分享:-)
 </div>
@@ -1514,12 +1514,12 @@ function baidu_record() {
 }
 endif;
 
-//主题自动更新服务 
-if (!git_get_option('git_updates_b')): 
-    require 'modules/updates.php'; 
+//主题自动更新服务
+if (!git_get_option('git_updates_b')):
+    require 'modules/updates.php';
     $example_update_checker = new ThemeUpdateChecker('WordPressGit-master',
-        'https://raw.githubusercontent.com/BennyThink/WordPressGit-master/master/info.json'
-    ); 
+        'https://raw.githubusercontent.com/BennyThink/WordPressGit/master/info.json'
+    );
 	$example_update_checker->checkForUpdates();
 endif; 
 
@@ -2580,7 +2580,7 @@ function e_secret( $atts, $content = null ) {
 	if ( isset( $_COOKIE['e_secret_pass'] ) ) {
 		return '
 <div class="e-secret"><fieldset>
-<legend>隐藏的内容</legend> 
+<legend>隐藏的内容</legend>
 ' . $content . '
 <div class="clear"></div></fieldset></div>';
 	} elseif ( isset( $_POST['e_secret_key'] ) && $_POST['e_secret_key'] == $key ) {
@@ -2768,22 +2768,22 @@ function performance( $visible = false ) {
 add_action( 'wp_footer', 'performance', 20 );
 
 function wpb_last_updated_date( $content ) {
-$u_time = get_the_time('U'); 
+$u_time = get_the_time('U');
 $u_modified_time = get_the_modified_time('U');
 $custom_content='';
-if ($u_modified_time >= $u_time + 86400) { 
+if ($u_modified_time >= $u_time + 86400) {
 $updated_date = get_the_modified_time('Y年m月d日');
-$updated_time = get_the_modified_time('H:i:s'); 
+$updated_time = get_the_modified_time('H:i:s');
 $custom_content .= '<div  class="sc_act">这篇文章在 '.
 $updated_date . $updated_time .' 更新了哦~</div>';
-} 
+}
 
     $custom_content .= $content;
     return $custom_content;
 }
 add_filter( 'the_content', 'wpb_last_updated_date' );
- 
- 
+
+
 /* 替换图片链接为 https */
 function my_content_manipulator($content){
     if( is_ssl() ){
@@ -2882,12 +2882,12 @@ function get_mypost_thumbnail($post_ID){
 	return $url;
 }
 
- 
- //取消内容转义 
+
+ //取消内容转义
 remove_filter('the_content', 'wptexturize');
 //取消摘要转义
 remove_filter('the_excerpt', 'wptexturize');
-//取消评论转义 
+//取消评论转义
 remove_filter('comment_text', 'wptexturize');
 
 //snow
