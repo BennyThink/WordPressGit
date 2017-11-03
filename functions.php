@@ -1518,7 +1518,7 @@ endif;
 if (!git_get_option('git_updates_b')): 
     require 'modules/updates.php'; 
     $example_update_checker = new ThemeUpdateChecker('WordPressGit-master',
-        'https://raw.githubusercontent.com/BennyThink/WordPressGit/master/info.json'
+        'https://raw.githubusercontent.com/BennyThink/WordPressGit-master/master/info.json'
     ); 
 	$example_update_checker->checkForUpdates();
 endif; 
@@ -2977,34 +2977,57 @@ function count_words($text)
 }
 
 /**
- * 头像：先QQ、再gravatar、最后是默认的
- * return img头像url，一定会获得头像url
+ * 头像：先QQ、再gravatar、最后是随机的、默认的
+ * return img标签
  **/
 function multiAvatar($email,$size = '54',$style){
 
     //return get_avatar($email, $size, deel_avatar_default());
 
     $yourUrl=home_url().'/';
-    $saveName='wp-content/themes/WordPressGit-master/cache/'.md5(strtolower(trim($email))).'.jpg';
-    clearstatcache();
-    $ct=1209600;
+    $saveNameJpg='wp-content/themes/WordPressGit-master/cache/'.md5(strtolower(trim($email))).'.jpg';
+	$saveNamePng='wp-content/themes/WordPressGit-master/cache/'.md5(strtolower(trim($email))).'.png';
 
-    if(git_get_option('git_newAvatar') && strpos($email,"@qq.com")){
-        //如果是QQ邮箱的话，测试缓存策略
-        if(file_exists($saveName) && (time()-filemtime($saveName))<$ct)
-            return '<img class="avatar" src="'.$yourUrl.$saveName.'" />';
-        else
-        {
-            //echo '文件不存在或者过期，重新获取';
-            $qqimg='https://q.qlogo.cn/g?b=qq&nk='.$email.'&s=100';
-            //保存图片
-            copy($qqimg,$saveName);
-            return '<img class="avatar" src="'.$yourUrl.$saveName.'" />';
-        }
-    }
+	clearstatcache();
+    $ct=604800;
 
-    else
-        return get_avatar($email, $size, deel_avatar_default());
+	if ( git_get_option( 'git_newAvatar' ) && strpos( $email, "@qq.com" ) ) {
+		//如果是QQ邮箱的话，测试缓存策略
+		if ( file_exists( $saveNameJpg ) && ( time() - filemtime( $saveNameJpg ) ) < $ct ) {
+			return '<img class="avatar" src="' . $yourUrl . $saveNameJpg . '" />';
+		} else {
+			//echo '文件不存在或者过期，重新获取';
+			$qqimg = 'https://q.qlogo.cn/g?b=qq&nk=' . $email . '&s=100';
+			//保存图片
+			copy( $qqimg, $saveNameJpg );
+
+			return '<img class="avatar" src="' . $yourUrl . $saveNameJpg . '" />';
+		}
+	} elseif ( file_exists( $saveNameJpg ) && ( time() - filemtime( $saveNameJpg ) ) < $ct ) {
+		//返回未超时的gravatar、已有缓存
+		return '<img class="avatar" src="' . $yourUrl . $saveNameJpg . '" />';
+	} else
+	{
+		//获取新的gravatar，并判断
+		$headers = @get_headers( 'https://www.gravatar.com/avatar/' . md5( strtolower( trim( $email ) ) ) . '?d=404' );
+		if ( preg_match( "/404/", $headers[0] ) ) {
+			// This code is a pile of shit!!
+			if ( file_exists( $saveNamePng ) && ( time() - filemtime( $saveNamePng ) ) < $ct ) {
+				return '<img class="avatar" src="' . $yourUrl . $saveNamePng . '" />';
+			} else {
+				//随机头像
+				$index = rand( 1, 25 );
+				copy( $yourUrl . 'wp-content/themes/WordPressGit-master/css/img/gravatar/' . $index . '.png', $saveNamePng );
+
+				return '<img class="avatar" src="' . $yourUrl . 'wp-content/themes/WordPressGit-master/css/img/gravatar/' . $index . '.png" />';
+			}
+		} else {
+			//返回gravatar
+			return get_avatar( $email, $size, deel_avatar_default() );
+			//copy( $yourUrl . 'usr/themes/GreenGrapes2/img/gravatar/0.jpg', $saveNameJpg );
+			//return '<img class="avatar" src="' . $yourUrl . 'usr/themes/GreenGrapes2/img/gravatar/0.jpg" />';
+		}
+	}
 
 
 }

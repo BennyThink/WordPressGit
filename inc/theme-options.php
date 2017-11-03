@@ -1273,7 +1273,7 @@ $options = array(
     ),
     array(
         'name'  => '混合头像系统',
-        'desc'  => '启用   【开启后，将会有限显示QQ头像，然后再是gravatar】',
+        'desc'  => '启用   【开启后，QQ头像->gravatar->随机头像】；关闭后，gravatar->随机头像',
         'id'    => "git_newAvatar",
         'type'  => 'checkbox'
     ),
@@ -1684,7 +1684,7 @@ function git_options_page() {
  
     <?php 
         if (function_exists('curl_init')) {
-            $url = "https://raw.githubusercontent.com/BennyThink/WordPressGit/master/notice.txt";
+            $url = "https://raw.githubusercontent.com/BennyThink/WordPressGit-master/master/notice.txt";
             $ch = curl_init(); 
             curl_setopt($ch, CURLOPT_URL, $url); 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
