@@ -1305,6 +1305,12 @@ $options = array(
 		),
 		'std'   => 'git_cursor1'
 	),
+	array(
+		'name'  => '自动为图片<img>添加A标签',
+		'desc'  => '启用    【这样图片默认就是自动带灯箱效果的了】',
+		'id'    => "git_pic_a",
+		'type'  => 'checkbox'
+	),
     array(
         'name'  => '网站禁止复制',
         'desc'  => '启用    【启用后访客无法使用右键复制】',

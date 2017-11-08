@@ -128,7 +128,11 @@ echo '';}
         var child = document.getElementById('Snow');
         child.parentNode.removeChild(child);
     }
-
+	<?php if(git_get_option( 'git_pic_a' )):?>
+    $('img').wrap(function () {
+        return '<a href="' + this.src + '" rel="box" class="fancybox"></a>';
+    });
+	<?php endif;?>
 </script>
 <?php if(git_get_option(git_pangu)):?>
 <script src="<?= get_template_directory_uri()?>/js/pangu.min.js"></script>
