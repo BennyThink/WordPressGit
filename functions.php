@@ -3100,7 +3100,7 @@ if ( git_get_option( 'git_article_list' ) && ! bt_is_mobile() ) {
 	function article_index( $content ) {
 		$matches = array();
 		$ul_li   = '';
-		$r       = "/<h2>([^<]+)<\/h2>/im";
+		$r       = "/<h2>(.*)([^<]+)<\/h2>/im";
 		if ( is_singular() && preg_match_all( $r, $content, $matches ) ) {
 			foreach ( $matches[1] as $num => $title ) {
 				$title   = trim( strip_tags( $title ) );
