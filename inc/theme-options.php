@@ -477,6 +477,12 @@ $options = array(
         'id'    => 'git_auther_b',
         'type'  => 'checkbox'
     ),
+	array(
+		'name'  => '文章目录索引',
+		'desc'  => '启用  【开启之后，默认索引文章H2标题】',
+		'id'    => 'git_article_list',
+		'type'  => 'checkbox'
+	),
     array(
         'name'  => '留言链接二维码',
         'desc'  => '启用  【开启之后，您的留言者的网站会生成一个二维码】',

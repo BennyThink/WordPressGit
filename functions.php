@@ -3093,5 +3093,33 @@ add_action( 'init', function () {
 //add_action( 'init', function () {
 //	echo allowed_tags();
 //} );
+
+
+//文章目录,来自露兜,云落修改
+if(git_get_option('git_article_list')  ){
+	function article_index( $content ) {
+		$matches = array();
+		$ul_li   = '';
+		$r       = "/<h2>([^<]+)<\/h2>/im";
+		if ( is_singular() && preg_match_all( $r, $content, $matches ) ) {
+			foreach ( $matches[1] as $num => $title ) {
+				$title   = trim( strip_tags( $title ) );
+				$content = str_replace( $matches[0][ $num ], '<h2 id="title-' . $num . '">' . $title . '</h2>', $content );
+				$ul_li   .= '<li><a href="#title-' . $num . '">' . $title . "</a></li>\n";
+			}
+			$content = '<div id="article-index">
+                            <strong>文章目录<a id="content-index-togglelink" href="javascript:toggleToc()" class="hidetoc">[隐藏]</a></strong>
+                            <ul id="index-ul">' . $ul_li . '</ul>
+                        </div>' . $content;
+		}
+
+		echo '<script>function toggleToc(){var a="[显示]",b="[隐藏]";window.content_index_showTocToggle?(window.content_index_showTocToggle=!1,document.getElementById("index-ul").style.display="block",document.getElementById("content-index-togglelink").innerHTML=b):(window.content_index_showTocToggle=!0,document.getElementById("index-ul").style.display="none",document.getElementById("content-index-togglelink").innerHTML=a)}window.content_index_showTocToggle=!1;</script>';
+
+		return $content;
+	}
+	add_filter( 'the_content', 'article_index' );
+}
+
 //WordPress函数代码结束,打算在本文件添加代码的建议参照这个方法：http://googlo.me/archives/4032.html
 ?>
+
