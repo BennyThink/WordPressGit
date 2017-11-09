@@ -2980,7 +2980,7 @@ function count_words($text)
  * 头像：先QQ、再gravatar、最后是随机的、默认的
  * return img标签
  **/
-function multiAvatar($email,$size = '54',$style){
+function multiAvatar($email,$size = '54'){
 
     //return get_avatar($email, $size, deel_avatar_default());
 
