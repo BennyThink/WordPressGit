@@ -3096,7 +3096,7 @@ add_action( 'init', function () {
 
 
 //文章目录,来自露兜,云落修改
-if(git_get_option('git_article_list')  ){
+if ( git_get_option( 'git_article_list' ) && ! bt_is_mobile() ) {
 	function article_index( $content ) {
 		$matches = array();
 		$ul_li   = '';
