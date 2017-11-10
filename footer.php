@@ -134,7 +134,7 @@ echo '';}
     });
 
     <?php endif;?>
-<?php if ( git_get_option( 'git_article_list' ) && ! bt_is_mobile() ):?>
+<?php if ( git_get_option( 'git_article_list' ) ):?>
     window.content_index_showTocToggle = false;
     document.getElementById("index-ul").style.display = "none";
     function toggleToc() {

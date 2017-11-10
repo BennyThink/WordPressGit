@@ -3096,7 +3096,7 @@ add_action( 'init', function () {
 
 
 //文章目录,来自露兜,云落修改
-if ( git_get_option( 'git_article_list' ) && ! bt_is_mobile() ) {
+if ( git_get_option( 'git_article_list' )) {
 	function article_index( $content ) {
 		$matches = array();
 		$ul_li   = '';
@@ -3105,7 +3105,7 @@ if ( git_get_option( 'git_article_list' ) && ! bt_is_mobile() ) {
 			foreach ( $matches[1] as $num => $title ) {
 				$title   = trim( strip_tags( $title ) );
 				$content = str_replace( $matches[0][ $num ], '<h2 id="title-' . $num . '">' . $title . '</h2>', $content );
-				$ul_li   .= '<li><a href="#title-' . $num . '">' . $title . "</a></li>\n";
+				$ul_li   .= '<i class="fa fa-ravelry" aria-hidden="true"></i> <a href="#title-' . $num . '">' . $title . "</a><br>\n";
 			}
 			$content = '<div id="article-index">
                             <strong>文章目录<a id="content-index-togglelink" href="javascript:toggleToc()" class="hidetoc">[显示]</a></strong>
