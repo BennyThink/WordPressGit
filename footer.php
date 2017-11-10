@@ -136,7 +136,9 @@ echo '';}
     <?php endif;?>
 <?php if ( git_get_option( 'git_article_list' ) ):?>
     window.content_index_showTocToggle = false;
-    document.getElementById("index-ul").style.display = "none";
+    if (document.getElementById("index-ul") !== null)
+        document.getElementById("index-ul").style.display = "none";
+
     function toggleToc() {
         var tts = "[显示]";
         var tth = "[隐藏]";
