@@ -129,7 +129,7 @@ echo '';}
         child.parentNode.removeChild(child);
     }
 	<?php if(git_get_option( 'git_pic_a' )):?>
-    $('img').wrap(function () {
+    $('article.article-content img').wrap(function () {
         return '<a href="' + this.src + '" rel="box" class="fancybox"></a>';
     });
 
