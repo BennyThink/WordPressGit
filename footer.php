@@ -162,10 +162,13 @@ echo '';}
 <?php if(git_get_option(git_scroll)):?>
 <script src="<?= get_template_directory_uri()?>/js/smoothscroll.js" async></script>
 <?php endif;?>
-
-
-
-
-
+<?php if(git_get_option('git_type_colorful')):?>
+    <script src="<?= get_template_directory_uri()?>/js/typing.js"></script>
+    <script type="text/javascript">
+        POWERMODE.colorful = true;
+        POWERMODE.shake = false;
+        document.body.addEventListener('input', POWERMODE);
+    </script>
+<?php endif;?>
 </body></html>
 <!--By Benny 2017🌙-->

@@ -1312,9 +1312,15 @@ $options = array(
 		'std'   => 'git_cursor1'
 	),
 	array(
-		'name'  => '自动为图片<img>添加A标签',
+		'name'  => '自动为图片添加A标签',
 		'desc'  => '启用    【这样图片默认就是自动带灯箱效果的了】',
 		'id'    => "git_pic_a",
+		'type'  => 'checkbox'
+	),
+	array(
+		'name'  => '启用彩虹打字特效',
+		'desc'  => '启用    【让彩虹出现】',
+		'id'    => "git_type_colorful",
 		'type'  => 'checkbox'
 	),
     array(
