@@ -3108,12 +3108,10 @@ if ( git_get_option( 'git_article_list' ) && ! bt_is_mobile() ) {
 				$ul_li   .= '<li><a href="#title-' . $num . '">' . $title . "</a></li>\n";
 			}
 			$content = '<div id="article-index">
-                            <strong>文章目录<a id="content-index-togglelink" href="javascript:toggleToc()" class="hidetoc">[隐藏]</a></strong>
+                            <strong>文章目录<a id="content-index-togglelink" href="javascript:toggleToc()" class="hidetoc">[显示]</a></strong>
                             <ul id="index-ul">' . $ul_li . '</ul>
                         </div>' . $content;
 		}
-
-		echo '<script>function toggleToc(){var a="[显示]",b="[隐藏]";window.content_index_showTocToggle?(window.content_index_showTocToggle=!1,document.getElementById("index-ul").style.display="block",document.getElementById("content-index-togglelink").innerHTML=b):(window.content_index_showTocToggle=!0,document.getElementById("index-ul").style.display="none",document.getElementById("content-index-togglelink").innerHTML=a)}window.content_index_showTocToggle=!1;</script>';
 
 		return $content;
 	}

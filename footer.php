@@ -132,7 +132,26 @@ echo '';}
     $('img').wrap(function () {
         return '<a href="' + this.src + '" rel="box" class="fancybox"></a>';
     });
-	<?php endif;?>
+
+    <?php endif;?>
+<?php if ( git_get_option( 'git_article_list' ) && ! bt_is_mobile() ):?>
+    window.content_index_showTocToggle = false;
+    document.getElementById("index-ul").style.display = "none";
+    function toggleToc() {
+        var tts = "[显示]";
+        var tth = "[隐藏]";
+        if (window.content_index_showTocToggle) {
+            window.content_index_showTocToggle = false;
+
+            document.getElementById("index-ul").style.display = "none";
+            document.getElementById("content-index-togglelink").innerHTML = tts
+        } else {
+            window.content_index_showTocToggle = true;
+            document.getElementById("index-ul").style.display = "block";
+            document.getElementById("content-index-togglelink").innerHTML = tth
+        }
+    }
+<?php endif;?>
 </script>
 <?php if(git_get_option(git_pangu)):?>
 <script src="<?= get_template_directory_uri()?>/js/pangu.min.js"></script>
@@ -141,5 +160,10 @@ echo '';}
 <?php if(git_get_option(git_scroll)):?>
 <script src="<?= get_template_directory_uri()?>/js/smoothscroll.js" async></script>
 <?php endif;?>
+
+
+
+
+
 </body></html>
 <!--By Benny 2017🌙-->

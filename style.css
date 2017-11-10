@@ -8934,43 +8934,9 @@ input {
     line-height: 150% !important
 }
 
-#article-index {
-    position: fixed;
-    left: 2%;
-    float: left;
-    display: none;
-    margin: 0 0 15px -2px;
-    padding: 0 6px;
-    width: 14%;
-    border: 1px solid #dedfe1;
-    -moz-border-radius: 6px 6px 6px 6px;
-    background-color: #fff;
-    line-height: 1.4375rem
-}
-
-#article-index strong {
-    display: block;
-    padding: 0 4px;
-    border-bottom: 1px dashed #DDD;
-    line-height: 1.875rem
-}
-
-#index-ul {
-    margin: 0;
-    padding-bottom: 10px
-}
-
-#index-ul li {
-    margin-left: 20px;
-    padding: 0;
-    background: none repeat scroll 0 0 transparent;
-    list-style: none
-}
-
 .hidetoc {
-    right: 0;
-    float: right;
-    color: #BBB !important;
+
+    color: #bb5787 !important;
     cursor: pointer
 }
 
@@ -9131,19 +9097,7 @@ input {
     max-height: 22px
 }
 
-@media screen and (max-width: 1500px) {
-    #article-index {
-        display: none !important
-    }
-}
 
-@media screen and (min-width: 1500px) and (max-width: 1600px) {
-    #article-index {
-        display: block;
-        left: .5%;
-        width: 9.5%
-    }
-}
 
 @media screen and (min-width: 1000px) {
     .mobileads, .shuoshuo-sjsj {
@@ -9692,9 +9646,7 @@ input {
         display: none
     }
 
-    #article-index, ul.post-meta-bottom {
-        display: none !important
-    }
+
 
     .header {
         position: relative
