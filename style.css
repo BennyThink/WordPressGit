@@ -4869,13 +4869,13 @@ a.badge-inverse:hover .label-arrow, a.label-inverse:hover .label-arrow {
 
 .article-content li:before {
     display: inline-block;
-    width: 20px;
+    width: 15px;
     height: 0;
-    color: #bbb;
-    content: "\f192";
+    color: #0b6f2b;
+    content: "\25CF";
     font-weight: 400;
     font-style: normal;
-    font-size: .75rem;
+    font-size: 1.20rem;
     font-family: FontAwesome;
     line-height: 1.875rem;
     -webkit-font-smoothing: antialiased
