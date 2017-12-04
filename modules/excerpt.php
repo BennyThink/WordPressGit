@@ -30,7 +30,7 @@ while (have_posts()):
         if ($category[0]) {
             echo '<a class="label label-important" href="' . get_category_link($category[0]->term_id) . '">' . $category[0]->cat_name . '<i class="label-arrow"></i></a>';
         }
-    }; ?><h2><a target="_blank" href="<?php
+    }; ?><h2><a class="baffle" target="_blank" href="<?php
     the_permalink() ?>" title="<?php
     the_title(); ?>"><?php
     the_title(); ?>

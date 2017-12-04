@@ -159,6 +159,11 @@ echo '';}
 <script src="<?= get_template_directory_uri()?>/js/pangu.min.js"></script>
 <script> pangu.spacingPage(); </script>
 <?php endif;?>
+<?php if ( git_get_option( 'git_baffle_b' ) ): ?>
+    <script src="<?= get_template_directory_uri() ?>/js/baffle.min.js"></script>
+    <script>const title = baffle('.baffle').start();
+        title.reveal(3000);</script>
+<?php endif; ?>
 <?php if(git_get_option(git_scroll)):?>
 <script src="<?= get_template_directory_uri()?>/js/smoothscroll.js" async></script>
 <?php endif;?>

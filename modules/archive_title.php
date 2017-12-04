@@ -34,7 +34,7 @@ while (have_posts()):
         }
     };
 ?>
-		<h2><a target="_blank" href="<?php
+		<h2><a class="baffle" target="_blank" href="<?php
     the_permalink() ?>" title="<?php
     the_title(); ?> - <?php
     bloginfo('name'); ?>"><?php

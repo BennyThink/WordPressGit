@@ -1422,6 +1422,12 @@ $options = array(
 		'type'  => 'text',
 		'std'   => '我 喜欢 你 笨蛋'
 	),
+	array(
+		'name'  => 'baffle特效',
+		'desc'  => '就是一个让标题从乱码到正常的特效啦',
+		'id'    => "git_baffle_b",
+		'type'  => 'checkbox',
+	),
     array(
         'name'  => 'HTML代码压缩',
         'desc'  => '启用 【开启后，将压缩网页HTML代码，可读性会降低，但是性能略有提升】',
