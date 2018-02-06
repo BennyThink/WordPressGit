@@ -14,8 +14,8 @@
     font-weight: 400;
     font-style: normal;
     font-family: FontAwesome;
-    src: url(css/fonts/fontawesome-webfont.eot?v=4.1.0);
-    src: url(css/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0) format('embedded-opentype'), url(css/fonts/fontawesome-webfont.woff?v=4.1.0) format('woff'), url(css/fonts/fontawesome-webfont.ttf?v=4.1.0) format('truetype'), url(css/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular) format('svg')
+    src: url(fonts/fontawesome-webfont.eot?v=4.1.0);
+    src: url(fonts/fontawesome-webfont.eot?#iefix&v=4.1.0) format('embedded-opentype'), url(fonts/fontawesome-webfont.woff?v=4.1.0) format('woff'), url(fonts/fontawesome-webfont.ttf?v=4.1.0) format('truetype'), url(fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular) format('svg')
 }
 
 .fa {
