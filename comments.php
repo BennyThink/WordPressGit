@@ -113,3 +113,5 @@ if ( have_comments() ) {
 <?php
 }
 ?>
+<?php if ( git_get_option( git_v2mm ) )
+	echo git_get_option( 'git_v2mm' ); ?>

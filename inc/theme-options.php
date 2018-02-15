@@ -515,6 +515,13 @@ $options = array(
         'type'  => 'textarea',
         'std'   => '乐趣公园 , 版权所有丨如未注明 , 均为原创丨本网站采用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="nofollow" target="_blank" title="BY-NC-SA授权协议">BY-NC-SA</a>协议进行授权 , 转载请注明<a href="{{link}}" target="_blank" title="{{title}}">{{title}}</a>！'
     ),
+
+	array(
+		'name'  => '自定义评论框',
+		'desc'  => '自定义评论框代码',
+		'id'    => "git_v2mm",
+		'type'  => 'textarea',
+	),
     array(
         'type'  => 'panelend'
     ),
