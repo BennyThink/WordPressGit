@@ -68,7 +68,12 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 					<div class="comt-tips pull-right"><?php comment_id_fields(); do_action('comment_form', $post->ID); ?></div>
 					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> 表情</span>
 					<?php if(!git_get_option('git_tietu')) echo '<span class="muted ml5 comt-img"><i class="fa fa-picture-o"></i><a href="javascript:SIMPALED.Editor.img()" style="color:#999999"> 贴图</a></span>';?>
-					<?php if(!git_get_option('git_code')) echo '<span class="muted ml5 comt-italic"><i class="fa fa-code"></i><a href="javascript:SIMPALED.Editor.code()" style="color:#999999"> 代码</a></span>';?>
+					<?php if ( ! git_get_option( 'git_code' ) ): ?>
+                        <span class="muted ml5 comt-italic"><i class="fa fa-code"></i><a
+                                    href="javascript:SIMPALED.Editor.code()" style="color:#999999"> 代码</a></span>;?>
+                        <i class="fa fa-paste"></i><a
+                                href="javascript:window.open('https://pastebin.com/','','menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,,scrollbars=yes')"
+                                style="color:#999999">PasteBin</a></span><?php endif; ?>
 					<?php if(!git_get_option('git_jiacu')) echo '<span class="muted ml5 comt-strong"><i class="fa fa-bold"></i><a href="javascript:SIMPALED.Editor.strong()" style="color:#999999"> 加粗</a></span>';?>
 					<?php if(!git_get_option('git_shanchu')) echo '<span class="muted ml5 comt-del"><i class="fa fa-strikethrough"></i><a href="javascript:SIMPALED.Editor.del()" style="color:#999999"> 删除线</a></span>';?>
 					<?php if(!git_get_option('git_juzhong')) echo '<span class="muted ml5 comt-center"><i class="fa fa-align-center"></i><a href="javascript:SIMPALED.Editor.center()" style="color:#999999"> 居中</a></span>';?>
