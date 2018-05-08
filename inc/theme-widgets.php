@@ -1363,6 +1363,14 @@ class git_new extends WP_Widget {
                 <li>
                     <a href="javascript:void(0);"
                        onclick="for(var i=0;i<document.styleSheets.length;i++)try{if(-1!==document.styleSheets[i].rules[0].cssText.indexOf('grayscale')){document.styleSheets[i].disabled=!0;break}}catch(err){}">关闭黑白</a>
+	                <?php
+	                $arr = explode( ',', git_get_option( 'git_MemorialDay' ) );
+	                foreach ( $arr as $each_day ) {
+		                $new = ltrim( rtrim( $each_day ) );
+		                if ( count( explode( ' ', $new ) ) != 1 && strpos( $new, date( 'm-d', time() ) ) === 0 )
+			                echo '：'.substr( $new, 6 );
+	                }
+	                ?>
                 </li>
 	        <?php endif; ?>
 
