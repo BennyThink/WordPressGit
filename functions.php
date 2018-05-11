@@ -3016,7 +3016,7 @@ function multiAvatar($email,$size = '54'){
 				return '<img class="avatar" src="' . $yourUrl . $saveNamePng . '" />';
 			} else {
 				//随机头像
-				$index = rand( 1, 25 );
+				$index = rand( 1, 19 );
 				copy( $yourUrl . 'wp-content/themes/WordPressGit-master/css/img/gravatar/' . $index . '.png', $saveNamePng );
 
 				return '<img class="avatar" src="' . $yourUrl . 'wp-content/themes/WordPressGit-master/css/img/gravatar/' . $index . '.png" />';
