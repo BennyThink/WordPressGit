@@ -47,12 +47,12 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 			<div class="comt-author pull-left">
 			<?php
 				if ( is_user_logged_in() ) {
-					printf($user_identity.'<span>发表我的评论</span>');
+					printf($user_identity.'<span>发表我的评论（代码和日志请使用Pastebin或Gist）</span>');
 				}else{
 					if( get_option('require_name_email') && !empty($comment_author_email) ){
-						printf($comment_author.' <span>发表我的评论</span> &nbsp; <a class="switch-author" href="javascript:;" data-type="switch-author" style="font-size:12px;">换个身份</a>');
+						printf($comment_author.' <span>发表我的评论（代码和日志请使用Pastebin或Gist）</span> &nbsp; <a class="switch-author" href="javascript:;" data-type="switch-author" style="font-size:12px;">换个身份</a>');
 					}else{
-						printf('发表我的评论');
+						printf('发表我的评论（代码和日志请使用Pastebin或Gist）');
 					}
 				}
 			?>
@@ -66,21 +66,25 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 				<div class="comt-ctrl">
 					<button class="btn btn-primary pull-right" type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-check-square-o"></i> 提交评论</button>
 					<div class="comt-tips pull-right"><?php comment_id_fields(); do_action('comment_form', $post->ID); ?></div>
-					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> 表情</span>
-					<?php if(!git_get_option('git_tietu')) echo '<span class="muted ml5 comt-img"><i class="fa fa-picture-o"></i><a href="javascript:SIMPALED.Editor.img()" style="color:#999999"> 贴图</a></span>';?>
+					<span data-type="comment-insert-smilie" title="表情" class="muted comt-smilie"><i class="fa fa-smile-o"></i>&nbsp;</span>
+					<?php if(!git_get_option('git_tietu')) echo '<span class="muted ml5 comt-img"><a href="javascript:SIMPALED.Editor.img()" style="color:#999999" title="贴图"><i class="fa fa-picture-o"></i>&nbsp;</a></span>';?>
 					<?php if ( ! git_get_option( 'git_code' ) ): ?>
-                        <span class="muted ml5 comt-italic"><i class="fa fa-code"></i><a
-                                    href="javascript:SIMPALED.Editor.code()" style="color:#999999"> 代码</a></span>;?>
-                        <i class="fa fa-paste"></i><a
-                                href="javascript:window.open('https://pastebin.com/','','menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,,scrollbars=yes')"
-                                style="color:#999999">PasteBin</a></span><?php endif; ?>
-					<?php if(!git_get_option('git_jiacu')) echo '<span class="muted ml5 comt-strong"><i class="fa fa-bold"></i><a href="javascript:SIMPALED.Editor.strong()" style="color:#999999"> 加粗</a></span>';?>
-					<?php if(!git_get_option('git_shanchu')) echo '<span class="muted ml5 comt-del"><i class="fa fa-strikethrough"></i><a href="javascript:SIMPALED.Editor.del()" style="color:#999999"> 删除线</a></span>';?>
-					<?php if(!git_get_option('git_juzhong')) echo '<span class="muted ml5 comt-center"><i class="fa fa-align-center"></i><a href="javascript:SIMPALED.Editor.center()" style="color:#999999"> 居中</a></span>';?>
-					<?php if(!git_get_option('git_xieti')) echo '<span class="muted ml5 comt-italic"><i class="fa fa-italic"></i><a href="javascript:SIMPALED.Editor.italic()" style="color:#999999"> 斜体</a></span>';?>
-					<?php if(!git_get_option('git_lianjie')) echo '<span class="muted ml5 comt-italic"><i class="fa fa-link" aria-hidden="true"></i><a href="javascript:SIMPALED.Editor.ahref()" style="color:#999999"> 链接</a></span>';?>
-                    <?php if(!git_get_option('git_huanhang')) echo '<span class="muted ml5 comt-italic"><i class="fa fa-lemon-o" aria-hidden="true"></i><a href="javascript:SIMPALED.Editor.br()" style="color:#999999"> 换行</a></span>';?>
-                    <?php if(!git_get_option('git_qiandao')) echo '<span class="muted ml5 comt-sign"><i class="fa fa-pencil-square-o"></i><a href="javascript:SIMPALED.Editor.daka()" style="color:#999999"> 签到</a></span>';?>
+                        <span class="muted ml5 comt-italic"><a href="javascript:SIMPALED.Editor.code()"
+                                                               style="color:#999999" title="代码块"><i class="fa fa-code"></i>&nbsp;</a></span>
+                        <span class="muted ml5 comt-italic"><a
+                                    href="javascript:window.open('https://pastebin.com/','','menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,,scrollbars=yes')"
+                                    title="Pastebin" style="color:#999999"><i class="fa fa-paste"></i>&nbsp;</a></span>
+                        <span class="muted ml5 comt-italic"><a
+                                    href="javascript:window.open('https://gist.github.com/','','menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,,scrollbars=yes')"
+                                    title="GitHub Gist" style="color:#999999"><i class="fa fa-github-alt"></i>&nbsp;</a></span>
+					<?php endif; ?>
+					<?php if(!git_get_option('git_jiacu')) echo '<span class="muted ml5 comt-strong"><a href="javascript:SIMPALED.Editor.strong()" title="粗体"style=" color:#999999"><i class="fa fa-bold"></i>&nbsp;</a></span>';?>
+					<?php if(!git_get_option('git_shanchu')) echo '<span class="muted ml5 comt-del"><a href="javascript:SIMPALED.Editor.del()" title="删除线" style="color:#999999"><i class="fa fa-strikethrough"></i>&nbsp;</a></span>';?>
+					<?php if(!git_get_option('git_juzhong')) echo '<span class="muted ml5 comt-center"><a href="javascript:SIMPALED.Editor.center()" title="居中" style="color:#999999"><i class="fa fa-align-center"></i>&nbsp;</a></span>';?>
+					<?php if(!git_get_option('git_xieti')) echo '<span class="muted ml5 comt-italic"><a href="javascript:SIMPALED.Editor.italic()" title="斜体" style="color:#999999"><i class="fa fa-italic"></i>&nbsp;</a></span>';?>
+					<?php if(!git_get_option('git_lianjie')) echo '<span class="muted ml5 comt-italic"><a href="javascript:SIMPALED.Editor.ahref()" title="链接" style="color:#999999"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;</a></span>';?>
+                    <?php if(!git_get_option('git_huanhang')) echo '<span class="muted ml5 comt-italic"><a href="javascript:SIMPALED.Editor.br()" title="换行" style="color:#999999"><i class="fa fa-lemon-o" aria-hidden="true"></i>&nbsp;</a></span>';?>
+                    <?php if(!git_get_option('git_qiandao')) echo '<span class="muted ml5 comt-sign"><a href="javascript:SIMPALED.Editor.daka()" title="签到" style="color:#999999"><i class="fa fa-pencil-square-o"></i>&nbsp;</a></span>';?>
 				</div>
 			</div>
 
