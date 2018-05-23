@@ -20,9 +20,13 @@ Demo请见[土豆不好吃](https://www.bennythink.com)
 * 动态格言
 刷新一次，就出现一个新的格言，附加到公告栏里，哇~
 
+以及各种细节上的改进
+
 ## TODO ##
 - [ ] Google Chrome Web通知
-- [ ] 修复移动版评论嵌套问题，目前暂时的方案是`git checkout a29642cdc2e631241376086e165aaaff131c549d`，这个commit略有bug。
+- [x] 修复移动版评论嵌套问题，把间隔改小，最多嵌套三层这也就差不多了
+- [ ] 迁移到fontawesome 5
+
 ## 疑难解答 ##
 1.HTTPS
 HTTPS站点按理说不进行任何修改就可以的，如果出现mix content，那请给我反馈（Chrome控制台）
