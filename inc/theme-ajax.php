@@ -26,19 +26,58 @@ $comment_author_url   = ( isset( $_POST['url'] ) ) ? trim( $_POST['url'] ) : nul
 $comment_content      = ( isset( $_POST['comment'] ) ) ? trim( $_POST['comment'] ) : null;
 $edit_id              = ( isset( $_POST['edit_id'] ) ) ? $_POST['edit_id'] : null; // 提取 edit_id
 //code injection fix
-$group = [
-	"<code>"   => "</code>",
-	"<strong>" => "</strong>",
-	"<del>"    => "</del>",
-	"<center>" => "</center>",
-	"<em>"     => "</em>",
+
+$comment_content = htmlspecialchars( $comment_content );
+// except for img
+$turned    = [
+	'&lt;code&gt;',
+	'&lt;/code&gt;',
+	'&lt;strong&gt;',
+	'&lt;/strong&gt;',
+	'&lt;em&gt;',
+	'&lt;/em&gt;',
+	'&lt;del&gt;',
+	'&lt;/del&gt;',
+	'&lt;center&gt;',
+	'&lt;/center&gt;',
+	'&lt;br&gt;',
+	'&lt;a href=\&quot;',
+	'\&quot;&gt;',
+	'&lt;/a&gt;'
+];
+$turn_back = [
+	'<code>',
+	'</code>',
+	'<strong>',
+	'</strong>',
+	'<em>',
+	'</em>',
+	'<del>',
+	'</del>',
+	'<center>',
+	'</center>',
+	'<br>',
+	'<a href="',
+	'">',
+	'</a>'
 ];
 
-foreach ( $group as $k => $v ) {
-	if ( stristr( $comment_content, $k ) && ! stristr( $comment_content, $v ) ) {
-		$comment_content = str_replace( $k, '', $comment_content );
-	}
-}
+
+$comment_content = str_replace( $turned, $turn_back, $comment_content );
+
+$param           = array(
+	'html'     => $comment_content, //必填
+	'options'  => array(),
+	'tagArray' => array(),
+	'type'     => 'NEST',
+	'length'   => null,
+	'lowerTag' => true,
+	'XHtmlFix' => true,
+);
+$comment_content = fixHtmlTag( $param );
+
+
+/////////
 
 // If the user is logged in
 $user = wp_get_current_user();
