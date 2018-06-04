@@ -1359,7 +1359,7 @@ class git_new extends WP_Widget {
                 <a href="<?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?>"><?php _e( 'Comments <abbr title="Really Simple Syndication">RSS</abbr>' ); ?></a>
             </li>
 
-	        <?php  if(strpos(git_get_option('git_MemorialDay'),date('m-d',time()))):?>
+	        <?php  if(strstr(git_get_option('git_MemorialDay'),date('m-d',time()))):?>
                 <li>
                     <a href="javascript:void(0);"
                        onclick="for(var i=0;i<document.styleSheets.length;i++)try{if(-1!==document.styleSheets[i].rules[0].cssText.indexOf('grayscale')){document.styleSheets[i].disabled=!0;break}}catch(err){}">关闭黑白</a>
