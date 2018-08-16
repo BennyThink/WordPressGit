@@ -101,7 +101,7 @@ if(strstr(git_get_option('git_MemorialDay'),date('m-d',time()))):?>
 <link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
 <link href="<?= get_template_directory_uri();?>/css/font-awesome.min.css" rel="stylesheet" />
 <!-- needPopup Javascript file -->
-<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" ></script>
+<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" async></script>
 <script src="<?= get_template_directory_uri();?>/js/notice.js"></script>
 <!-- needPopup CSS file -->
 <link href="<?= get_template_directory_uri();?>/css/needsharebutton.min.css" rel="stylesheet" />
