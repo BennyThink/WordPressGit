@@ -100,11 +100,12 @@ if(strstr(git_get_option('git_MemorialDay'),date('m-d',time()))):?>
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
 <link href="<?= get_template_directory_uri();?>/css/font-awesome.min.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'"/>
-<!-- needPopup Javascript file -->
-<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" async></script>
 <script src="<?= get_template_directory_uri();?>/js/notice.js"></script>
-<!-- needPopup CSS file -->
-<link href="<?= get_template_directory_uri();?>/css/needsharebutton.min.css" rel="stylesheet" />
+<!-- needPopup Javascript/CSS file -->
+<?php if(!is_home()):?>
+	<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" async></script>
+	<link href="<?= get_template_directory_uri();?>/css/needsharebutton.min.css" rel="stylesheet" />
+<?php endif;?>
 <?php if(git_get_option(git_snow_b)=='git_pc_only' ||
     git_get_option(git_snow_b)=='git_all'):?>
 <link href="<?= get_template_directory_uri();?>/css/Snow.css" rel="stylesheet" />
