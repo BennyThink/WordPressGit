@@ -4872,10 +4872,10 @@ a.badge-inverse:hover .label-arrow, a.label-inverse:hover .label-arrow {
     width: 15px;
     height: 0;
     color: #0b6f2b;
-    content: "\25CF";
+    content: "\f192";
     font-weight: 400;
     font-style: normal;
-    font-size: 1.20rem;
+    font-size: .75rem;
     font-family: FontAwesome;
     line-height: 1.875rem;
     -webkit-font-smoothing: antialiased
