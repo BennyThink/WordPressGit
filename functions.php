@@ -3316,6 +3316,29 @@ function fixHtmlTag( $param = array() ) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+function wpassist_remove_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+} 
+add_action( 'wp_enqueue_scripts', 'wpassist_remove_block_library_css' );
+
+
+
+
+
+
+
 //WordPress函数代码结束,打算在本文件添加代码的建议参照这个方法：http://googlo.me/archives/4032.html
 ?>
 
