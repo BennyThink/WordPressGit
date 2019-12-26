@@ -104,7 +104,7 @@ if(strstr(git_get_option('git_MemorialDay'),date('m-d',time()))):?>
 <script src="<?= home_url()?>/wp-includes/js/comment-reply.min.js"></script>
 <!-- needPopup Javascript/CSS file -->
 <?php if(!is_home()):?>
-	<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" async></script>
+	<script src="<?= get_template_directory_uri();?>/js/needsharebutton.min.js" ></script>
 	<link href="<?= get_template_directory_uri();?>/css/needsharebutton.min.css" rel="stylesheet" />
 <?php endif;?>
 <?php if(git_get_option(git_snow_b)=='git_pc_only' ||

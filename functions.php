@@ -573,7 +573,7 @@ function deel_add_checkbox() {
 function time_ago($type = 'commennt', $day = 7) {
     $d = $type == 'post' ? 'get_post_time' : 'get_comment_time';
     if (time() - $d('U') > 60 * 60 * 24 * $day) return;
-    echo ' (', human_time_diff($d('U') , strtotime(current_time('mysql', 0))) , '前)';
+    echo ' (', human_time_diff($d('U',true) , strtotime(current_time('mysql', 0))) , '前)';
 }
 function timeago($ptime) {
     $ptime = strtotime($ptime);
