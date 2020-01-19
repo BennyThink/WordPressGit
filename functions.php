@@ -70,7 +70,7 @@ add_filter('admin_footer_text', 'git_admin_footer_text');
     // 友情链接扩展
     add_filter('pre_option_link_manager_enabled', '__return_true');
     //评论回复邮件通知
-    add_action('comment_post', 'comment_mail_notify');
+    add_action('wp_insert_comment', 'comment_mail_notify');
     //自动勾选评论回复邮件通知，不勾选则注释掉
     add_action('comment_form', 'deel_add_checkbox');
     //评论表情改造，如需更换表情，css/img/smilies/下替换
