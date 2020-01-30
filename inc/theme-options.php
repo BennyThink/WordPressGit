@@ -522,6 +522,18 @@ $options = array(
 		'id'    => "git_v2mm",
 		'type'  => 'textarea',
 	),
+	array(
+		'name'  => 'Telegram chat id',
+		'desc'  => 'Telegram聊天id，如群组、频道、个人等',
+		'id'    => "git_tg_uid",
+		'type'  => 'text',
+	),
+	array(
+		'name'  => 'Telegram bot token',
+		'desc'  => 'Telegram bot token',
+		'id'    => "git_tg_bot_token",
+		'type'  => 'text',
+	),
     array(
         'type'  => 'panelend'
     ),
@@ -1938,9 +1950,9 @@ jQuery(function ($) {
             } else {
                 wrap.removeClass("searching");
                 themeOptionsFilter.text("");
-            };
+            }
         });
-    };
+    }
 });
 </script>
 
