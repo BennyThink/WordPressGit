@@ -1288,6 +1288,13 @@ $options = array(
         'id'    => "git_categroy_b",
         'type'  => 'checkbox'
     ),
+
+    array(
+        'name'  => '加载动画',
+        'desc'  => '选择是否启用加载动画，网速较慢时会影响加载速度',
+        'id'    => "git_loading_c",
+        'type'  => 'checkbox'
+    ),
     array(
         'name'  => '头像旋转',
         'desc'  => '启用',

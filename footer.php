@@ -119,10 +119,12 @@ echo '';}
         }
     });
 	<?php endif; ?>
+    <?php if (git_get_option('git_loading_c')): ?>
     jQuery(window).ready(function () {
         jQuery("#loading").fadeOut(500);
         console.info('%c Will you recall me?', "background: white; color: #16a085; padding-left:10px;");
     });
+    <?php endif; ?>
 
     if (document.cookie.indexOf('snow') !== -1) {
         var child = document.getElementById('Snow');

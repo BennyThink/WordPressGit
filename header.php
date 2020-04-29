@@ -98,7 +98,9 @@ if(strstr(git_get_option('git_MemorialDay'),date('m-d',time()))):?>
     </style>
 <?php endif; ?>
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
-<link href="<?= get_template_directory_uri();?>/css/loading.css" rel="stylesheet" />
+    <?php if (git_get_option('git_loading_c')): ?>
+        <link href="<?= get_template_directory_uri(); ?>/css/loading.css" rel="stylesheet"/>
+    <?php endif; ?>
 <link href="<?= get_template_directory_uri();?>/css/font-awesome.min.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'"/>
 <script src="<?= get_template_directory_uri();?>/js/notice.js"></script>
 <script src="<?= home_url()?>/wp-includes/js/comment-reply.min.js"></script>
