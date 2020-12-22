@@ -463,9 +463,9 @@ function deel_avatar( $avatar ) {
 	if ( filesize( $e ) < 500 ) {
 		copy( get_template_directory_uri() . '/css/img/default.png', $e );
 	}
-	{   //echo 'here '.$avatar;
+	   //echo 'here '.$avatar;
 		return $avatar;
-	}
+
 }
 
 if ( git_get_option( 'git_avater' ) == 'git_avatar_b' ) {
@@ -475,17 +475,17 @@ if ( git_get_option( 'git_avater' ) == 'git_avatar_b' ) {
 function git_avatar_cache( $avatar ) {
 	if ( git_get_option( 'git_avater' ) == 'git_avatar_ds' ) {
 		$avatar = str_replace( array(
-			"www.gravatar.com",
-			"0.gravatar.com",
-			"1.gravatar.com",
-			"2.gravatar.com"
+			"https://www.gravatar.com",
+			"https://0.gravatar.com",
+			"https://1.gravatar.com",
+			"https://2.gravatar.com"
 		), "gravatar.duoshuo.com", $avatar );
 	} elseif ( git_get_option( 'git_avater' ) == 'git_avatar_qn' ) {
 		$avatar = str_replace( array(
-			"www.gravatar.com",
-			"0.gravatar.com",
-			"1.gravatar.com",
-			"2.gravatar.com"
+			"https://www.gravatar.com",
+			"https://0.gravatar.com",
+			"https://1.gravatar.com",
+			"https://2.gravatar.com"
 		), "cd.v7v3.com", $avatar );
 	} elseif ( git_get_option( 'git_avater' ) == 'git_avatar_ssl' ) {
 		$avatar = preg_replace( '/.*\/avatar\/(.*)\?s=([\d]+)&.*/', '<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="50px" width="50px">', $avatar );
