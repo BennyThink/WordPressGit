@@ -2450,7 +2450,8 @@ function git_shuoshuo() {
 		'supports'           => array(
 			'editor',
 			'author'
-		)
+		),
+        'show_in_rest' => true,
 	);
 	register_post_type( 'shuoshuo', $args );
 }
