@@ -3,6 +3,10 @@ add_action( 'after_setup_theme', 'deel_setup' );
 include( 'inc/theme-options.php' );
 include( 'inc/theme-widgets.php' );
 include( 'inc/theme-metabox.php' );
+const git_snow_b = null;
+const git_pangu = null;
+const git_scroll = null;
+const target = null;
 function deel_setup() {
 	//去除头部冗余代码
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
@@ -99,7 +103,7 @@ function deel_setup() {
 	//缩略图设置
 	add_theme_support( 'post-thumbnails' );
 	add_editor_style( 'editor-style.css' );
-	add_filter( 'max_srcset_image_width', create_function( '', 'return 1;' ) );
+	add_filter( 'max_srcset_image_width', function(){return 1;} );
 	//定义菜单
 	if ( function_exists( 'register_nav_menus' ) ) {
 		register_nav_menus( array(
@@ -1317,15 +1321,15 @@ function custom_login_head() {
 }
 
 add_action( 'login_head', 'custom_login_head' );
-add_filter( 'login_headerurl', create_function( false, "return home_url();" ) );
-add_filter( 'login_headertitle', create_function( false, "return get_bloginfo('name');" ) );
+add_filter( 'login_headerurl', function(){  return home_url();} );
+add_filter( 'login_headertitle', function(){  return get_bloginfo('name');} );
 /*
  * 强制阻止WordPress代码转义，关于代码高亮可以看这里http://googlo.me/archives/2986.html
 */
 function git_esc_html( $content ) {
 	$regex = '/(<pre\s+[^>]*?class\s*?=\s*?[",\'].*?prettyprint.*?[",\'].*?>)(.*?)(<\/pre>)/sim';
 
-	return preg_replace_callback( $regex, git_esc_callback, $content );
+	return preg_replace_callback( $regex, "git_esc_callback", $content );
 }
 
 function git_esc_callback( $matches ) {
@@ -1954,12 +1958,19 @@ class Simple_Local_Avatars {
 			if ( empty( $avatar['file'] ) ) { // handle failures
 				switch ( $avatar['error'] ) {
 					case 'File type does not meet security guidelines. Try another.':
-						add_action( 'user_profile_update_errors', create_function( '$a', '$a->add("avatar_error",__("请上传有效的图片文件。","simple-local-avatars"));' ) );
+						add_action( 'user_profile_update_errors', function($a){ $a->add("avatar_error",__("请上传有效的图片文件。","simple-local-avatars")); } );
 						break;
 
 					default:
-						add_action( 'user_profile_update_errors', create_function( '$a', '$a->add("avatar_error","<strong>".__("上传头像过程中出现以下错误：","simple-local-avatars")."</strong> ' . esc_attr( $avatar['error'] ) . '");' ) );
-				}
+                        add_action('user_profile_update_errors', function ($a) use ($avatar) {
+                            $a->add("avatar_error",
+                                "<strong>"
+                                . __("上传头像过程中出现以下错误：", "simple-local-avatars") .
+                                "</strong> " . esc_attr($avatar['error'])
+                            );
+                        }
+                        );
+                }
 
 				return;
 			}
@@ -2824,7 +2835,7 @@ function git_wps_login_error() {
 
 add_action( 'login_head', 'git_wps_login_error' );
 //设HTML为默认编辑器
-//add_filter( 'wp_default_editor', create_function('', 'return "html";') );
+//add_filter( 'wp_default_editor', function(){ return "html";} );
 //管理后台添加按钮
 function git_custom_adminbar_menu( $meta = true ) {
 	global $wp_admin_bar;
@@ -2898,7 +2909,7 @@ function git_reset_password_message( $message, $key ) {
 	return $msg;
 }
 
-add_filter( 'retrieve_password_message', git_reset_password_message, null, 2 );
+add_filter( 'retrieve_password_message', "git_reset_password_message", null, 2 );
 //保护后台登录
 if ( git_get_option( 'git_admin' ) ):
 	function git_login_protection() {

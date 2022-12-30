@@ -253,7 +253,7 @@ class git_postlist extends WP_Widget {
 }
 function githeme_posts_list($orderby, $limit, $cat, $img) {
     $args = array(
-        'order' => DESC,
+        'order' => "DESC",
         'cat' => $cat,
         'orderby' => $orderby,
         'showposts' => $limit,

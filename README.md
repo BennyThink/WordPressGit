@@ -1,33 +1,43 @@
 ## 说明
-这是我在Git主题的基础上随随便便乱改的主题，目前**仅在https站点进行了完整的测试**,http站点也应该没啥问题（如果遇到了欢迎报告issue）。
-Demo请见[土豆不好吃](https://www.bennythink.com)
+
+这是我在Git主题的基础上随随便便乱改的主题
+Demo请见[土豆不好吃](https://dmesg.app)
+
+🎉支持PHP 8.2 和PHP 7.x 🎉
+
 ## 使用用法 ##
+
 下载或者clone之后重命名为`WordPressGit-master`，放到`wp-content/themes`下，后台中启用。
-**在使用自带的功能更新主题之后，主题文件夹名字会变成`WordPressGit-master`，为了保证不出问题，推荐重命名（要不可能问题多多哦）**
+**在使用自带的功能更新主题之后，主题文件夹名字会变成`WordPressGit-master`，为了保证不出问题，推荐重命名（当然你直接用git
+pull更新那就没这回事了）**
+
 ## 增加功能 ##
-* 下雪特效 
-全站下雪特效，在有视频的界面会自动关闭
+
+* 下雪特效
+  全站下雪特效，在有视频的界面会自动关闭
 * needshare分享
-一款功能更强大、样式更美观的分享工具
+  一款功能更强大、样式更美观的分享工具
 * 纪念日
-有些时候，我们需要黑白的网站
+  有些时候，我们需要黑白的网站
 * 混合头像系统
-评论者们如果填QQ邮箱，那么就会显示QQ头像哦（设置中可以开启或者关闭此功能）
+  评论者们如果填QQ邮箱，那么就会显示QQ头像哦（设置中可以开启或者关闭此功能）
 * 来路访问
-通过referer，访客可以看到自己是从哪里来的呢
+  通过referer，访客可以看到自己是从哪里来的
 * 自动更新
-主题支持自动更新哦！（当然我还是推荐用`git pull`）
+  主题支持自动更新（当然我还是推荐用`git pull`）
 * 动态格言
-刷新一次，就出现一个新的格言，附加到公告栏里，哇~
+  刷新一次，就出现一个新的格言，附加到公告栏里，哇~
 
 以及各种细节上的改进
 
 ## TODO ##
+
 - [ ] Google Chrome Web通知
 - [x] 修复移动版评论嵌套问题，把间隔改小，最多嵌套三层这也就差不多了
 - [ ] 迁移到fontawesome 5
 
 ## 疑难解答 ##
+
 1.HTTPS
 HTTPS站点按理说不进行任何修改就可以的，如果出现mix content，那请给我反馈（Chrome控制台）
 
@@ -41,7 +51,10 @@ HTTPS站点按理说不进行任何修改就可以的，如果出现mix content�
 `git pull`
 
 5.主题更新失败？
-`chown www:www -R WordPressGit-master\ && chmod 755 -R WordPressGit-master`
+
+```shell
+chown www:www -R WordPressGit-master&& chmod 755 -R WordPressGit-master
+```
 
 6.移动设备下雪、黑白文章页面不生效
 这非常有可能是你启用了WP Super Cache类似的缓存插件，恰巧你访问的页面是对应显示结果时缓存下来的html文件。
@@ -51,17 +64,19 @@ HTTPS站点按理说不进行任何修改就可以的，如果出现mix content�
 看下是不是你的博文中在比较靠前的位置插入了视频？请在这之前添加一个more标签，就可以了。
 
 8.不显示缩略图（缩略图裂了）
-把`cache`目录的权限设置成足够PHP程序写入，一般就是www用户600以上就可以了，实在懒得分析就777
+把`cache`目录的权限设置成足够PHP程序写入，一般就是www用户600以上就可以了
 
 9.评论者头像是裂的！
-在Windows服务器上很有可能出现这类问题，在[commit 12965a](https://github.com/BennyThink/WordPressGit/commit/12965a3a6ce4e61e005de4c5ba86262e016a070b)中发现；换到Linux试试吧，应该没问题的。
+在Windows服务器上很有可能出现这类问题，在[commit 12965a](https://github.com/BennyThink/WordPressGit/commit/12965a3a6ce4e61e005de4c5ba86262e016a070b)
+中发现；换到Linux试试吧，应该没问题的。
 
 ## 许可证 ##
+
 我在原作者的`style.css`中看到了GPLv2的字样，在原作者回信之前暂时默认为GPLv2
 
 ----------
-# 原始readme
 
+# 原始readme
 
 首先，请饶恕我用了这个无比拗口的标题来形容这款主题，因为这就是他的真实写照！
 
