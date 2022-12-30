@@ -1,9 +1,11 @@
 <?php
 /**
- Template Name: 用户投稿
- description: template for Git theme
+ * Template Name: 用户投稿
+ * description: template for Git theme
  */
-if (!git_get_option('git_tougao_b')) { wp_redirect( home_url() );}
+if (!git_get_option('git_tougao_b')) {
+    wp_redirect(home_url());
+}
 if (isset($_POST['tougao_form']) && $_POST['tougao_form'] == 'send') {
     global $wpdb;
     $current_url = '' . get_permalink() . ''; // 注意修改此处的链接地址
@@ -43,49 +45,56 @@ if (isset($_POST['tougao_form']) && $_POST['tougao_form'] == 'send') {
 }
 get_header();
 ?>
-<div class="pagewrapper clearfix">
-<aside class="pagesidebar">
-<ul class="pagesider-menu">
-<?php
-echo str_replace('</ul></div>', '', preg_replace('/<div[^>]*><ul[^>]*>/', '', wp_nav_menu(array('theme_location' => 'pagemenu', 'echo' => false))));?>
-</ul>
-</aside>
-<div class="pagecontent">
-<header class="pageheader clearfix">
-<h1 class="pull-left">
-<a href="<?php
-the_permalink() ?>"><?php
-the_title(); ?></a>
-</h1>
-</header>
-<?php
-while (have_posts()):
-    the_post(); ?>
-<div class="article-content">
-<?php
-    the_content(); ?>
-<form class="googlo-tougao" method="post" action="<?php
-    echo $_SERVER["REQUEST_URI"];
-    $current_user = wp_get_current_user(); ?>">
-<div style="text-align: left; padding-top: 10px;">
-<p><label for="tougao_authorname">昵称:*</label></p><input style="width : 98%;" type="text" size="80" value="" id="tougao_authorname" name="tougao_authorname" />
-</div>
-<div style="text-align: left; padding-top: 10px;">
-<p><label for="tougao_title">标题:*</label></p><input style="width : 98%;" type="text" size="80" value="" id="tougao_title" name="tougao_title" />
-</div>
-<div style="text-align: left; padding-top: 10px;">
-<p><label for="tougao_content">内容:*</label></p><textarea style="width : 98%;" name="tougao_content" rows="12" cols=""></textarea>
-</div>
-<div style="text-align: center; padding-top: 10px;">
-<input type="hidden" value="send" name="tougao_form" />
-<input class="button" style="width:100px;height:30px;" type="submit" value="提交" /> &nbsp;&nbsp; <input style="width:100px;height:30px;" class="buttn" type="reset" value="重填" />
-</div>
-</form>
-<br/>
-<?php
-    comments_template('', false);
-endwhile; ?>
-</div>
-</div>
+    <div class="pagewrapper clearfix">
+    <aside class="pagesidebar">
+        <ul class="pagesider-menu">
+            <?php
+            echo str_replace('</ul></div>', '', preg_replace('/<div[^>]*><ul[^>]*>/', '', wp_nav_menu(array('theme_location' => 'pagemenu', 'echo' => false)))); ?>
+        </ul>
+    </aside>
+    <div class="pagecontent">
+        <header class="pageheader clearfix">
+            <h1 class="pull-left">
+                <a href="<?php
+                the_permalink() ?>"><?php
+                    the_title(); ?></a>
+            </h1>
+        </header>
+        <?php
+        while (have_posts()):
+        the_post(); ?>
+        <div class="article-content">
+            <?php
+            the_content(); ?>
+            <form class="googlo-tougao" method="post" action="<?php
+            echo $_SERVER["REQUEST_URI"];
+            $current_user = wp_get_current_user(); ?>">
+                <div style="text-align: left; padding-top: 10px;">
+                    <p><label for="tougao_authorname">昵称:*</label></p><input style="width : 98%;" type="text"
+                                                                               size="80" value="" id="tougao_authorname"
+                                                                               name="tougao_authorname"/>
+                </div>
+                <div style="text-align: left; padding-top: 10px;">
+                    <p><label for="tougao_title">标题:*</label></p><input style="width : 98%;" type="text" size="80"
+                                                                          value="" id="tougao_title"
+                                                                          name="tougao_title"/>
+                </div>
+                <div style="text-align: left; padding-top: 10px;">
+                    <p><label for="tougao_content">内容:*</label></p><textarea style="width : 98%;"
+                                                                               name="tougao_content" rows="12"
+                                                                               cols=""></textarea>
+                </div>
+                <div style="text-align: center; padding-top: 10px;">
+                    <input type="hidden" value="send" name="tougao_form"/>
+                    <input class="button" style="width:100px;height:30px;" type="submit" value="提交"/> &nbsp;&nbsp;
+                    <input style="width:100px;height:30px;" class="buttn" type="reset" value="重填"/>
+                </div>
+            </form>
+            <br/>
+            <?php
+            comments_template('', false);
+            endwhile; ?>
+        </div>
+    </div>
 <?php
 get_footer(); ?>

@@ -9098,7 +9098,6 @@ input {
 }
 
 
-
 @media screen and (min-width: 1000px) {
     .mobileads, .shuoshuo-sjsj {
         display: none !important
@@ -9645,7 +9644,6 @@ input {
     .archive-header-info, .banner, .comt-comterinfo ul .help-inline, .excerpt header .label, .excerpt p.auth-span, .page-sidebar, .pagesidebar, .relates li img, .speedbar {
         display: none
     }
-
 
 
     .header {
