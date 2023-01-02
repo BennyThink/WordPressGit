@@ -7,6 +7,7 @@ const git_snow_b = null;
 const git_pangu = null;
 const git_scroll = null;
 const target = null;
+const git_v2mm = null;
 function deel_setup()
 {
     //去除头部冗余代码
