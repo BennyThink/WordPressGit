@@ -2190,7 +2190,6 @@ h1, h2, h3, h4, h5 {
 ol, ul {
     margin: 0;
     padding: 0;
-    list-style: none
 }
 
 li {
@@ -4867,19 +4866,6 @@ a.badge-inverse:hover .label-arrow, a.label-inverse:hover .label-arrow {
     margin: 8px 0 8px 30px
 }
 
-.article-content li:before {
-    display: inline-block;
-    width: 15px;
-    height: 0;
-    color: #0b6f2b;
-    content: "\f192";
-    font-weight: 400;
-    font-style: normal;
-    font-size: .75rem;
-    font-family: FontAwesome;
-    line-height: 1.875rem;
-    -webkit-font-smoothing: antialiased
-}
 
 .article-content li {
     text-indent: 0;
