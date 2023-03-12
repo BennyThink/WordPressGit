@@ -2192,6 +2192,10 @@ ol, ul {
     padding: 0;
 }
 
+.sidebar ul {
+    list-style: none
+}
+
 li {
     line-height: 1.25rem
 }
