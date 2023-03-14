@@ -5859,7 +5859,8 @@ a.badge-inverse:hover .label-arrow, a.label-inverse:hover .label-arrow {
 }
 
 .commentlist {
-    padding: 12px 20px 0 20px
+    padding: 12px 20px 0 20px;
+    list-style: none
 }
 
 .c-avatar .avatar {
@@ -5907,7 +5908,8 @@ a.badge-inverse:hover .label-arrow, a.label-inverse:hover .label-arrow {
 
 .children .comment {
     margin: 10px 0 0 10px;
-    padding: 12px 0 0 10px
+    padding: 12px 0 0 10px;
+    list-style: none
 }
 
 .children .c-main p {
