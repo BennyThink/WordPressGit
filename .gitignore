@@ -1,3 +1,5 @@
 cache/*
 .idea/ 
 .idea/workspace.xml
+*.png
+*.cur
