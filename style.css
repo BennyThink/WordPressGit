@@ -5862,6 +5862,10 @@ a.badge-inverse:hover .label-arrow, a.label-inverse:hover .label-arrow {
     padding: 12px 20px 0 20px;
     list-style: none
 }
+li.form-inline {
+    list-style: none;
+}
+
 
 .c-avatar .avatar {
     position: absolute;
