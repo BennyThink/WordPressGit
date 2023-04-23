@@ -5866,6 +5866,9 @@ li.form-inline {
     list-style: none;
 }
 
+ul.pagesider-menu {
+    list-style: none;
+}
 
 .c-avatar .avatar {
     position: absolute;
