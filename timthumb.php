@@ -652,7 +652,7 @@ class timthumb
 
 		    $path=$this->url["path"];
 		    $newUrl=$webp.$path."?width=$new_width&height=$new_height";
-		    header("Location: $newUrl");
+		    header("Location: $newUrl",true, 301);
 		    return true;
 	    }
 
