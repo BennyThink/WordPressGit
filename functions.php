@@ -3,11 +3,10 @@ add_action('after_setup_theme', 'deel_setup');
 include('inc/theme-options.php');
 include('inc/theme-widgets.php');
 include('inc/theme-metabox.php');
-const git_snow_b = null;
-const git_pangu = null;
-const git_scroll = null;
-const target = null;
-const git_v2mm = null;
+const git_snow_b = 'git_snow_b';
+const git_pangu = 'git_pangu';
+const git_scroll = 'git_scroll';
+const target = 'target';
 function deel_setup()
 {
     //去除头部冗余代码
