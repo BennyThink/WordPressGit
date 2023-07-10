@@ -1,6 +1,4 @@
 <?php
-require_once('../../../wp-config.php');
-
 /*本文件是主题缩略图产生文件*/
 define('VERSION', '2.8.13');
 if (file_exists(dirname(__FILE__) . '/timthumb-config.php')) require_once('timthumb-config.php');
@@ -645,16 +643,6 @@ class timthumb
 
     public function run()
     {
-	    $webp=get_option("proxy_url");
-	    if (!empty($webp)) {
-		    $new_width = (int)abs($this->param('w', 0));
-		    $new_height = (int)abs($this->param('h', 0));
-
-		    $path=$this->url["path"];
-		    $newUrl=$webp.$path."?width=$new_width&height=$new_height";
-		    header("Location: $newUrl",true, 301);
-		    return true;
-	    }
 
         if ($this->isURL) {
             if (!ALLOW_EXTERNAL) {

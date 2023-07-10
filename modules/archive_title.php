@@ -50,9 +50,7 @@ while (have_posts()):
                         echo post_thumbnail_src();
                         echo '?imageView2/1/w/200/h/123/q/75" alt="' . get_the_title() . '" />';
                     } else {
-                        echo '<img class="thumb" style="width:200px;height:123px" src="' . get_template_directory_uri() . '/timthumb.php?src=';
-                        echo post_thumbnail_src();
-                        echo '&h=123&w=200&q=90&zc=1&ct=1" alt="' . get_the_title() . '" />';
+                        echo timthumb_wrapper(200, 123);
                     } ?></a></div>
             <?php
         } ?>

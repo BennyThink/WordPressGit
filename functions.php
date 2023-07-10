@@ -1026,7 +1026,7 @@ function post_thumbnail_src()
 
         }
     }
-    echo $post_thumbnail_src;
+    return $post_thumbnail_src;
 }
 
 //禁用谷歌字体
@@ -4003,6 +4003,20 @@ function send_new_post($new_status, $old_status, $post)
     }
 }
 
+function timthumb_wrapper( $width, $height ) {
+
+	$webp = get_option( "proxy_url" );
+    $title=get_the_title();
+	if ( ! empty( $webp ) ) {
+		$filepath = "$webp" . parse_url( post_thumbnail_src() )['path'] . "?width=$width&height=$height";
+	} else {
+		$filepath = get_template_directory_uri() . "/timthumb.php?src=" . post_thumbnail_src() . "&h=$height&w=$width&q=90&zc=1&ct=1";
+
+	}
+
+	return "<img class='thumb' style='width:{$width}px;height:{$height}px' src=$filepath alt='$title' />";
+
+}
 
 //WordPress函数代码结束,打算在本文件添加代码的建议参照这个方法：http://googlo.me/archives/4032.html
 
