@@ -1001,31 +1001,28 @@ if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
 }
 //输出缩略图地址
-function post_thumbnail_src()
-{
-    global $post;
-    if ($values = get_post_custom_values("git_thumb")) { //输出自定义域图片地址
-        $values = get_post_custom_values("git_thumb");
-        $post_thumbnail_src = $values[0];
-    } elseif (has_post_thumbnail()) { //如果有特色缩略图，则输出缩略图地址
-        $thumbnail_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-        $post_thumbnail_src = $thumbnail_src[0];
-    } else {
-        $post_thumbnail_src = '';
-        ob_start();
-        ob_end_clean();
-        $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-        $post_thumbnail_src = $matches[1][0]; //获取该图片 src
-        if (empty($post_thumbnail_src)) { //如果日志中没有图片，则显示随机图片
-            $random = mt_rand(1, 10);
-            echo get_template_directory_uri();
-            echo '/css/img/pic/' . $random . '.jpg';
-            //如果日志中没有图片，则显示默认图片
-            //echo '/css/img/thumbnail.png';
+function post_thumbnail_src() {
+	global $post;
+	if ( $values = get_post_custom_values( "git_thumb" ) ) { //输出自定义域图片地址
+		$values             = get_post_custom_values( "git_thumb" );
+		$post_thumbnail_src = $values[0];
+	} elseif ( has_post_thumbnail() ) { //如果有特色缩略图，则输出缩略图地址
+		$thumbnail_src      = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+		$post_thumbnail_src = $thumbnail_src[0];
+	} else {
+		$post_thumbnail_src = '';
+		ob_start();
+		ob_end_clean();
+		$output             = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches );
+		$post_thumbnail_src = $matches[1][0]; //获取该图片 src
+		if ( empty( $post_thumbnail_src ) ) {
+            //如果日志中没有图片，则显示随机图片
+			$random = mt_rand( 1, 10 );
+			return get_template_directory_uri() . '/css/img/pic/' . $random . '.jpg';
+		}
+	}
 
-        }
-    }
-    return $post_thumbnail_src;
+	return $post_thumbnail_src;
 }
 
 //禁用谷歌字体
@@ -4005,8 +4002,8 @@ function send_new_post($new_status, $old_status, $post)
 
 function timthumb_wrapper( $width, $height ) {
 
-	$webp = get_option( "proxy_url" );
-    $title=get_the_title();
+	$webp  = get_option( "proxy_url" );
+	$title = get_the_title();
 	if ( ! empty( $webp ) ) {
 		$filepath = "$webp" . parse_url( post_thumbnail_src() )['path'] . "?width=$width&height=$height";
 	} else {
@@ -4015,7 +4012,6 @@ function timthumb_wrapper( $width, $height ) {
 	}
 
 	return "<img class='thumb' style='width:{$width}px;height:{$height}px' src=$filepath alt='$title' />";
-
 }
 
 //WordPress函数代码结束,打算在本文件添加代码的建议参照这个方法：http://googlo.me/archives/4032.html
