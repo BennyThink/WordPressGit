@@ -3384,7 +3384,7 @@ function wpb_last_updated_date($content)
     $u_time = get_the_time('U');
     $u_modified_time = get_the_modified_time('U');
     $custom_content = '';
-    if ($u_modified_time >= $u_time + 86400 && get_post_type() !== 'shuoshuo') {
+    if ($u_modified_time >= $u_time + 86400*7 && get_post_type() !== 'shuoshuo') {
         $updated_date = get_the_modified_time('Y年m月d日');
         $updated_time = get_the_modified_time('H:i:s');
         $custom_content .= '<div  class="sc_act">这篇文章在 ' .
