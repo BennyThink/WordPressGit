@@ -48,12 +48,12 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s')) - strtotime(get_the_time('Y-m-d G:
                     <div class="comt-author pull-left">
                         <?php
                         if (is_user_logged_in()) {
-                            printf($user_identity . '<span>发表我的评论（代码和日志请使用Pastebin或Gist）</span>');
+                            printf($user_identity . '<span>发表我的评论</span>');
                         } else {
                             if (get_option('require_name_email') && !empty($comment_author_email)) {
-                                printf($comment_author . ' <span>发表我的评论（代码和日志请使用Pastebin或Gist）</span> &nbsp; <a class="switch-author" href="javascript:;" data-type="switch-author" style="font-size:12px;">换个身份</a>');
+                                printf($comment_author . ' <span>发表我的评论</span> &nbsp; <a class="switch-author" href="javascript:;" data-type="switch-author" style="font-size:12px;">换个身份</a>');
                             } else {
-                                printf('发表我的评论（代码和日志请使用Pastebin或Gist）');
+                                printf('发表我的评论');
                             }
                         }
                         ?>
